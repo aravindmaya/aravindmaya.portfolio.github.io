@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charSet="utf-8" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preload" href="../_next/static/media/39b0e861c537f507-s.p.woff2" as="font" crossorigin=""
+    type="font/woff2" />
+  <link rel="preload" href="../_next/static/media/569ce4b8f30dc480-s.p.woff2" as="font" crossorigin=""
+    type="font/woff2" />
+  <link rel="preload" href="../_next/static/media/93f479601ee12b01-s.p.woff2" as="font" crossorigin=""
+    type="font/woff2" />
+  <link rel="preload" href="../_next/static/media/993e471824edad3f-s.p.otf" as="font" crossorigin="" type="font/otf" />
+  <link rel="preload" href="../_next/static/media/ae9433eb6d16fb7b-s.p.woff2" as="font" crossorigin=""
+    type="font/woff2" />
+  <link rel="preload" href="../_next/static/media/fcda245ca6032974-s.p.otf" as="font" crossorigin="" type="font/otf" />
+  <link rel="stylesheet" href="../_next/static/css/052620bd47d3101a.css" data-precedence="next" />
+  <style>
+    /* Force static content to be visible - override any hiding */
+    [data-static-visible="true"] {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      visibility: visible !important;
+      display: block !important;
+    }
+    
+    /* Ensure content sections are visible */
+    .w-full.py-12.flex.flex-col.gap-12,
+    .w-full.py-12.flex.flex-col.gap-12 > * {
+      opacity: 1 !important;
+    }
+    
+    /* Protect header and footer */
+    #header-name,
+    #footer-name {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    /* Glassmorphism Custom Cursor - Same as index.html */
+    * {
+      cursor: none;
+    }
+
+    .glass-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+    }
+
+    .cursor-dot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1.5px;
+      height: 1.5px;
+      background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.7) 0%,
+        rgba(255, 255, 255, 0.5) 70%,
+        rgba(255, 255, 255, 0.2) 100%
+      );
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 
+        0 0 4px rgba(255, 255, 255, 0.2),
+        0 0 2px rgba(255, 255, 255, 0.3),
+        inset 0 0 2px rgba(255, 255, 255, 0.1);
+      filter: blur(0.2px);
+    }
+
+    .cursor-glass-effect {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 28px;
+      height: 28px;
+      background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(255, 255, 255, 0.015) 50%,
+        rgba(255, 255, 255, 0.008) 80%,
+        rgba(255, 255, 255, 0.003) 95%,
+        rgba(255, 255, 255, 0.001) 100%
+      );
+      backdrop-filter: blur(6px) contrast(1.005) brightness(1.002);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 
+        0 0 0 0.5px rgba(255, 255, 255, 0.05),
+        0 0 12px rgba(255, 255, 255, 0.08),
+        0 0 24px rgba(255, 255, 255, 0.05),
+        inset 0 0 12px rgba(255, 255, 255, 0.02);
+      filter: blur(0.1px);
+    }
+
+    /* Hover state - enhanced water-like gradient */
+    .glass-cursor.hover .cursor-glass-effect {
+      width: 38px;
+      height: 38px;
+      background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.025) 40%,
+        rgba(255, 255, 255, 0.015) 70%,
+        rgba(255, 255, 255, 0.008) 90%,
+        rgba(255, 255, 255, 0.003) 100%
+      );
+      backdrop-filter: blur(7px) contrast(1.02) brightness(1.01) saturate(1.01);
+      border: 1.5px solid rgba(255, 255, 255, 0.9);
+      transform: translate(-50%, -50%) scale(1);
+      box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 0 18px rgba(255, 255, 255, 0.12),
+        0 0 36px rgba(255, 255, 255, 0.08),
+        inset 0 0 18px rgba(255, 255, 255, 0.04);
+      filter: blur(0.15px);
+    }
+
+    .glass-cursor.hover .cursor-dot {
+      width: 2px;
+      height: 2px;
+      background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.85) 0%,
+        rgba(255, 255, 255, 0.65) 60%,
+        rgba(255, 255, 255, 0.3) 100%
+      );
+      box-shadow: 
+        0 0 6px rgba(255, 255, 255, 0.4),
+        0 0 3px rgba(255, 255, 255, 0.5),
+        inset 0 0 3px rgba(255, 255, 255, 0.2);
+      filter: blur(0.2px);
+    }
+
+    /* Click effect - water ripple with radial gradient */
+    .glass-cursor.click .cursor-glass-effect {
+      width: 48px;
+      height: 48px;
+      background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.03) 30%,
+        rgba(255, 255, 255, 0.015) 70%,
+        rgba(255, 255, 255, 0.008) 90%,
+        rgba(255, 255, 255, 0.003) 100%
+      );
+      backdrop-filter: blur(8px) contrast(1.03) brightness(1.015);
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      animation: waterRipple 0.4s ease-out;
+      transform: translate(-50%, -50%) scale(1);
+      box-shadow: 
+        0 0 0 1.5px rgba(255, 255, 255, 0.15),
+        0 0 24px rgba(255, 255, 255, 0.2),
+        0 0 48px rgba(255, 255, 255, 0.15);
+      filter: blur(0.15px);
+    }
+
+    @keyframes waterRipple {
+      0% {
+        width: 48px;
+        height: 48px;
+        background: radial-gradient(
+          circle at center,
+          rgba(255, 255, 255, 0.06) 0%,
+          rgba(255, 255, 255, 0.03) 30%,
+          rgba(255, 255, 255, 0.015) 70%,
+          rgba(255, 255, 255, 0.008) 90%,
+          rgba(255, 255, 255, 0.003) 100%
+        );
+        border: 2px solid rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px) contrast(1.03) brightness(1.015);
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 
+          0 0 0 1.5px rgba(255, 255, 255, 0.15),
+          0 0 24px rgba(255, 255, 255, 0.2),
+          0 0 48px rgba(255, 255, 255, 0.15);
+        filter: blur(0.15px);
+      }
+      50% {
+        width: 56px;
+        height: 56px;
+        background: radial-gradient(
+          circle at center,
+          rgba(255, 255, 255, 0.05) 0%,
+          rgba(255, 255, 255, 0.025) 40%,
+          rgba(255, 255, 255, 0.012) 75%,
+          rgba(255, 255, 255, 0.006) 90%,
+          rgba(255, 255, 255, 0.002) 100%
+        );
+        border: 1.5px solid rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(9px) contrast(1.04) brightness(1.02);
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 
+          0 0 0 1px rgba(255, 255, 255, 0.12),
+          0 0 18px rgba(255, 255, 255, 0.15),
+          0 0 36px rgba(255, 255, 255, 0.12);
+        filter: blur(0.15px);
+      }
+      100% {
+        width: 64px;
+        height: 64px;
+        opacity: 0;
+        background: radial-gradient(
+          circle at center,
+          rgba(255, 255, 255, 0.03) 0%,
+          rgba(255, 255, 255, 0.015) 50%,
+          rgba(255, 255, 255, 0.008) 80%,
+          rgba(255, 255, 255, 0.003) 95%,
+          rgba(255, 255, 255, 0.001) 100%
+        );
+        border: 0.5px solid rgba(255, 255, 255, 0.35);
+        backdrop-filter: blur(10px) contrast(1.02) brightness(1.01);
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 
+          0 0 0 0.5px rgba(255, 255, 255, 0.08),
+          0 0 12px rgba(255, 255, 255, 0.1),
+          0 0 24px rgba(255, 255, 255, 0.08);
+        filter: blur(0.15px);
+      }
+    }
+
+    /* Hidden state */
+    .glass-cursor.hidden {
+      opacity: 0;
+    }
+
+    /* Light mode cursor styles - inverted colors */
+    body:not(.dark-mode) .cursor-dot {
+      width: 1.5px;
+      height: 1.5px;
+      background: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.35) 70%,
+        rgba(0, 0, 0, 0.15) 100%
+      );
+      box-shadow: 
+        0 0 4px rgba(0, 0, 0, 0.15),
+        0 0 2px rgba(0, 0, 0, 0.2),
+        inset 0 0 2px rgba(0, 0, 0, 0.08);
+    }
+
+    body:not(.dark-mode) .cursor-glass-effect {
+      width: 28px;
+      height: 28px;
+      background: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 0.025) 0%,
+        rgba(0, 0, 0, 0.012) 50%,
+        rgba(0, 0, 0, 0.006) 80%,
+        rgba(0, 0, 0, 0.003) 95%,
+        rgba(0, 0, 0, 0.001) 100%
+      );
+      border: 0.5px solid rgba(128, 128, 128, 0.25);
+      box-shadow: 
+        0 0 0 0.5px rgba(0, 0, 0, 0.02),
+        0 0 12px rgba(0, 0, 0, 0.04),
+        0 0 24px rgba(0, 0, 0, 0.02),
+        inset 0 0 12px rgba(0, 0, 0, 0.008);
+    }
+
+    body:not(.dark-mode) .glass-cursor.hover .cursor-glass-effect {
+      width: 38px;
+      height: 38px;
+      background: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 0.04) 0%,
+        rgba(0, 0, 0, 0.02) 40%,
+        rgba(0, 0, 0, 0.012) 70%,
+        rgba(0, 0, 0, 0.006) 90%,
+        rgba(0, 0, 0, 0.002) 100%
+      );
+      border: 0.75px solid rgba(128, 128, 128, 0.35);
+      box-shadow: 
+        0 0 0 1px rgba(0, 0, 0, 0.03),
+        0 0 18px rgba(0, 0, 0, 0.04),
+        0 0 36px rgba(0, 0, 0, 0.03),
+        inset 0 0 18px rgba(0, 0, 0, 0.01);
+    }
+
+    body:not(.dark-mode) .glass-cursor.hover .cursor-dot {
+      width: 2px;
+      height: 2px;
+      background: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 0.6) 0%,
+        rgba(0, 0, 0, 0.4) 60%,
+        rgba(0, 0, 0, 0.2) 100%
+      );
+      box-shadow: 
+        0 0 6px rgba(0, 0, 0, 0.2),
+        0 0 3px rgba(0, 0, 0, 0.25),
+        inset 0 0 3px rgba(0, 0, 0, 0.1);
+    }
+
+    body:not(.dark-mode) .glass-cursor.click .cursor-glass-effect {
+      width: 48px;
+      height: 48px;
+      background: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 0.05) 0%,
+        rgba(0, 0, 0, 0.025) 30%,
+        rgba(0, 0, 0, 0.012) 70%,
+        rgba(0, 0, 0, 0.006) 90%,
+        rgba(0, 0, 0, 0.002) 100%
+      );
+      border: 1px solid rgba(128, 128, 128, 0.4);
+      box-shadow: 
+        0 0 0 1.5px rgba(0, 0, 0, 0.05),
+        0 0 24px rgba(0, 0, 0, 0.06),
+        0 0 48px rgba(0, 0, 0, 0.05);
+      animation: waterRippleLight 0.4s ease-out;
+    }
+
+    @keyframes waterRippleLight {
+      0% {
+        width: 48px;
+        height: 48px;
+        background: radial-gradient(
+          circle at center,
+          rgba(0, 0, 0, 0.05) 0%,
+          rgba(0, 0, 0, 0.025) 30%,
+          rgba(0, 0, 0, 0.012) 70%,
+          rgba(0, 0, 0, 0.006) 90%,
+          rgba(0, 0, 0, 0.002) 100%
+        );
+        border: 1px solid rgba(128, 128, 128, 0.4);
+        backdrop-filter: blur(8px) contrast(1.03) brightness(1.015);
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 
+          0 0 0 1.5px rgba(0, 0, 0, 0.05),
+          0 0 24px rgba(0, 0, 0, 0.06),
+          0 0 48px rgba(0, 0, 0, 0.05);
+        filter: blur(0.15px);
+      }
+      50% {
+        width: 56px;
+        height: 56px;
+        background: radial-gradient(
+          circle at center,
+          rgba(0, 0, 0, 0.04) 0%,
+          rgba(0, 0, 0, 0.02) 40%,
+          rgba(0, 0, 0, 0.01) 75%,
+          rgba(0, 0, 0, 0.005) 90%,
+          rgba(0, 0, 0, 0.002) 100%
+        );
+        border: 0.75px solid rgba(128, 128, 128, 0.35);
+        backdrop-filter: blur(9px) contrast(1.04) brightness(1.02);
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 
+          0 0 0 1px rgba(0, 0, 0, 0.04),
+          0 0 18px rgba(0, 0, 0, 0.05),
+          0 0 36px rgba(0, 0, 0, 0.04);
+        filter: blur(0.15px);
+      }
+      100% {
+        width: 64px;
+        height: 64px;
+        opacity: 0;
+        background: radial-gradient(
+          circle at center,
+          rgba(0, 0, 0, 0.03) 0%,
+          rgba(0, 0, 0, 0.015) 50%,
+          rgba(0, 0, 0, 0.008) 80%,
+          rgba(0, 0, 0, 0.003) 95%,
+          rgba(0, 0, 0, 0.001) 100%
+        );
+        border: 0.5px solid rgba(128, 128, 128, 0.25);
+        backdrop-filter: blur(10px) contrast(1.02) brightness(1.01);
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 
+          0 0 0 0.5px rgba(0, 0, 0, 0.03),
+          0 0 12px rgba(0, 0, 0, 0.04),
+          0 0 24px rgba(0, 0, 0, 0.03);
+        filter: blur(0.15px);
+      }
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      .glass-cursor,
+      .cursor-dot,
+      .cursor-glass-effect {
+        transition: none;
+        animation: none;
+      }
+    }
+    
+    /* Scale-102 utility class for images */
+    .scale-102 {
+      transform: scale(1.02);
+    }
+    
+    /* Back Button Styling */
+    .back-button {
+      display: flex !important;
+      flex-direction: row !important;
+      justify-content: flex-start !important;
+      align-items: flex-start !important;
+      width: 200px !important;
+      border: none !important;
+      border-style: none !important;
+      border-image: none !important;
+      border-color: rgba(0, 0, 0, 0) !important;
+      left: unset !important;
+      top: unset !important;
+    }
+    
+    /* W-fill container */
+    .w-fill {
+      width: 100%;
+      gap: 0px;
+    }
+    
+    /* Project Details Section - Responsive Full Width */
+    .project-details-grid {
+      width: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 24px !important;
+      justify-content: flex-start !important;
+      align-items: flex-start !important;
+      padding-top: 20px !important;
+      padding-bottom: 20px !important;
+      flex-wrap: nowrap !important;
+    }
+    
+    /* Mobile: Stack vertically with smaller gap */
+    @media (max-width: 767px) {
+      .project-details-grid {
+        flex-direction: column !important;
+        gap: 24px !important;
+        flex-wrap: nowrap !important;
+      }
+    }
+    
+    /* Tablet and Desktop: Row layout with larger gap */
+    @media (min-width: 768px) {
+      .project-details-grid {
+        flex-direction: row !important;
+        gap: 80px !important;
+        flex-wrap: nowrap !important;
+      }
+    }
+    
+    /* Ensure equal spacing for child elements - responsive */
+    .project-details-grid > * {
+      flex: 0 1 auto !important;
+      min-width: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      align-items: flex-start !important;
+      gap: 0.5rem !important;
+      padding: 0 !important;
+      border: none !important;
+      border-style: none !important;
+      border-image: none !important;
+      border-color: rgba(0, 0, 0, 0) !important;
+      left: 0 !important;
+      top: 0 !important;
+      position: relative !important;
+    }
+    
+    /* Mobile: Full width, auto height */
+    @media (max-width: 767px) {
+      .project-details-grid > * {
+        width: 100% !important;
+        flex: 0 0 auto !important;
+        height: auto !important;
+      }
+    }
+    
+    /* Desktop: Auto width, no wrapping */
+    @media (min-width: 768px) {
+      .project-details-grid > * {
+        flex: 0 1 auto !important;
+        width: auto !important;
+        min-width: fit-content !important;
+        max-width: none !important;
+        height: 100% !important;
+      }
+    }
+    
+    /* Force responsive behavior - override everything */
+    div.project-details-grid {
+      flex-direction: column !important;
+      gap: 24px !important;
+      height: auto !important;
+      flex-wrap: nowrap !important;
+    }
+    
+    @media (min-width: 768px) {
+      div.project-details-grid {
+        flex-direction: row !important;
+        gap: 80px !important;
+        height: 100% !important;
+        flex-wrap: nowrap !important;
+      }
+    }
+    
+    /* Outcomes Grid Section - Responsive Full Width */
+    .outcomes-grid {
+      width: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 24px !important;
+    }
+    
+    @media (min-width: 768px) {
+      .outcomes-grid {
+        flex-direction: row !important;
+        gap: 80px !important;
+      }
+    }
+    
+    /* Text Image Section - Responsive Layout */
+    .text-image-section {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    
+    @media (min-width: 768px) {
+      .text-image-section {
+        flex-direction: row !important;
+      }
+    }
+    
+    /* Reflection Section - Responsive Layout */
+    .reflection-section {
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    
+    @media (min-width: 768px) {
+      .reflection-section {
+        flex-direction: row !important;
+        align-items: center !important;
+      }
+      
+      .reflection-section > div {
+        flex: 1 1 50% !important;
+        width: 50% !important;
+      }
+    }
+    
+    /* Ensure equal spacing for child elements */
+    .outcomes-grid > * {
+      flex: 1 1 0 !important;
+      min-width: 0;
+    }
+    
+    /* NDA Note Styling with Divider */
+    .nda-note {
+      position: relative;
+      padding-left: 1.5rem !important;
+    }
+    
+    /* Divider - half height, centered vertically, smaller width */
+    .nda-note::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 2px;
+      height: 50%;
+      background-color: #32404F;
+    }
+    
+    .nda-note p,
+    .nda-note-text {
+      color: #32404F !important;
+      margin: 0;
+    }
+    
+    /* Default Paragraph Styling - Responsive */
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    
+    /* Responsive font sizes for paragraphs */
+    @media (min-width: 640px) {
+      p {
+        font-size: 15.5px;
+      }
+    }
+    
+    @media (min-width: 768px) {
+      p {
+        font-size: 16px;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      p {
+        font-size: 16.5px;
+      }
+    }
+    
+    @media (min-width: 1280px) {
+      p {
+        font-size: 17px;
+      }
+    }
+    
+    /* Carousel Styles */
+    .carousel-nav:hover {
+      background: rgba(255, 255, 255, 0.25) !important;
+      border-color: rgba(255, 255, 255, 0.5) !important;
+      transform: translateY(-50%) scale(1.1) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    }
+    
+    .carousel-nav:active {
+      transform: translateY(-50%) scale(0.95) !important;
+    }
+    
+    .carousel-dot:hover {
+      background: rgba(255, 255, 255, 0.6) !important;
+      transform: scale(1.2);
+    }
+    
+    .carousel-dot.active {
+      background: rgba(255, 255, 255, 0.5) !important;
+    }
+    
+    /* Auto-scroll indicator animation */
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.6;
+      }
+      50% {
+        opacity: 0.9;
+      }
+    }
+    
+    .carousel-indicator {
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    .carousel-container:hover .carousel-indicator {
+      opacity: 0.3;
+    }
+    
+    /* Video Modal Overlay */
+    .video-modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .video-modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+    
+    .video-modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 1200px;
+      aspect-ratio: 16/9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .video-modal-content iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+    }
+    
+    .video-modal-close {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      color: #ffffff;
+      font-size: 2.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: all 0.2s ease;
+      backdrop-filter: blur(8px);
+    }
+    
+    .video-modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: scale(1.1);
+    }
+    
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #0a0a0a;
+      color: #e5e5e5;
+    }
+
+    html.dark-mode {
+      background-color: #0a0a0a;
+    }
+
+    .dark-mode {
+      background-color: #0a0a0a;
+      color: #e5e5e5;
+    }
+
+    .dark-mode .text-muted,
+    .dark-mode .text-foreground\/70,
+    .dark-mode .text-foreground\/60 {
+      color: rgba(229, 229, 229, 0.7);
+    }
+
+    .dark-mode .border-foreground\/10 {
+      border-color: rgba(229, 229, 229, 0.1);
+    }
+
+    .dark-mode .bg-foreground\/5 {
+      background-color: rgba(229, 229, 229, 0.05);
+    }
+
+    .dark-mode .bg-foreground\/10 {
+      background-color: rgba(229, 229, 229, 0.1);
+    }
+
+    .dark-mode h1,
+    .dark-mode h2,
+    .dark-mode h3,
+    .dark-mode h4,
+    .dark-mode p {
+      color: #e5e5e5;
+    }
+
+    .dark-mode .text-gray-500 {
+      color: rgba(229, 229, 229, 0.6);
+    }
+  </style>
+  <meta name="next-size-adjust" content="" />
+  <meta name="theme-color" content="#fafcfd" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="manifest" href="../manifest.json" />
+  <title>Little Lights | Aravindh Maya</title>
+  <meta name="description" content="Little Lights: A 3D adventure puzzle game - mobile game 2018" />
+  <meta name="author" content="Aravindh Maya" />
+  <meta name="keywords"
+    content="product design,software engineering,portfolio,Aravindh Maya,UX design,Interaction design,Game design,development" />
+  <meta name="creator" content="Aravindh Maya" />
+  <meta name="publisher" content="Aravindh Maya" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
+  <meta name="google-site-verification" content="your-google-verification-code" />
+  <meta property="og:title" content="Little Lights | Aravindh Maya" />
+  <meta property="og:description" content="Little Lights: A 3D adventure puzzle game - mobile game 2018" />
+  <meta property="og:url" content="https://www.aravindhmaya.com" />
+  <meta property="og:site_name" content="Aravindh Maya | Product Designer&#x27;" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://www.aravindhmaya.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Aravindh Maya - Product Designer" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aravindh Maya | Product Designer" />
+  <meta name="twitter:description"
+    content="I&#x27;m Aravindh, a product builder who loves bringing ideas to life with design + code." />
+  <meta name="twitter:image" content="https://www.aravindhmaya.com/og-image.png" />
+  <meta name="twitter:image:width" content="1200" />
+  <meta name="twitter:image:height" content="630" />
+  <meta name="twitter:image:alt" content="Aravindh Maya - Product Designer" />
+  <link rel="icon" href="https://www.aravindhmaya.com/favicon.ico" type="image/x-icon" sizes="16x16" />
+  <link rel="icon" href="https://www.aravindhmaya.com/favicon.ico" sizes="16x16" type="image/x-icon" />
+  <link rel="icon" href="https://www.aravindhmaya.com/favicon.ico" sizes="32x32" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="https://www.aravindhmaya.com/favicon.ico" sizes="180x180" type="image/png" />
+  <script>document.querySelectorAll('body link[rel="icon"], body link[rel="apple-touch-icon"]').forEach(el => document.head.appendChild(el))</script>
+  
+</head>
+
+<body
+  class="__variable_5cfdac __variable_9a8899 __variable_25c604 __variable_293043 __variable_ee3f19 antialiased custom-cursor custom-pointer font-[family-name:var(--font-geist-sans)]">
+  <!-- Glassmorphism Cursor -->
+  <div id="glassCursor" class="glass-cursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-glass-effect"></div>
+  </div>
+
+  <div class="flex items-center justify-center p-6 border-b border-foreground/10 relative">
+    <div class="flex items-center justify-between w-full max-w-[1600px]"><a
+        class="flex flex-col sm:flex-row sm:inline-flex sm:gap-4 gap-0 cursor-pointer" href="../index.html">
+        <h4 class="font-bold !opacity-100 !text-foreground" id="header-name" data-protected="true">Aravindh Maya</h4>
+        <h4 class="flex items-center gap-0">Product + Game Designer</h4>
+      </a>
+
+      <div class="md:hidden flex gap-4">
+        <div><svg width="26" height="26" viewBox="0 0 24 24" fill="none" class="cursor-pointer hover:opacity-50">
+            <path class="transition-all duration-300 origin-center " d="M4 8H20" stroke="currentColor" stroke-width="2">
+            </path>
+            <path class="transition-all duration-300 origin-center " d="M4 16H20" stroke="currentColor"
+              stroke-width="2"></path>
+          </svg></div>
+        <div class="
+            absolute left-0 z-10 top-[100%] p-6 border-b border-foreground/10 w-full bg-background
+            transition-all duration-300 ease-in-out
+            opacity-0 -translate-y-2 pointer-events-none
+          ">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="min-h-screen px-6">
+    <main class="grid max-w-[1600px] mx-auto grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 md:gap-8">
+      <aside class="md:sticky md:top-0 md:h-fit px-0 pt-12 pb-0 md:py-12 min-w-40"><a data-cursor="pointer"
+          class="w-full text-left" href="../index.html">
+          <h4 class="hover:!text-foreground hover:cursor-pointer">
+            <div class="back-button flex items-center gap-2 hover:!opacity-100 group"><img alt="Back" loading="lazy" width="18"
+                height="18" decoding="async" data-nimg="1" class="opacity-50 group-hover:!opacity-100"
+                style="color:transparent" src="../arrow-left.svg" />Back</div>
+          </h4>
+        </a>
+        <nav class="hidden md:block mt-8">
+          <div class="flex flex-col items-start gap-2">
+            <button class="flex items-start" onclick="scrollToSection('overview');">
+              <p class="transition-colors cursor-pointer text-left hover:text-foreground">Overview</p>
+            </button>
+            <button class="flex items-start" onclick="scrollToSection('the-journey');">
+              <p class="transition-colors cursor-pointer text-left hover:text-foreground">The Journey</p>
+            </button>
+            <button class="flex items-start" onclick="scrollToSection('game-design');">
+              <p class="transition-colors cursor-pointer text-left hover:text-foreground">Game Design</p>
+            </button>
+            <button class="flex items-start" onclick="scrollToSection('design-process');">
+              <p class="transition-colors cursor-pointer text-left hover:text-foreground">Design Process</p>
+            </button>
+            <button class="flex items-start" onclick="scrollToSection('level-design');">
+              <p class="transition-colors cursor-pointer text-left hover:text-foreground">Level Design</p>
+            </button>
+            <button class="flex items-start" onclick="scrollToSection('game-artifacts');">
+              <p class="transition-colors cursor-pointer text-left hover:text-foreground">Game Artifacts</p>
+            </button>
+            <button class="flex items-start" onclick="scrollToSection('reflection');">
+              <p class="transition-colors cursor-pointer text-left hover:text-foreground">Making & Testing</p>
+            </button>
+            <button class="flex items-start" onclick="scrollToSection('user-testing');">
+              <p class="transition-colors cursor-pointer text-left hover:text-foreground">User Testing</p>
+            </button>
+          </div>
+        </nav>
+      </aside>
+      <div class="w-fill md:max-w-3xl lg:max-w-4xl py-12 flex flex-col gap-12 md:gap-24">
+        <!-- ============================================ -->
+        <!-- EDITING GUIDE -->
+        <!-- ============================================ -->
+        <!-- 
+          HOW TO EDIT THIS PAGE:
+          1. HERO SECTION: Edit title, description, and hero image below
+          2. PROJECT DETAILS: Update Role, Timeline, Team, and Skills
+          3. CONTENT SECTIONS: Add your content in Overview, The Journey, and Reflection
+          4. IMAGES: Use format: <img src="../Images/your-image.jpg" alt="Description" />
+          5. All content is now in plain HTML - easy to edit!
+        -->
+        <!-- ============================================ -->
+        <!-- HERO SECTION - EDIT BELOW -->
+        <!-- ============================================ -->
+        <div class="flex flex-col gap-8" style="opacity:1;transform:translateY(0)" data-static-visible="true">
+          <div class="flex flex-col gap-4">
+            <h4 style="font-family:var(--font-tiempos-text),serif;">Game Design<!-- --> • <!-- -->Mobile Game</h4>
+            <h1 style="font-family:var(--font-tiempos-text),serif; margin-bottom: 1rem;">Little Lights: A 3D adventure puzzle game</h1>
+          </div>
+          <div class="w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden rounded-[25px] my-6 relative" style="border-radius: 25px; opacity:1;transform:translateY(0)">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Bj2OvgEJ92I?si=5fCmGxw0tslqFLLW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 25px;"></iframe>
+          </div>
+        </div>
+        <!-- ============================================ -->
+        <!-- CONTENT SECTIONS - EDIT BELOW -->
+        <!-- ============================================ -->
+        <div style="opacity:1;transform:translateY(0)" data-static-visible="true">
+          <div class="flex flex-col gap-12">
+            
+            <!-- OVERVIEW SECTION -->
+            <section id="overview" class="reflection-section flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+              <!-- Left Div: Text Content -->
+              <div class="flex flex-col gap-4">
+                
+                <!-- Overview heading -->
+                <h2 style="font-family:var(--font-tiempos-text),serif;">A 3D adventure puzzle game on an android platform for the age group of 4+, narrating a story of two sisters with engaging gameplay</h2>
+                
+                <!-- Overview content paragraph -->
+
+              </div>
+              
+              <!-- Right Div: Image -->
+              <div class="w-full flex items-center justify-center">
+                <div class="w-full max-w-[300px] overflow-hidden rounded-[25px] relative" style="max-width: 300px; border-radius: 25px;">
+                  <img src="../Images/LittleLights/Projectscreen2.png" alt="Project overview image" class="w-full h-auto object-contain rounded-[25px]" style="display: block; border-radius: 25px;" />
+                </div>
+              </div>
+            </section>
+              <!-- STORIES SECTION -->
+              <section id="the-journey" class="flex flex-col gap-4">
+                <h4 class="!opacity-100 mb-1" style="font-family:var(--font-tiempos-text),serif;">STORY LINE</h4>
+                
+                <!-- Overview heading -->
+                
+                <!-- Overview content paragraph -->
+                <p >
+                  A story of a twin sister, in which one gets lost in a magical orb during their trek, and the other one finds her sister with the help of light gods in an era of ancient civilization.
+                  </p>
+
+              
+                <div class="w-full overflow-hidden rounded-[25px] my-6 relative" style="border-radius: 25px;">
+                  <img src="../Images/LittleLights/story.jpg" alt="Story image" class="w-full h-auto object-contain rounded-[25px]" style="display: block; border-radius: 25px;" /> 
+                </div>
+            </section>
+          </section>
+          
+          <!-- Game Design Section -->
+          <section id="game-design" class="flex flex-col gap-6">
+            <h4 class="!opacity-100 mb-1" style="font-family:var(--font-tiempos-text),serif;">Game Design</h4>
+            <div class="w-full overflow-hidden rounded-[25px] relative" style="border-radius: 25px;">
+              <img src="../Images/LittleLights/Game-design.jpg" alt="Game Design" class="w-full h-auto object-contain rounded-[25px]" style="display: block; border-radius: 25px;" />
+            </div>
+          </section>
+          
+          <!-- Design Process Section -->
+          <section id="design-process" class="flex flex-col gap-6">
+            <h4 class="!opacity-100 mb-1" style="font-family:var(--font-tiempos-text),serif;">Design Process</h4>
+            <div class="w-full overflow-hidden rounded-[25px] relative" style="border-radius: 25px;">
+              <img src="../Images/LittleLights/process.jpg" alt="Design Process" class="w-full h-auto object-contain rounded-[25px]" style="display: block; border-radius: 25px;" />
+            </div>
+          </section>
+          
+          <!-- Level Design Section -->
+          <section id="level-design" class="flex flex-col gap-6">
+            <h4 class="!opacity-100 mb-1" style="font-family:var(--font-tiempos-text),serif;">Level Design</h4>
+            <div class="w-full relative" style="position: relative;">
+              <!-- Carousel Container -->
+              <div class="carousel-container w-full overflow-hidden rounded-[25px] relative" style="border-radius: 25px; position: relative;">
+                <div class="carousel-track flex transition-transform duration-500 ease-in-out" id="levelDesignCarousel" style="display: flex; transition: transform 0.5s ease-in-out; width: 700%;">
+                  <div class="carousel-slide flex-shrink-0" style="width: 14.2857%;">
+                    <img src="../Images/LittleLights/slide18.png" alt="Level Design Slide 18" class="w-full h-auto object-contain rounded-[25px]" style="display: block; border-radius: 25px; width: 100%;" />
+                  </div>
+                  <div class="carousel-slide flex-shrink-0" style="width: 14.2857%;">
+                    <img src="../Images/LittleLights/slide19.png" alt="Level Design Slide 19" class="w-full h-auto object-contain rounded-[25px]" style="display: block; border-radius: 25px; width: 100%;" />
+                  </div>
+                  <div class="carousel-slide flex-shrink-0" style="width: 14.2857%;">
+                    <img src="../Images/LittleLights/slide20.png" alt="Level Design Slide 20" class="w-full h-auto object-contain rounded-[25px]" style="display: block; border-radius: 25px; width: 100%;" />
+                  </div>
+                  <div class="carousel-slide flex-shrink-0" style="width: 14.2857%;">
+                    <img src="../Images/LittleLights/slide21.png" alt="Level Design Slide 21" class="w-full h-auto object-contain rounded-[25px]" style="display: block; border-radius: 25px; width: 100%;" />
+                  </div>
+                  <div class="carousel-slide flex-shrink-0" style="width: 14.2857%;">
+                    <img src="../Images/LittleLights/slide22.png" alt="Level Design Slide 22" class="w-full h-auto object-contain rounded-[25px]" style="display: block; border-radius: 25px; width: 100%;" />
+                  </div>
+                  <div class="carousel-slide flex-shrink-0" style="width: 14.2857%;">
+                    <img src="../Images/LittleLights/slide23.png" alt="Level Design Slide 23" class="w-full h-auto object-contain rounded-[25px]" style="display: block; border-radius: 25px; width: 100%;" />
+                  </div>
+                  <div class="carousel-slide flex-shrink-0" style="width: 14.2857%;">
+                    <img src="../Images/LittleLights/slide24.png" alt="Level Design Slide 24" class="w-full h-auto object-contain rounded-[25px]" style="display: block; border-radius: 25px; width: 100%;" />
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Navigation Arrows -->
+              <button class="carousel-nav carousel-prev" id="levelDesignPrev" aria-label="Previous slide" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; backdrop-filter: blur(8px); transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="15,18 9,12 15,6"></polyline>
+                </svg>
+              </button>
+              <button class="carousel-nav carousel-next" id="levelDesignNext" aria-label="Next slide" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; backdrop-filter: blur(8px); transition: all 0.2s ease; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="9,6 15,12 9,18"></polyline>
+                </svg>
+              </button>
+              
+              <!-- Auto-scroll indicator (subtle pulse animation) -->
+              <div class="carousel-indicator" id="carouselIndicator" style="position: absolute; bottom: 1rem; right: 1rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; padding: 0.5rem 1rem; font-size: 12px; color: rgba(255, 255, 255, 0.7); backdrop-filter: blur(8px); z-index: 10; pointer-events: none; opacity: 0.6;">
+                <span>Auto-scrolling</span>
+              </div>
+              
+              <!-- Dots Indicator -->
+              <div class="carousel-dots flex justify-center gap-2 mt-4" id="levelDesignDots" style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 1rem;">
+                <button class="carousel-dot active" data-slide="0" style="width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.5); border: none; cursor: pointer; transition: all 0.2s ease;"></button>
+                <button class="carousel-dot" data-slide="1" style="width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.3); border: none; cursor: pointer; transition: all 0.2s ease;"></button>
+                <button class="carousel-dot" data-slide="2" style="width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.3); border: none; cursor: pointer; transition: all 0.2s ease;"></button>
+                <button class="carousel-dot" data-slide="3" style="width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.3); border: none; cursor: pointer; transition: all 0.2s ease;"></button>
+                <button class="carousel-dot" data-slide="4" style="width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.3); border: none; cursor: pointer; transition: all 0.2s ease;"></button>
+                <button class="carousel-dot" data-slide="5" style="width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.3); border: none; cursor: pointer; transition: all 0.2s ease;"></button>
+                <button class="carousel-dot" data-slide="6" style="width: 8px; height: 8px; border-radius: 50%; background: rgba(255, 255, 255, 0.3); border: none; cursor: pointer; transition: all 0.2s ease;"></button>
+              </div>
+                </div>
+            </section>
+          
+          <!-- Game Artifacts Section -->
+          <section id="game-artifacts" class="flex flex-col gap-6">
+            <h4 class="!opacity-100 mb-1" style="font-family:var(--font-tiempos-text),serif;">Game Ui | Screenshots | Assets</h4>
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div class="w-full overflow-hidden rounded-[25px] relative" style="border-radius: 25px;">
+                <img src="../Images/LittleLights/Game Atrifacts/Landingscreen.jpg" alt="Game Artifact - Landing Screen" class="w-full h-auto object-contain rounded-[25px]" style="display: block; border-radius: 25px;" />
+              </div>
+              <div class="w-full overflow-hidden rounded-[25px] relative" style="border-radius: 25px;">
+                <img src="../Images/LittleLights/Game Atrifacts/slide3.png" alt="Game Artifact - Slide 3" class="w-full h-auto object-contain rounded-[25px]" style="display: block; border-radius: 25px;" />
+              </div>
+              <div class="w-full overflow-hidden rounded-[25px] relative" style="border-radius: 25px;">
+                <img src="../Images/LittleLights/Game Atrifacts/slide4.png" alt="Game Artifact - Slide 4" class="w-full h-auto object-contain rounded-[25px]" style="display: block; border-radius: 25px;" />
+              </div>
+              <div class="w-full overflow-hidden rounded-[25px] relative" style="border-radius: 25px;">
+                <img src="../Images/LittleLights/Game Atrifacts/slide6.png" alt="Game Artifact - Slide 6" class="w-full h-auto object-contain rounded-[25px]" style="display: block; border-radius: 25px;" />
+              </div>
+              <div class="w-full overflow-hidden rounded-[25px] relative" style="border-radius: 25px;">
+                <img src="../Images/LittleLights/Game Atrifacts/slide16.png" alt="Game Artifact - Slide 16" class="w-full h-auto object-contain rounded-[25px]" style="display: block; border-radius: 25px;" />
+              </div>
+              <div class="w-full overflow-hidden rounded-[25px] relative" style="border-radius: 25px;">
+                <img src="../Images/LittleLights/Game Atrifacts/slide17.png" alt="Game Artifact - Slide 17" class="w-full h-auto object-contain rounded-[25px]" style="display: block; border-radius: 25px;" />
+              </div>
+            </div>
+          </section>
+          
+          <!-- REFLECTION SECTION -->
+          <section id="reflection" class="reflection-section flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+            <!-- Left Div: Text Content -->
+            <div class="flex flex-col gap-4">
+              <h4 class="!opacity-100 mb-1" style="font-family:var(--font-tiempos-text),serif;">Making & Testing</h4>
+              
+              <!-- Overview heading -->
+              <h2 style="font-family:var(--font-tiempos-text),serif;">Making of Little Lights mobile Game</h2>
+              
+              <!-- Overview content paragraph -->
+             
+            </div>
+            
+            <!-- Right Div: Video -->
+            <div class="w-full flex items-center justify-center">
+              <div class="w-full aspect-[16/9] overflow-hidden rounded-[25px] my-6 relative cursor-pointer" style="border-radius: 25px; border: none;" onclick="openVideoModal('https://player.vimeo.com/video/268646299?h=14e73e736e')">
+                <iframe title="vimeo-player" src="https://player.vimeo.com/video/268646299?h=14e73e736e" width="100%" height="100%" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 25px;"></iframe>
+                <!-- Play overlay indicator -->
+                <div class="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-[25px]" style="pointer-events: none;">
+                  <div class="bg-white/20 backdrop-blur-sm rounded-full p-4">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="white" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <!-- User Testing Section -->
+          <section id="user-testing" class="flex flex-col gap-6">
+            <div class="flex flex-col gap-4">
+              <h4 class="!opacity-100 mb-1" style="font-family:var(--font-tiempos-text),serif;">User Testing</h4>
+            </div>
+            
+            <!-- Video Container -->
+            <div class="w-full flex items-center justify-center">
+              <div class="w-full aspect-[16/9] overflow-hidden rounded-[25px] my-6 relative cursor-pointer" style="border-radius: 25px; border: none;" onclick="openVideoModal('https://player.vimeo.com/video/572211224?h=1b589b76b8')">
+                <iframe title="vimeo-player" src="https://player.vimeo.com/video/572211224?h=1b589b76b8" width="100%" height="100%" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; border-radius: 25px;"></iframe>
+                <!-- Play overlay indicator -->
+                <div class="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-[25px]" style="pointer-events: none;">
+                  <div class="bg-white/20 backdrop-blur-sm rounded-full p-4">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="white" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          </div>
+        </div>
+        <!-- ============================================ -->
+        <!-- END CONTENT SECTIONS -->
+        <!-- ============================================ -->
+      </div>
+      <div class="p-6 py-12"></div>
+    </main>
+  </div><!--/$--><!--$--><!--/$--><!--/$-->
+  <footer class="w-full flex items-center justify-center p-6 border-t border-foreground/10">
+    <div class="flex flex-col max-w-[1600px] md:flex-row w-full items-start md:items-center justify-between gap-6">
+      <div class="flex gap-2"><span>
+          <h4 class="font-bold flex items-center gap-2">Designed + Coded with<!-- --> </h4>
+        </span><span><img alt="heart" loading="lazy" width="24" height="24" decoding="async" data-nimg="1"
+            style="color:transparent" src="../home/heart.svg" /></span><span>
+          <h4 id="footer-name" data-protected="true">by Aravindh Maya</h4>
+        </span></div>
+      <div class="flex flex-col md:flex-row gap-3 md:gap-8">
+        <a href="https://www.linkedin.com/in/aravindmaya/"
+          target="_blank" rel="noopener noreferrer" class="hover:!opacity-100 ">
+          <h4 class="false cursor-pointer !opacity-100 hover:!text-foreground">Linkedin</h4>
+        </a><a href="mailto:aravindnitt@gmail.com"
+          class="hover:!opacity-100 opacity-60 text-foreground font-mono font-medium text-start" data-cursor="email">EMAIL</a>
+        </div>
+    </div>
+  </footer>
+
+  <!-- Glassmorphism Cursor Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cursor = document.getElementById('glassCursor');
+      
+      if (!cursor) return;
+      
+      // Hide default cursor
+      document.body.style.cursor = 'none';
+      
+      // Check for reduced motion preference
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      // Mouse movement
+      document.addEventListener('mousemove', function(e) {
+        const x = e.clientX;
+        const y = e.clientY;
+        
+        if (prefersReducedMotion) {
+          cursor.style.left = x + 'px';
+          cursor.style.top = y + 'px';
+        } else {
+          requestAnimationFrame(() => {
+            cursor.style.left = x + 'px';
+            cursor.style.top = y + 'px';
+          });
+        }
+      });
+      
+      // Show/hide cursor
+      document.addEventListener('mouseenter', () => {
+        cursor.classList.remove('hidden');
+      });
+      
+      document.addEventListener('mouseleave', () => {
+        cursor.classList.add('hidden');
+      });
+      
+      // Click effect
+      document.addEventListener('mousedown', () => {
+        cursor.classList.add('click');
+        setTimeout(() => {
+          cursor.classList.remove('click');
+        }, 600);
+      });
+      
+      // All interactive elements - activate enhanced glassmorphism effect
+      const interactiveElements = document.querySelectorAll(`
+        a, button, [role="button"], input, textarea, select, 
+        .project-link, .nav-item, .refresh-btn, .category-badge,
+        .design-tip-card, .company-logo, .modal-nav-arrow,
+        [data-cursor="pointer"], [data-cursor], .cursor-pointer
+      `);
+      
+      interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+          cursor.classList.add('hover');
+        });
+        
+        element.addEventListener('mouseleave', () => {
+          cursor.classList.remove('hover');
+        });
+      });
+      
+      // Initial position
+      cursor.style.left = '50%';
+      cursor.style.top = '50%';
+      
+      console.log('✨ Glassmorphism cursor activated');
+    });
+    
+    // Smooth scroll to section with offset
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const offset = 80; // Offset in pixels for any fixed headers
+        const elementPosition = section.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+    
+    // Level Design Carousel
+    (function() {
+      let currentSlide = 0;
+      const totalSlides = 7;
+      const carousel = document.getElementById('levelDesignCarousel');
+      const carouselContainer = carousel ? carousel.parentElement : null;
+      const prevBtn = document.getElementById('levelDesignPrev');
+      const nextBtn = document.getElementById('levelDesignNext');
+      const dots = document.querySelectorAll('#levelDesignDots .carousel-dot');
+      let autoScrollInterval = null;
+      const autoScrollDelay = 4000; // 4 seconds
+      
+      function updateCarousel() {
+        if (carousel) {
+          // Each slide is 14.2857% (100% / 7 slides) of the container width
+          const slideWidth = 100 / totalSlides;
+          carousel.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+        }
+        
+        // Update dots
+        dots.forEach((dot, index) => {
+          if (index === currentSlide) {
+            dot.classList.add('active');
+            dot.style.background = 'rgba(255, 255, 255, 0.5)';
+          } else {
+            dot.classList.remove('active');
+            dot.style.background = 'rgba(255, 255, 255, 0.3)';
+          }
+        });
+        
+        // Update button states (always enabled since we loop)
+        if (prevBtn) {
+          prevBtn.style.opacity = '1';
+          prevBtn.style.pointerEvents = 'auto';
+        }
+        if (nextBtn) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+        }
+      }
+      
+      function goToSlide(slideIndex) {
+        if (slideIndex >= 0 && slideIndex < totalSlides) {
+          currentSlide = slideIndex;
+          updateCarousel();
+          resetAutoScroll();
+        }
+      }
+      
+      function nextSlide() {
+        if (currentSlide < totalSlides - 1) {
+          currentSlide++;
+        } else {
+          // Loop back to first slide
+          currentSlide = 0;
+        }
+        updateCarousel();
+        resetAutoScroll();
+      }
+      
+      function prevSlide() {
+        if (currentSlide > 0) {
+          currentSlide--;
+        } else {
+          // Loop to last slide
+          currentSlide = totalSlides - 1;
+        }
+        updateCarousel();
+        resetAutoScroll();
+      }
+      
+      function startAutoScroll() {
+        stopAutoScroll();
+        autoScrollInterval = setInterval(() => {
+          nextSlide();
+        }, autoScrollDelay);
+        updateIndicator();
+      }
+      
+      function stopAutoScroll() {
+        if (autoScrollInterval) {
+          clearInterval(autoScrollInterval);
+          autoScrollInterval = null;
+        }
+        updateIndicator();
+      }
+      
+      function resetAutoScroll() {
+        stopAutoScroll();
+        startAutoScroll();
+      }
+      
+      // Update indicator visibility
+      function updateIndicator() {
+        const indicator = document.getElementById('carouselIndicator');
+        if (indicator) {
+          // Show indicator when auto-scrolling, hide when paused
+          if (autoScrollInterval) {
+            indicator.style.opacity = '0.6';
+          } else {
+            indicator.style.opacity = '0.3';
+          }
+        }
+      }
+      
+      // Event listeners
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          prevSlide();
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          nextSlide();
+        });
+      }
+      
+      // Dot navigation
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => goToSlide(index));
+      });
+      
+      // Pause auto-scroll on hover
+      if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', stopAutoScroll);
+        carouselContainer.addEventListener('mouseleave', startAutoScroll);
+      }
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        const levelDesignSection = document.getElementById('level-design');
+        if (levelDesignSection && levelDesignSection.getBoundingClientRect().top < window.innerHeight && levelDesignSection.getBoundingClientRect().bottom > 0) {
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            prevSlide();
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            nextSlide();
+          }
+        }
+      });
+      
+      // Initialize
+      updateCarousel();
+      startAutoScroll();
+      
+      // Cleanup on page unload
+      window.addEventListener('beforeunload', stopAutoScroll);
+    })();
+  </script>
+  
+  <!-- Video Modal Overlay -->
+  <div id="videoModalOverlay" class="video-modal-overlay" onclick="closeVideoModal(event)">
+    <div class="video-modal-content" onclick="event.stopPropagation()">
+      <button class="video-modal-close" onclick="closeVideoModal()" aria-label="Close video modal">×</button>
+      <iframe id="videoModalIframe" title="vimeo-player" src="" width="100%" height="100%" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen style="border-radius: 12px;"></iframe>
+    </div>
+  </div>
+  
+  <script>
+    // Video Modal Functions
+    function openVideoModal(videoUrl) {
+      const overlay = document.getElementById('videoModalOverlay');
+      const iframe = document.getElementById('videoModalIframe');
+      if (overlay && iframe) {
+        // Set iframe src with autoplay parameter
+        const autoplayUrl = videoUrl.includes('?') ? videoUrl + '&autoplay=1' : videoUrl + '?autoplay=1';
+        iframe.src = autoplayUrl;
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    
+    function closeVideoModal(event) {
+      // If event is passed and it's not from the close button, check if click is on overlay
+      if (event && event.target.id !== 'videoModalOverlay') {
+        return;
+      }
+      
+      const overlay = document.getElementById('videoModalOverlay');
+      const iframe = document.getElementById('videoModalIframe');
+      if (overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        // Stop video by removing src
+        if (iframe) {
+          iframe.src = '';
+        }
+      }
+    }
+    
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeVideoModal();
+      }
+    });
+
+    // Dark Mode Support - Apply theme from localStorage
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+        document.body.classList.add('dark-mode');
+      }
+    })();
+  </script>
+</body>
+</html>
+
+        resetAutoScroll();
+      }
+      
+      function prevSlide() {
+        if (currentSlide > 0) {
+          currentSlide--;
+        } else {
+          // Loop to last slide
+          currentSlide = totalSlides - 1;
+        }
+        updateCarousel();
+        resetAutoScroll();
+      }
+      
+      function startAutoScroll() {
+        stopAutoScroll();
+        autoScrollInterval = setInterval(() => {
+          nextSlide();
+        }, autoScrollDelay);
+        updateIndicator();
+      }
+      
+      function stopAutoScroll() {
+        if (autoScrollInterval) {
+          clearInterval(autoScrollInterval);
+          autoScrollInterval = null;
+        }
+        updateIndicator();
+      }
+      
+      function resetAutoScroll() {
+        stopAutoScroll();
+        startAutoScroll();
+      }
+      
+      // Update indicator visibility
+      function updateIndicator() {
+        const indicator = document.getElementById('carouselIndicator');
+        if (indicator) {
+          // Show indicator when auto-scrolling, hide when paused
+          if (autoScrollInterval) {
+            indicator.style.opacity = '0.6';
+          } else {
+            indicator.style.opacity = '0.3';
+          }
+        }
+      }
+      
+      // Event listeners
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          prevSlide();
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          nextSlide();
+        });
+      }
+      
+      // Dot navigation
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => goToSlide(index));
+      });
+      
+      // Pause auto-scroll on hover
+      if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', stopAutoScroll);
+        carouselContainer.addEventListener('mouseleave', startAutoScroll);
+      }
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        const levelDesignSection = document.getElementById('level-design');
+        if (levelDesignSection && levelDesignSection.getBoundingClientRect().top < window.innerHeight && levelDesignSection.getBoundingClientRect().bottom > 0) {
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            prevSlide();
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            nextSlide();
+          }
+        }
+      });
+      
+      // Initialize
+      updateCarousel();
+      startAutoScroll();
+      
+      // Cleanup on page unload
+      window.addEventListener('beforeunload', stopAutoScroll);
+    })();
+  </script>
+  
+  <!-- Video Modal Overlay -->
+  <div id="videoModalOverlay" class="video-modal-overlay" onclick="closeVideoModal(event)">
+    <div class="video-modal-content" onclick="event.stopPropagation()">
+      <button class="video-modal-close" onclick="closeVideoModal()" aria-label="Close video modal">×</button>
+      <iframe id="videoModalIframe" title="vimeo-player" src="" width="100%" height="100%" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen style="border-radius: 12px;"></iframe>
+    </div>
+  </div>
+  
+  <script>
+    // Video Modal Functions
+    function openVideoModal(videoUrl) {
+      const overlay = document.getElementById('videoModalOverlay');
+      const iframe = document.getElementById('videoModalIframe');
+      if (overlay && iframe) {
+        // Set iframe src with autoplay parameter
+        const autoplayUrl = videoUrl.includes('?') ? videoUrl + '&autoplay=1' : videoUrl + '?autoplay=1';
+        iframe.src = autoplayUrl;
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    
+    function closeVideoModal(event) {
+      // If event is passed and it's not from the close button, check if click is on overlay
+      if (event && event.target.id !== 'videoModalOverlay') {
+        return;
+      }
+      
+      const overlay = document.getElementById('videoModalOverlay');
+      const iframe = document.getElementById('videoModalIframe');
+      if (overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+        // Stop video by removing src
+        if (iframe) {
+          iframe.src = '';
+        }
+      }
+    }
+    
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeVideoModal();
+      }
+    });
+
+    // Dark Mode Support - Apply theme from localStorage
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+        document.body.classList.add('dark-mode');
+      }
+    })();
+  </script>
+</body>
+</html>

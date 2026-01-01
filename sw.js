@@ -1,15 +1,14 @@
-const CACHE_NAME = "rachel-chen-portfolio-v1";
+const CACHE_NAME = "maya-chen-portfolio-v1";
 const urlsToCache = [
   "/",
-  "/about",
-  "/fun",
-  "/projects/1password",
-  "/projects/pokergpt",
-  "/projects/earth",
-  "/projects/linkedin",
-  "/projects/rbc",
-  "/projects/chattin",
-  "/projects/biogenesis",
+  "/index.html",
+  "/about.html",
+  "/fun.html",
+  "/projects/1password.html",
+  "/projects/pokergpt.html",
+  "/projects/earth.html",
+  "/projects/linkedin.html",
+  "/projects/rbc.html",
 ];
 
 // Cache project assets
@@ -39,7 +38,26 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
       // Return cached version or fetch from network
-      return response || fetch(event.request);
+      if (response) {
+        return response;
+      }
+      
+      // Handle navigation requests
+      if (event.request.mode === 'navigate') {
+        const url = new URL(event.request.url);
+        const path = url.pathname;
+        
+        // Try to serve .html files for navigation requests
+        if (!path.endsWith('.html') && !path.endsWith('/')) {
+          const htmlUrl = new URL(path + '.html', event.request.url);
+          return fetch(htmlUrl).catch(() => {
+            // If .html version doesn't exist, try the original request
+            return fetch(event.request);
+          });
+        }
+      }
+      
+      return fetch(event.request);
     })
   );
 });
