@@ -58,3 +58,4 @@ If deployment fails:
 - Verify the server path is `/public_html/`
 - Make sure FTP is enabled in Hostinger
 
+

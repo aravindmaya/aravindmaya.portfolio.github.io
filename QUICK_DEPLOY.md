@@ -62,3 +62,4 @@ After code is pushed to GitHub:
 
 **The RSA key you provided looks like a Hostinger server key - use that for Hostinger SSH access, not GitHub.**
 
+

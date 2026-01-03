@@ -52,3 +52,4 @@ When connecting to GitHub, you should see one of these:
 - **For Hostinger SSH:** Use the RSA key (if that's what Hostinger requires)
 - **Server fingerprints:** Always verify they match known values before accepting
 
+
