@@ -1677,6 +1677,11 @@ html.dark-mode {
     border-color: var(--dark-card-border);
     color: var(--dark-text-muted);
   }
+  
+  /* Ensure footer h4 text is not transformed to uppercase */
+  footer h4.font-bold {
+    text-transform: none !important;
+  }
 
     /* Project Modal Styles */
     .project-modal {
@@ -3256,9 +3261,10 @@ html.dark-mode {
             </div>
         
         <div class="flex flex-col gap-4">
-          <h1 class="max-w-2xl responsive-hero-title">I&#x27;m Aravindh Maya —<br>designing for clarity, scale, and impact, from concept to shipped product.</h1>
           <p class="max-w-xl">I&#x27;m interested in designing more contextual and impactful digital experiences with a system-thinking approach</p>
         </div>
+        
+        <h1 class="max-w-2xl responsive-hero-title">I&#x27;m Aravindh Maya —<br>designing for clarity, scale, and impact, from concept to shipped product.</h1>
         
         <div class="flex flex-col gap-6 fade-in fade-in-delay-2">
           <div class="flex items-start gap-12">
@@ -3856,7 +3862,7 @@ html.dark-mode {
     <div class="flex flex-col max-w-[1600px] md:flex-row w-full items-start md:items-center justify-between gap-6">
       <div class="flex gap-2">
         <span>
-          <h4 class="font-bold flex items-center gap-2">Designed and vibe coded by Aravindh Maya</h4>
+          <h4 class="font-bold flex items-center gap-2" style="text-transform: none;">Designed and vibe coded by Aravindh Maya</h4>
         </span>
        
       </div>

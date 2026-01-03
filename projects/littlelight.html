@@ -1111,12 +1111,11 @@
   </div><!--/$--><!--$--><!--/$--><!--/$-->
   <footer class="w-full flex items-center justify-center p-6 border-t border-foreground/10">
     <div class="flex flex-col max-w-[1600px] md:flex-row w-full items-start md:items-center justify-between gap-6">
-      <div class="flex gap-2"><span>
-          <h4 class="font-bold flex items-center gap-2">Designed + Coded with<!-- --> </h4>
-        </span><span><img alt="heart" loading="lazy" width="24" height="24" decoding="async" data-nimg="1"
-            style="color:transparent" src="../home/heart.svg" /></span><span>
-          <h4 id="footer-name" data-protected="true">by Aravindh Maya</h4>
-        </span></div>
+      <div class="flex gap-2">
+        <span>
+          <h4 class="font-bold flex items-center gap-2" style="text-transform: none;">Designed and vibe coded by Aravindh Maya</h4>
+        </span>
+      </div>
       <div class="flex flex-col md:flex-row gap-3 md:gap-8">
         <a href="https://www.linkedin.com/in/aravindmaya/"
           target="_blank" rel="noopener noreferrer" class="hover:!opacity-100 ">
@@ -1270,161 +1269,6 @@
           currentSlide = 0;
         }
         updateCarousel();
-        resetAutoScroll();
-      }
-      
-      function prevSlide() {
-        if (currentSlide > 0) {
-          currentSlide--;
-        } else {
-          // Loop to last slide
-          currentSlide = totalSlides - 1;
-        }
-        updateCarousel();
-        resetAutoScroll();
-      }
-      
-      function startAutoScroll() {
-        stopAutoScroll();
-        autoScrollInterval = setInterval(() => {
-          nextSlide();
-        }, autoScrollDelay);
-        updateIndicator();
-      }
-      
-      function stopAutoScroll() {
-        if (autoScrollInterval) {
-          clearInterval(autoScrollInterval);
-          autoScrollInterval = null;
-        }
-        updateIndicator();
-      }
-      
-      function resetAutoScroll() {
-        stopAutoScroll();
-        startAutoScroll();
-      }
-      
-      // Update indicator visibility
-      function updateIndicator() {
-        const indicator = document.getElementById('carouselIndicator');
-        if (indicator) {
-          // Show indicator when auto-scrolling, hide when paused
-          if (autoScrollInterval) {
-            indicator.style.opacity = '0.6';
-          } else {
-            indicator.style.opacity = '0.3';
-          }
-        }
-      }
-      
-      // Event listeners
-      if (prevBtn) {
-        prevBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          prevSlide();
-        });
-      }
-      if (nextBtn) {
-        nextBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          nextSlide();
-        });
-      }
-      
-      // Dot navigation
-      dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => goToSlide(index));
-      });
-      
-      // Pause auto-scroll on hover
-      if (carouselContainer) {
-        carouselContainer.addEventListener('mouseenter', stopAutoScroll);
-        carouselContainer.addEventListener('mouseleave', startAutoScroll);
-      }
-      
-      // Keyboard navigation
-      document.addEventListener('keydown', function(e) {
-        const levelDesignSection = document.getElementById('level-design');
-        if (levelDesignSection && levelDesignSection.getBoundingClientRect().top < window.innerHeight && levelDesignSection.getBoundingClientRect().bottom > 0) {
-          if (e.key === 'ArrowLeft') {
-            e.preventDefault();
-            prevSlide();
-          } else if (e.key === 'ArrowRight') {
-            e.preventDefault();
-            nextSlide();
-          }
-        }
-      });
-      
-      // Initialize
-      updateCarousel();
-      startAutoScroll();
-      
-      // Cleanup on page unload
-      window.addEventListener('beforeunload', stopAutoScroll);
-    })();
-  </script>
-  
-  <!-- Video Modal Overlay -->
-  <div id="videoModalOverlay" class="video-modal-overlay" onclick="closeVideoModal(event)">
-    <div class="video-modal-content" onclick="event.stopPropagation()">
-      <button class="video-modal-close" onclick="closeVideoModal()" aria-label="Close video modal">×</button>
-      <iframe id="videoModalIframe" title="vimeo-player" src="" width="100%" height="100%" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen style="border-radius: 12px;"></iframe>
-    </div>
-  </div>
-  
-  <script>
-    // Video Modal Functions
-    function openVideoModal(videoUrl) {
-      const overlay = document.getElementById('videoModalOverlay');
-      const iframe = document.getElementById('videoModalIframe');
-      if (overlay && iframe) {
-        // Set iframe src with autoplay parameter
-        const autoplayUrl = videoUrl.includes('?') ? videoUrl + '&autoplay=1' : videoUrl + '?autoplay=1';
-        iframe.src = autoplayUrl;
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-    
-    function closeVideoModal(event) {
-      // If event is passed and it's not from the close button, check if click is on overlay
-      if (event && event.target.id !== 'videoModalOverlay') {
-        return;
-      }
-      
-      const overlay = document.getElementById('videoModalOverlay');
-      const iframe = document.getElementById('videoModalIframe');
-      if (overlay) {
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-        // Stop video by removing src
-        if (iframe) {
-          iframe.src = '';
-        }
-      }
-    }
-    
-    // Close modal on Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeVideoModal();
-      }
-    });
-
-    // Dark Mode Support - Apply theme from localStorage
-    (function() {
-      const savedTheme = localStorage.getItem('theme') || 'light';
-      if (savedTheme === 'dark') {
-        document.documentElement.classList.add('dark-mode');
-        document.body.classList.add('dark-mode');
-      }
-    })();
-  </script>
-</body>
-</html>
-
         resetAutoScroll();
       }
       
