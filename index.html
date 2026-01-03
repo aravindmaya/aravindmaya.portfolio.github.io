@@ -1174,6 +1174,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--foreground);
 }
 
 .svg-toggle-btn:hover {
@@ -1200,7 +1201,8 @@
   width: 100%;
   height: 100%;
   transition: all 0.3s ease;
-  fill: currentColor;
+  fill: var(--foreground);
+  color: var(--foreground);
 }
 
 .moon-icon {
@@ -3237,7 +3239,7 @@ html.dark-mode {
               <button id="yinYangToggle" class="svg-toggle-btn" aria-label="Toggle dark mode">
                 <div class="toggle-container">
                   <svg class="toggle-icon moon-icon" viewBox="0 0 626 626" xmlns="http://www.w3.org/2000/svg">
-                    <g transform="translate(0.000000,626.000000) scale(0.100000,-0.100000)" fill="currentColor" stroke="none">
+                    <g transform="translate(0.000000,626.000000) scale(0.100000,-0.100000)" fill="var(--foreground)" stroke="none">
                       <path d="M2975 5594 c-510 -35 -999 -225 -1394 -544 -113 -92 -303 -283 -389 -393 -433 -549 -612 -1262 -491 -1952 132 -758 610 -1409 1293 -1766 250 -129 580 -232 816 -254 l65 -6 -100 39 c-157 61 -251 107 -343 169 -384 255 -598 788 -503 1250 75 363 303 691 581 838 116 60 374 115 705 150 188 20 269 36 374 74 275 100 506 313 648 596 155 307 180 692 67 1007 -104 289 -262 454 -667 696 -112 67 -119 70 -211 81 -107 12 -360 21 -451 15z m14 -352 c7 -14 0 -35 -35 -93 -58 -96 -75 -152 -81 -269 -10 -170 42 -306 162 -425 113 -112 242 -165 400 -165 115 0 209 30 327 102 41 25 70 18 76 -18 4 -30 -73 -141 -153 -220 -79 -78 -189 -140 -300 -170 -80 -21 -261 -20 -340 1 -178 48 -344 186 -432 358 -62 123 -85 336 -50 467 32 119 83 207 171 295 78 77 192 155 228 155 9 0 22 -8 27 -18z"/>
                       <path d="M4970 4766 c0 -2 8 -10 18 -17 15 -13 16 -12 3 4 -13 16 -21 21 -21 13z"/>
                       <path d="M3172 2548 c-14 -14 -17 -245 -3 -266 5 -8 17 -12 27 -10 17 3 19 15 22 137 2 101 -1 136 -10 143 -17 10 -22 10 -36 -4z"/>
