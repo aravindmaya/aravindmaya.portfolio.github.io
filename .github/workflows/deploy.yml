@@ -35,5 +35,4 @@ jobs:
           dry-run: false
           log-level: verbose
           state: ${{ github.sha }}
-          sync: true
 
