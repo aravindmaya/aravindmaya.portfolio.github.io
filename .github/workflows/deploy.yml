@@ -32,4 +32,6 @@ jobs:
             **/LAUNCH_CHECKLIST.md
             **/VISUAL_EDITOR_GUIDE.md
           dangerous-clean-slate: false
+          dry-run: false
+          log-level: verbose
 
