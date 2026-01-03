@@ -50,7 +50,7 @@ RewriteBase /
     ExpiresByType application/javascript "access plus 1 month"
     ExpiresByType text/javascript "access plus 1 month"
     
-    # HTML
+    # HTML - No caching to ensure updates are visible immediately
     ExpiresByType text/html "access plus 0 seconds"
     
     # Default
@@ -70,6 +70,13 @@ RewriteBase /
     
     # Referrer Policy
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Disable caching for HTML files to ensure updates are visible
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
 </IfModule>
 
 # MIME Types
