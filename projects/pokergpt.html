@@ -19,6 +19,425 @@
     type="font/woff2" />
   <link rel="preload" href="../_next/static/media/fcda245ca6032974-s.p.otf" as="font" crossorigin="" type="font/otf" />
   <link rel="stylesheet" href="../_next/static/css/052620bd47d3101a.css" data-precedence="next" />
+  <style>
+    /* Force static content to be visible - override any hiding */
+    [data-static-visible="true"] {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      visibility: visible !important;
+      display: block !important;
+    }
+    
+    /* Ensure content sections are visible */
+    .w-full.py-12.flex.flex-col.gap-12,
+    .w-full.py-12.flex.flex-col.gap-12 > * {
+      opacity: 1 !important;
+    }
+    
+    /* Protect header and footer */
+    #header-name,
+    #footer-name {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+    
+    /* Project details section */
+    .project-details-section {
+      display: flex;
+      width: 100%;
+      gap: 0px;
+      flex-direction: column;
+    }
+    
+    /* Target flex-col md:flex-row elements for project details */
+    div[class*="flex-col"][class*="md:flex-row"][class*="gap-6"][class*="gap-12"] {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 0px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+    
+    /* W-fill container */
+    .w-fill {
+      width: 100%;
+      max-width: none;
+      gap: 0px;
+    }
+    
+    /* H4 width in project details */
+    .project-details-section h4[class*="opacity-100"],
+    div[class*="flex-col"][class*="md:flex-row"] h4[class*="opacity-100"] {
+      width: fit-content;
+    }
+    
+    /* Flex row gap override for outcomes section */
+    div[class*="flex-row"][class*="gap-6"][class*="md:gap-12"] {
+      gap: 80px;
+      height: 56px;
+    }
+    
+    /* Remove max-width constraint from flex w-full flex-col gap-2 */
+    .flex.w-full.flex-col.gap-2 {
+      max-width: none;
+    }
+
+    /* Glassmorphism Custom Cursor - Same as index.html */
+    * {
+      cursor: none;
+    }
+
+    .glass-cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+    }
+
+    .cursor-dot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1.5px;
+      height: 1.5px;
+      background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.7) 0%,
+        rgba(255, 255, 255, 0.5) 70%,
+        rgba(255, 255, 255, 0.2) 100%
+      );
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 
+        0 0 4px rgba(255, 255, 255, 0.2),
+        0 0 2px rgba(255, 255, 255, 0.3),
+        inset 0 0 2px rgba(255, 255, 255, 0.1);
+      filter: blur(0.2px);
+    }
+
+    .cursor-glass-effect {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 28px;
+      height: 28px;
+      background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(255, 255, 255, 0.015) 50%,
+        rgba(255, 255, 255, 0.008) 80%,
+        rgba(255, 255, 255, 0.003) 95%,
+        rgba(255, 255, 255, 0.001) 100%
+      );
+      backdrop-filter: blur(6px) contrast(1.005) brightness(1.002);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 
+        0 0 0 0.5px rgba(255, 255, 255, 0.05),
+        0 0 12px rgba(255, 255, 255, 0.08),
+        0 0 24px rgba(255, 255, 255, 0.05),
+        inset 0 0 12px rgba(255, 255, 255, 0.02);
+      filter: blur(0.1px);
+    }
+
+    .glass-cursor.hover .cursor-glass-effect {
+      width: 38px;
+      height: 38px;
+      background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.025) 40%,
+        rgba(255, 255, 255, 0.015) 70%,
+        rgba(255, 255, 255, 0.008) 90%,
+        rgba(255, 255, 255, 0.003) 100%
+      );
+      backdrop-filter: blur(7px) contrast(1.02) brightness(1.01) saturate(1.01);
+      border: 1.5px solid rgba(255, 255, 255, 0.9);
+      transform: translate(-50%, -50%) scale(1);
+      box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 0 18px rgba(255, 255, 255, 0.12),
+        0 0 36px rgba(255, 255, 255, 0.08),
+        inset 0 0 18px rgba(255, 255, 255, 0.04);
+      filter: blur(0.15px);
+    }
+
+    .glass-cursor.hover .cursor-dot {
+      width: 2px;
+      height: 2px;
+      background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.85) 0%,
+        rgba(255, 255, 255, 0.65) 60%,
+        rgba(255, 255, 255, 0.3) 100%
+      );
+      box-shadow: 
+        0 0 6px rgba(255, 255, 255, 0.4),
+        0 0 3px rgba(255, 255, 255, 0.5),
+        inset 0 0 3px rgba(255, 255, 255, 0.2);
+      filter: blur(0.2px);
+    }
+
+    .glass-cursor.click .cursor-glass-effect {
+      width: 48px;
+      height: 48px;
+      background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.03) 30%,
+        rgba(255, 255, 255, 0.015) 70%,
+        rgba(255, 255, 255, 0.008) 90%,
+        rgba(255, 255, 255, 0.003) 100%
+      );
+      backdrop-filter: blur(8px) contrast(1.03) brightness(1.015);
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      animation: waterRipple 0.4s ease-out;
+      transform: translate(-50%, -50%) scale(1);
+      box-shadow: 
+        0 0 0 1.5px rgba(255, 255, 255, 0.15),
+        0 0 24px rgba(255, 255, 255, 0.2),
+        0 0 48px rgba(255, 255, 255, 0.15);
+      filter: blur(0.15px);
+    }
+
+    @keyframes waterRipple {
+      0% {
+        width: 48px;
+        height: 48px;
+        background: radial-gradient(
+          circle at center,
+          rgba(255, 255, 255, 0.06) 0%,
+          rgba(255, 255, 255, 0.03) 30%,
+          rgba(255, 255, 255, 0.015) 70%,
+          rgba(255, 255, 255, 0.008) 90%,
+          rgba(255, 255, 255, 0.003) 100%
+        );
+        border: 2px solid rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px) contrast(1.03) brightness(1.015);
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 
+          0 0 0 1.5px rgba(255, 255, 255, 0.15),
+          0 0 24px rgba(255, 255, 255, 0.2),
+          0 0 48px rgba(255, 255, 255, 0.15);
+        filter: blur(0.15px);
+      }
+      50% {
+        width: 56px;
+        height: 56px;
+        background: radial-gradient(
+          circle at center,
+          rgba(255, 255, 255, 0.05) 0%,
+          rgba(255, 255, 255, 0.025) 40%,
+          rgba(255, 255, 255, 0.012) 75%,
+          rgba(255, 255, 255, 0.006) 90%,
+          rgba(255, 255, 255, 0.002) 100%
+        );
+        border: 1.5px solid rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(9px) contrast(1.04) brightness(1.02);
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 
+          0 0 0 1px rgba(255, 255, 255, 0.12),
+          0 0 18px rgba(255, 255, 255, 0.15),
+          0 0 36px rgba(255, 255, 255, 0.12);
+        filter: blur(0.15px);
+      }
+      100% {
+        width: 64px;
+        height: 64px;
+        opacity: 0;
+        background: radial-gradient(
+          circle at center,
+          rgba(255, 255, 255, 0.03) 0%,
+          rgba(255, 255, 255, 0.015) 50%,
+          rgba(255, 255, 255, 0.008) 80%,
+          rgba(255, 255, 255, 0.003) 95%,
+          rgba(255, 255, 255, 0.001) 100%
+        );
+        border: 0.5px solid rgba(255, 255, 255, 0.35);
+        backdrop-filter: blur(10px) contrast(1.02) brightness(1.01);
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 
+          0 0 0 0.5px rgba(255, 255, 255, 0.08),
+          0 0 12px rgba(255, 255, 255, 0.1),
+          0 0 24px rgba(255, 255, 255, 0.08);
+        filter: blur(0.15px);
+      }
+    }
+
+    .glass-cursor.hidden {
+      opacity: 0;
+    }
+
+    body:not(.dark-mode) .cursor-dot {
+      width: 1.5px;
+      height: 1.5px;
+      background: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.35) 70%,
+        rgba(0, 0, 0, 0.15) 100%
+      );
+      box-shadow: 
+        0 0 4px rgba(0, 0, 0, 0.15),
+        0 0 2px rgba(0, 0, 0, 0.2),
+        inset 0 0 2px rgba(0, 0, 0, 0.08);
+    }
+
+    body:not(.dark-mode) .cursor-glass-effect {
+      width: 28px;
+      height: 28px;
+      background: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 0.025) 0%,
+        rgba(0, 0, 0, 0.012) 50%,
+        rgba(0, 0, 0, 0.006) 80%,
+        rgba(0, 0, 0, 0.003) 95%,
+        rgba(0, 0, 0, 0.001) 100%
+      );
+      border: 0.5px solid rgba(128, 128, 128, 0.25);
+      box-shadow: 
+        0 0 0 0.5px rgba(0, 0, 0, 0.02),
+        0 0 12px rgba(0, 0, 0, 0.04),
+        0 0 24px rgba(0, 0, 0, 0.02),
+        inset 0 0 12px rgba(0, 0, 0, 0.008);
+    }
+
+    body:not(.dark-mode) .glass-cursor.hover .cursor-glass-effect {
+      width: 38px;
+      height: 38px;
+      background: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 0.04) 0%,
+        rgba(0, 0, 0, 0.02) 40%,
+        rgba(0, 0, 0, 0.012) 70%,
+        rgba(0, 0, 0, 0.006) 90%,
+        rgba(0, 0, 0, 0.002) 100%
+      );
+      border: 0.75px solid rgba(128, 128, 128, 0.35);
+      box-shadow: 
+        0 0 0 1px rgba(0, 0, 0, 0.03),
+        0 0 18px rgba(0, 0, 0, 0.04),
+        0 0 36px rgba(0, 0, 0, 0.03),
+        inset 0 0 18px rgba(0, 0, 0, 0.01);
+    }
+
+    body:not(.dark-mode) .glass-cursor.hover .cursor-dot {
+      width: 2px;
+      height: 2px;
+      background: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 0.6) 0%,
+        rgba(0, 0, 0, 0.4) 60%,
+        rgba(0, 0, 0, 0.2) 100%
+      );
+      box-shadow: 
+        0 0 6px rgba(0, 0, 0, 0.2),
+        0 0 3px rgba(0, 0, 0, 0.25),
+        inset 0 0 3px rgba(0, 0, 0, 0.1);
+    }
+
+    body:not(.dark-mode) .glass-cursor.click .cursor-glass-effect {
+      width: 48px;
+      height: 48px;
+      background: radial-gradient(
+        circle at center,
+        rgba(0, 0, 0, 0.05) 0%,
+        rgba(0, 0, 0, 0.025) 30%,
+        rgba(0, 0, 0, 0.012) 70%,
+        rgba(0, 0, 0, 0.006) 90%,
+        rgba(0, 0, 0, 0.002) 100%
+      );
+      border: 1px solid rgba(128, 128, 128, 0.4);
+      box-shadow: 
+        0 0 0 1.5px rgba(0, 0, 0, 0.05),
+        0 0 24px rgba(0, 0, 0, 0.06),
+        0 0 48px rgba(0, 0, 0, 0.05);
+      animation: waterRippleLight 0.4s ease-out;
+    }
+
+    @keyframes waterRippleLight {
+      0% {
+        width: 48px;
+        height: 48px;
+        background: radial-gradient(
+          circle at center,
+          rgba(0, 0, 0, 0.05) 0%,
+          rgba(0, 0, 0, 0.025) 30%,
+          rgba(0, 0, 0, 0.012) 70%,
+          rgba(0, 0, 0, 0.006) 90%,
+          rgba(0, 0, 0, 0.002) 100%
+        );
+        border: 1px solid rgba(128, 128, 128, 0.4);
+        backdrop-filter: blur(8px) contrast(1.03) brightness(1.015);
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 
+          0 0 0 1.5px rgba(0, 0, 0, 0.05),
+          0 0 24px rgba(0, 0, 0, 0.06),
+          0 0 48px rgba(0, 0, 0, 0.05);
+        filter: blur(0.15px);
+      }
+      50% {
+        width: 56px;
+        height: 56px;
+        background: radial-gradient(
+          circle at center,
+          rgba(0, 0, 0, 0.04) 0%,
+          rgba(0, 0, 0, 0.02) 40%,
+          rgba(0, 0, 0, 0.01) 75%,
+          rgba(0, 0, 0, 0.005) 90%,
+          rgba(0, 0, 0, 0.002) 100%
+        );
+        border: 0.75px solid rgba(128, 128, 128, 0.35);
+        backdrop-filter: blur(9px) contrast(1.04) brightness(1.02);
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 
+          0 0 0 1px rgba(0, 0, 0, 0.04),
+          0 0 18px rgba(0, 0, 0, 0.05),
+          0 0 36px rgba(0, 0, 0, 0.04);
+        filter: blur(0.15px);
+      }
+      100% {
+        width: 64px;
+        height: 64px;
+        opacity: 0;
+        background: radial-gradient(
+          circle at center,
+          rgba(0, 0, 0, 0.03) 0%,
+          rgba(0, 0, 0, 0.015) 50%,
+          rgba(0, 0, 0, 0.008) 80%,
+          rgba(0, 0, 0, 0.003) 95%,
+          rgba(0, 0, 0, 0.001) 100%
+        );
+        border: 0.5px solid rgba(128, 128, 128, 0.25);
+        backdrop-filter: blur(10px) contrast(1.02) brightness(1.01);
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 
+          0 0 0 0.5px rgba(0, 0, 0, 0.03),
+          0 0 12px rgba(0, 0, 0, 0.04),
+          0 0 24px rgba(0, 0, 0, 0.03);
+        filter: blur(0.15px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .glass-cursor,
+      .cursor-dot,
+      .cursor-glass-effect {
+        transition: none;
+        animation: none;
+      }
+    }
+  </style>
   <link rel="preload" as="script" fetchPriority="low" href="../_next/static/chunks/webpack-ff985a36187696f5.js" />
   <script src="../_next/static/chunks/4bd1b696-ad45a0d75f1c7ab5.js" async=""></script>
   <script src="../_next/static/chunks/684-a9943a84a467106b.js" async=""></script>
@@ -34,57 +453,52 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="../manifest.json" />
-  <title>PokerGPT | Rachel Chen</title>
+  <title>PokerGPT | Aravindh Maya</title>
   <meta name="description" content="The world&#x27;s first AI poker coach" />
-  <meta name="author" content="Rachel Chen" />
+  <meta name="author" content="Aravindh Maya" />
   <meta name="keywords"
-    content="product design,software engineering,portfolio,Rachel Chen,UX design,frontend development" />
-  <meta name="creator" content="Rachel Chen" />
-  <meta name="publisher" content="Rachel Chen" />
+    content="product design,software engineering,portfolio,Aravindh Maya,UX design,frontend development" />
+  <meta name="creator" content="Aravindh Maya" />
+  <meta name="publisher" content="Aravindh Maya" />
   <meta name="robots" content="index, follow" />
   <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
   <meta name="google-site-verification" content="your-google-verification-code" />
-  <meta property="og:title" content="Rachel Chen | Product Designer &amp; Engineer" />
-  <meta property="og:description" content="I&#x27;m Rachel and I love bringing ideas to life with design + code." />
-  <meta property="og:url" content="https://rachelchen.tech" />
-  <meta property="og:site_name" content="Rachel Rachel Chen | Product Designer &amp; Engineer&#x27;" />
+  <meta property="og:title" content="Aravindh Maya | Product Designer &amp; Engineer" />
+  <meta property="og:description" content="I&#x27;m Aravindh, a product builder who loves bringing ideas to life with design + code." />
+  <meta property="og:url" content="https://aravindhmaya.com" />
+  <meta property="og:site_name" content="Aravindh Maya | Product Designer &amp; Engineer&#x27;" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:image" content="https://rachel-chen-portfolio.vercel.app/og-image.png" />
+  <meta property="og:image" content="https://aravindhmaya.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Rachel Chen - Product Designer &amp; Engineer" />
+  <meta property="og:image:alt" content="Aravindh Maya - Product Designer &amp; Engineer" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Rachel Chen | Product Designer &amp; Engineer" />
+  <meta name="twitter:title" content="Aravindh Maya | Product Designer &amp; Engineer" />
   <meta name="twitter:description"
-    content="I&#x27;m Rachel, a product builder who loves bringing ideas to life with design + code." />
-  <meta name="twitter:image" content="https://rachel-chen-portfolio.vercel.app/og-image.png" />
+    content="I&#x27;m Aravindh, a product builder who loves bringing ideas to life with design + code." />
+  <meta name="twitter:image" content="https://aravindhmaya.com/og-image.png" />
   <meta name="twitter:image:width" content="1200" />
   <meta name="twitter:image:height" content="630" />
-  <meta name="twitter:image:alt" content="Rachel Chen - Product Designer &amp; Engineer" />
-  <link rel="icon" href="../favicon.ico" type="image/x-icon" sizes="16x16" />
-  <link rel="icon" href="../favicon.ico" sizes="16x16" type="image/x-icon" />
-  <link rel="icon" href="../favicon.ico" sizes="32x32" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="../favicon.ico" sizes="180x180" type="image/png" />
+  <meta name="twitter:image:alt" content="Aravindh Maya - Product Designer &amp; Engineer" />
+  <link rel="icon" href="../favicon.svg?t=1" type="image/svg+xml" />
+  <link rel="alternate icon" href="../favicon.ico?t=1" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="../favicon.ico?t=1" sizes="180x180" />
   <script>document.querySelectorAll('body link[rel="icon"], body link[rel="apple-touch-icon"]').forEach(el => document.head.appendChild(el))</script>
   <script src="../_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script>
 </head>
 
 <body
   class="__variable_5cfdac __variable_9a8899 __variable_25c604 __variable_293043 __variable_ee3f19 antialiased custom-cursor custom-pointer font-[family-name:var(--font-geist-sans)]">
-  <div class="fixed pointer-events-none z-[9999] flex items-center"
-    style="left:0px;top:0px;transform:translateY(-50%);opacity:0;transition:opacity 0.3s ease-out, transform 0.1s ease-out;visibility:hidden">
-    <div
-      style="display:flex;align-items:center;background:var(--primary);color:#fff;border-radius:999px;width:16px;height:16px;font-weight:500;font-size:0.875rem;padding:0;user-select:none;pointer-events:none;white-space:nowrap;box-shadow:none;transition:width 0.2s ease-out, height 0.2s ease-out, border-radius 0.2s ease-out, gap 0.2s ease-out, box-shadow 0.2s ease-out, color 0.2s ease-out, transform 0.1s ease-out, padding 0.2s ease-out, opacity 0.2s ease-out;justify-content:flex-start;transform:scale(1);opacity:1">
-      <span
-        style="opacity:0;transition:opacity 0.2s ease-out, margin 0.2s ease-out;display:flex;align-items:center;margin-right:0;width:16px;overflow:hidden"></span><span
-        style="opacity:0;transition:opacity 0.2s ease-out, width 0.2s ease-out;width:0;overflow:hidden;white-space:nowrap"
-        class="font-mono"></span></div>
+  <!-- Glassmorphism Cursor -->
+  <div id="glassCursor" class="glass-cursor">
+    <div class="cursor-dot"></div>
+    <div class="cursor-glass-effect"></div>
   </div>
   <div class="flex items-center justify-center p-6 border-b border-foreground/10 relative">
     <div class="flex items-center justify-between w-full max-w-[1600px]"><a
         class="flex flex-col sm:flex-row sm:inline-flex sm:gap-4 gap-0 cursor-pointer" href="../index.html">
-        <h4 class="font-bold !opacity-100 !text-foreground">Rachel Chen</h4>
+        <h4 class="font-bold !opacity-100 !text-foreground">Aravindh Maya</h4>
         <h4 class="flex items-center gap-0">Product Designer + Engineer</h4>
       </a>
       <div class="md:flex hidden gap-8"><a data-cursor="pointer" class="w-full text-left" href="../index.html">
@@ -93,7 +507,7 @@
           <h4 class="hover:!text-foreground hover:cursor-pointer">Fun</h4>
         </a><a data-cursor="pointer" class="w-full text-left" href="../about.html">
           <h4 class="hover:!text-foreground hover:cursor-pointer">About</h4>
-        </a><a href="../Rachel_Chen_Resume.pdf" target="_blank" rel="noopener noreferrer" class="hover:!opacity-100 ">
+        </a><a href="../Aravindh_Maya_Resume.pdf" target="_blank" rel="noopener noreferrer" class="hover:!opacity-100 ">
           <h4 class="false cursor-pointer !opacity-100 hover:!text-foreground">Resume</h4>
         </a></div>
       <div class="md:hidden flex gap-4">
@@ -114,7 +528,7 @@
               <h4 class="hover:!text-foreground hover:cursor-pointer">Fun</h4>
             </a><a data-cursor="pointer" class="w-full text-left" href="../about.html">
               <h4 class="hover:!text-foreground hover:cursor-pointer">About</h4>
-            </a><a href="../Rachel_Chen_Resume.pdf" target="_blank" rel="noopener noreferrer"
+            </a><a href="../Aravindh_Maya_Resume.pdf" target="_blank" rel="noopener noreferrer"
               class="hover:!opacity-100 ">
               <h4 class="false cursor-pointer !opacity-100 hover:!text-foreground">Resume</h4>
             </a></div>
@@ -230,14 +644,14 @@
           <h4 class="font-bold flex items-center gap-2">Designed + Coded with<!-- --> </h4>
         </span><span><img alt="heart" loading="lazy" width="24" height="24" decoding="async" data-nimg="1"
             style="color:transparent" src="../home/heart.svg" /></span><span>
-          <h4>by Rachel Chen</h4>
+          <h4>by Aravindh Maya</h4>
         </span></div>
-      <div class="flex flex-col md:flex-row gap-3 md:gap-8"><a href="https://www.linkedin.com/in/rachel-jiayi-chen/"
+      <div class="flex flex-col md:flex-row gap-3 md:gap-8"><a href="https://www.linkedin.com/in/aravindmaya/"
           target="_blank" rel="noopener noreferrer" class="hover:!opacity-100 ">
           <h4 class="false cursor-pointer !opacity-100 hover:!text-foreground">Linkedin</h4>
         </a><button data-cursor="email"
           class="hover:!opacity-100 opacity-60 text-foreground font-mono font-medium text-start">EMAIL</button><a
-          href="https://x.com/racheljychen" target="_blank" rel="noopener noreferrer" class="hover:!opacity-100 ">
+          href="https://x.com/aravindhmaya" target="_blank" rel="noopener noreferrer" class="hover:!opacity-100 ">
           <h4 class="false cursor-pointer !opacity-100 hover:!text-foreground">X</h4>
         </a><a href="https://github.com/rachelchxn" target="_blank" rel="noopener noreferrer"
           class="hover:!opacity-100 ">
@@ -247,7 +661,80 @@
           <h4 class="false cursor-pointer !opacity-100 hover:!text-foreground">Devpost</h4>
         </a></div>
     </div>
-  </footer><!--$!--><template data-dgst="BAILOUT_TO_CLIENT_SIDE_RENDERING"></template><!--/$-->
+  </footer>
+
+  <!-- Glassmorphism Cursor Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cursor = document.getElementById('glassCursor');
+      
+      if (!cursor) return;
+      
+      // Hide default cursor
+      document.body.style.cursor = 'none';
+      
+      // Check for reduced motion preference
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      
+      // Mouse movement
+      document.addEventListener('mousemove', function(e) {
+        const x = e.clientX;
+        const y = e.clientY;
+        
+        if (prefersReducedMotion) {
+          cursor.style.left = x + 'px';
+          cursor.style.top = y + 'px';
+        } else {
+          requestAnimationFrame(() => {
+            cursor.style.left = x + 'px';
+            cursor.style.top = y + 'px';
+          });
+        }
+      });
+      
+      // Show/hide cursor
+      document.addEventListener('mouseenter', () => {
+        cursor.classList.remove('hidden');
+      });
+      
+      document.addEventListener('mouseleave', () => {
+        cursor.classList.add('hidden');
+      });
+      
+      // Click effect
+      document.addEventListener('mousedown', () => {
+        cursor.classList.add('click');
+        setTimeout(() => {
+          cursor.classList.remove('click');
+        }, 600);
+      });
+      
+      // All interactive elements - activate enhanced glassmorphism effect
+      const interactiveElements = document.querySelectorAll(`
+        a, button, [role="button"], input, textarea, select, 
+        .project-link, .nav-item, .refresh-btn, .category-badge,
+        .design-tip-card, .company-logo, .modal-nav-arrow,
+        [data-cursor="pointer"], [data-cursor], .cursor-pointer
+      `);
+      
+      interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+          cursor.classList.add('hover');
+        });
+        
+        element.addEventListener('mouseleave', () => {
+          cursor.classList.remove('hover');
+        });
+      });
+      
+      // Initial position
+      cursor.style.left = '50%';
+      cursor.style.top = '50%';
+      
+      console.log('✨ Glassmorphism cursor activated');
+    });
+  </script>
+<!--$!--><template data-dgst="BAILOUT_TO_CLIENT_SIDE_RENDERING"></template><!--/$-->
   <script src="../_next/static/chunks/webpack-ff985a36187696f5.js" async=""></script>
   <script>(self.__next_f = self.__next_f || []).push([0])</script>
   <script>self.__next_f.push([1, "1:\"$Sreact.fragment\"\n2:I[5617,[\"766\",\"static/chunks/766-08dda1e010e821f6.js\",\"874\",\"static/chunks/874-23bb25126bb99fa5.js\",\"827\",\"static/chunks/827-ae9952c1ad22ec9a.js\",\"177\",\"static/chunks/app/layout-23fc7aca66f01e26.js\"],\"default\"]\n3:I[3424,[\"766\",\"static/chunks/766-08dda1e010e821f6.js\",\"874\",\"static/chunks/874-23bb25126bb99fa5.js\",\"827\",\"static/chunks/827-ae9952c1ad22ec9a.js\",\"177\",\"static/chunks/app/layout-23fc7aca66f01e26.js\"],\"default\"]\n4:I[2504,[\"766\",\"static/chunks/766-08dda1e010e821f6.js\",\"874\",\"static/chunks/874-23bb25126bb99fa5.js\",\"827\",\"static/chunks/827-ae9952c1ad22ec9a.js\",\"177\",\"static/chunks/app/layout-23fc7aca66f01e26.js\"],\"default\"]\n5:I[7555,[],\"\"]\n6:I[1295,[],\"\"]\n7:I[5922,[\"766\",\"static/chunks/766-08dda1e010e821f6.js\",\"874\",\"static/chunks/874-23bb25126bb99fa5.js\",\"827\",\"static/chunks/827-ae9952c1ad22ec9a.js\",\"177\",\"static/chunks/app/layout-23fc7aca66f01e26.js\"],\"default\"]\n8:I[3864,[\"766\",\"static/chunks/766-08dda1e010e821f6.js\",\"874\",\"static/chunks/874-23bb25126bb99fa5.js\",\"827\",\"static/chunks/827-ae9952c1ad22ec9a.js\",\"177\",\"static/chunks/app/layout-23fc7aca66f01e26.js\"],\"Analytics\"]\n9:I[9243,[\"766\",\"static/chunks/766-08dda1e010e821f6.js\",\"874\",\"static/chunks/874-23bb25126bb99fa5.js\",\"827\",\"static/chunks/827-ae9952c1ad22ec9a.js\",\"177\",\"static/chunks/app/layout-23fc7aca66f01e26.js\"],\"\"]\nb:I[9665,[],\"MetadataBoundary\"]\nd:I[9665,[],\"OutletBoundary\"]\n10:I[4911,[],\"AsyncMetadataOutlet\"]\n12:I[9665,[],\"ViewportBoundary\"]\n14:I[6614,[],\"\"]\n:HL[\"/_next/static/media/39b0e861c537f507-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/569ce4b8f30dc480-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/93f479601ee12b01-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/993e471824edad3f-s.p.otf\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/otf\"}]\n:HL[\"/_next/static/media/ae9433eb6d16fb7b-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/fcda245ca6032974-s.p.otf\",\"font\",{\"crossOrigin\":\"\",\"t"])</script>
@@ -257,7 +744,7 @@
   <script>self.__next_f.push([1, "a:[\"$\",\"div\",null,{\"className\":\"min-h-screen px-6\",\"children\":[\"$\",\"main\",null,{\"className\":\"grid max-w-[1600px] mx-auto grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-0 md:gap-8\",\"children\":[[\"$\",\"$L18\",null,{\"sections\":[{\"id\":\"overview\",\"title\":\"Overview\",\"content\":[{\"type\":\"h2\",\"content\":\"PokerGPT started with the goal of leveraging AI to provide poker players a low-cost, beginner-friendly and way to improve their skills.\"},{\"type\":\"p\",\"content\":\"There is no convenient and low-cost solution to support beginner to intermediate poker players in their learning. This gap in the market for beginner-friendly, intuitive poker agents, was the starting point for PokerGPT.\"},{\"type\":\"h4\",\"content\":\"Solution\"},{\"type\":\"h2\",\"content\":\"PokerGPT: An AI-powered poker coach providing tailored feedback and analysis.\"},{\"type\":\"image\",\"content\":\"/projects/pokergpt/1-pokergpt-overview.svg\"},{\"type\":\"h4\",\"content\":\"Outcomes\"},{\"type\":\"p\",\"content\":\"PokerGPT is live and has been making waves in the Toronto poker community.\"},{\"type\":\"image\",\"content\":\"/projects/pokergpt/2-outcomes.svg\"},{\"type\":\"divider\",\"content\":\"\"}]},{\"id\":\"initial-observations\",\"title\":\"Initial Observations\",\"content\":[{\"type\":\"h2\",\"content\":\"There is no convenient and low-cost solution to support beginner to intermediate poker players in their learning.\"},{\"type\":\"p\",\"content\":\"Poker solvers are hard to interpret and usually require pros, like coaches, to extract useful insights. Initial discussions with casual to semi-professional poker players and discovery led us to uncover 2 key pain points:\"},{\"type\":\"h4\",\"content\":\"Pain Points\"},{\"type\":\"bullet-list\",\"content\":[\"1. Solvers are hard to use\",\"Poker solvers are hard to interpret and usually require pros, like coaches, to extract useful insights.\",\"2. Coaching is not accessible\",\"Poker coaching is expensive and generally not accessible or convenient.\"]},{\"type\":\"quote\",\"content\":\"Key Insight: Some players are prompting ChatGPT in a way to get hand analysis, pot odds, game feedback, and playing strategies!\"},{\"type\":\"p\",\"content\":\"These pain points were not exactly surprising to us since we knew what the market looked like at that moment: crazy complex poker solvers, courses and bootcamps that are time and money-intensive, and coaches that cost an arm and a leg. However, these user insights validated our solution and unique position in the market, as well as validated large language models as a tool for poker learning.\"}]},{\"id\":\"market-research\",\"title\":\"Market Research\",\"content\":[{\"type\":\"image\",\"content\":\"/projects/pokergpt/3-market-position.svg\"},{\"type\":\"h4\",\"content\":\"Poker Solvers\"},{\"type\":\"p\",\"content\":\"Platforms like GTO Wizard, Deepsolver, and more recently, Ruse AI provide interfaces to complex mathematical models to calculate hand analysis, pot odds, and Game Theory Optimal (GTO) strategies. These tools are robust but often require a solid understanding of poker theory to interpret and apply effectively, making them less suitable for beginners or intermediate players.\"},{\"type\":\"h4\",\"content\":\"Courses \u0026 Bootcamps\"},{\"type\":\"p\",\"content\":\"Poker bootcamps and online courses provide structured learning for players at various stages of their poker journey. However, they are also costly and require a lot of time commitment, which is often not what beginner/casual players are looking for.\"},{\"type\":\"h4\",\"content\":\"Personal Coaching\"},{\"type\":\"p\",\"content\":\"One-on-one personalized coaching can be highly effective in improving poker skills. however, it often requires a significant time investment for sessions, homework, and study, and a huge cost investment as coaches generally go for hundreds of dollars per hour of coaching.\"},{\"type\":\"p\",\"content\":\"\"},{\"type\":\"p\",\"content\":\"\"},{\"type\":\"p\",\"content\":\"And from there, we had a clear idea of the problem were solving and the market gap we were filling.\"},{\"type\":\"image\",\"content\":\"/projects/pokergpt/4-hmw.svg\"}]},{\"id\":\"becoming-my-users\",\"title\":\"Becoming My Users\",\"content\":[{\"type\":\"h2\",\"content\":\"I didn't know how to play poker... so I learned!\"},{\"type\":\"p\",\"content\":\"Starting with Youtube videos, playing online, and I started to learn the basics and eventually threw in (and lost) a few hundred dollars.\"},{\"type\":\"image\",\"content\":\"/projects/pokergpt/5-learning.svg\"}]},{\"id\":\"competitor-research\",\"title\":\"Competitor Research\",\"content\":[{\"type\":\"h2\",\"content\":\"Competitor interfaces are highly complex and not beginner-friendly\"},{\"type\":\"image\",\"content\":\"/projects/pokergpt/6-competitors.svg\"},{\"type\":\"p\",\"content\":\"The current poker solvers on the market are highly complex and mathematical - great for the serious poker people, but not for those who want a way to casually learn and improve their performance.\"}]},{\"id\":\"solution\",\"title\":\"Solution\",\"content\":[{\"type\":\"h2\",\"content\":\"What if we moved towards a familiar, chat-like interface for poker analytics and strategies?\"},{\"type\":\"p\",\"content\":\"And to answer that question, the wireframing began!\"},{\"type\":\"image\",\"content\":\"/projects/pokergpt/7-mvp.svg\"},{\"type\":\"p\",\"content\":\"The concept of an AI chatbot for poker solving had already been validated by our initial user research, but this also led us to another problem...\"},{\"type\":\"p\",\"content\":\"\"},{\"type\":\"p\",\"content\":\"\"},{\"type\":\"h2\",\"content\":\"How might we provide a better poker learning experience than ChatGPT?\"},{\"type\":\"p\",\"content\":\"I started by exploring a design for a more structured and visual interface tailored to poker analysis responses.\"},{\"type\":\"image\",\"content\":\"/projects/pokergpt/8-chatgpt-interface.svg\"},{\"type\":\"p\",\"content\":\"Next, our team looked into streamlining the flow of prompting with a built-in hand history template that makes it easy to copy over past games and suggested prompts to get the conversations started.\"},{\"type\":\"image\",\"content\":\"/projects/pokergpt/9-feature-exploration.svg\"}]},{\"id\":\"final-designs\",\"title\":\"Final Designs\",\"content\":[{\"type\":\"h2\",\"content\":\"We prioritized a simple, familiar, and clean interface.\"},{\"type\":\"p\",\"content\":\"Our main interface is a chat with structured responses and the ability to set game formations. This offers a familiar chat-style experience with poker-tailored features.\"},{\"type\":\"image\",\"content\":\"/projects/pokergpt/10-mockups.svg\"},{\"type\":\"demo\",\"content\":\"/projects/pokergpt/formation.mp4\",\"caption\":\"Set Game Formation with an intuitive modal\"},{\"type\":\"demo\",\"content\":\"/projects/pokergpt/chat.mp4\",\"caption\":\"Ask poker questions and get structured responses\"},{\"type\":\"demo\",\"content\":\"/projects/pokergpt/handhistory.mp4\",\"caption\":\"Easily input hand history with a template\"}]},{\"id\":\"reflection\",\"title\":\"Reflection\",\"content\":[{\"type\":\"h2\",\"content\":\"What I learned\"},{\"type\":\"bullet-list\",\"content\":[\"Keep cutting it down the to MLP.\",\"We were laser-focused on shipping a Minimum Lovable Product, and that's what allowed us to shi[] fast and quickly gather feedback.\",\"User research is not enough.\",\"Observing user stories and conducting interviews is not enough. Espcecially for a niche market, you need to become your users to truly empathize with their needs.\"]}]}]}],[\"$\",\"$L19\",null,{\"project\":{\"heading\":\"The world's first AI poker coach\",\"title\":\"PokerGPT\",\"tag\":\"Shipped 2023\",\"image\":\"/projects/pokergpt.svg\",\"gif\":\"/projects/pokergpt.gif\",\"slug\":\"pokergpt\",\"role\":\"Product Designer \u0026 Frontend Engineer\",\"timeline\":\"May - August 2023\",\"team\":[\"1 PM\",\"2 Engineers\",\"1 Designer (me!)\"],\"skills\":[\"Product Design\",\"Frontend Engineering\",\"User Research\"]}}],[\"$\",\"div\",null,{\"className\":\"p-6 py-12\"}]]}]}]\n"])</script>
   <script>self.__next_f.push([1, "f:null\n"])</script>
   <script>self.__next_f.push([1, "13:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\ne:null\n"])</script>
-  <script>self.__next_f.push([1, "17:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"PokerGPT | Rachel Chen\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"The world's first AI poker coach\"}],[\"$\",\"meta\",\"2\",{\"name\":\"author\",\"content\":\"Rachel Chen\"}],[\"$\",\"meta\",\"3\",{\"name\":\"keywords\",\"content\":\"product design,software engineering,portfolio,Rachel Chen,UX design,frontend development\"}],[\"$\",\"meta\",\"4\",{\"name\":\"creator\",\"content\":\"Rachel Chen\"}],[\"$\",\"meta\",\"5\",{\"name\":\"publisher\",\"content\":\"Rachel Chen\"}],[\"$\",\"meta\",\"6\",{\"name\":\"robots\",\"content\":\"index, follow\"}],[\"$\",\"meta\",\"7\",{\"name\":\"googlebot\",\"content\":\"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1\"}],[\"$\",\"meta\",\"8\",{\"name\":\"google-site-verification\",\"content\":\"your-google-verification-code\"}],[\"$\",\"meta\",\"9\",{\"property\":\"og:title\",\"content\":\"Rachel Chen | Product Designer \u0026 Engineer\"}],[\"$\",\"meta\",\"10\",{\"property\":\"og:description\",\"content\":\"I'm Rachel and I love bringing ideas to life with design + code.\"}],[\"$\",\"meta\",\"11\",{\"property\":\"og:url\",\"content\":\"https://rachelchen.tech\"}],[\"$\",\"meta\",\"12\",{\"property\":\"og:site_name\",\"content\":\"Rachel Rachel Chen | Product Designer \u0026 Engineer'\"}],[\"$\",\"meta\",\"13\",{\"property\":\"og:locale\",\"content\":\"en_US\"}],[\"$\",\"meta\",\"14\",{\"property\":\"og:image\",\"content\":\"https://rachel-chen-portfolio.vercel.app/og-image.png\"}],[\"$\",\"meta\",\"15\",{\"property\":\"og:image:width\",\"content\":\"1200\"}],[\"$\",\"meta\",\"16\",{\"property\":\"og:image:height\",\"content\":\"630\"}],[\"$\",\"meta\",\"17\",{\"property\":\"og:image:alt\",\"content\":\"Rachel Chen - Product Designer \u0026 Engineer\"}],[\"$\",\"meta\",\"18\",{\"property\":\"og:type\",\"content\":\"website\"}],[\"$\",\"meta\",\"19\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"20\",{\"name\":\"twitter:title\",\"content\":\"Rachel Chen | Product Designer \u0026 Engineer\"}],[\"$\",\"meta\",\"21\",{\"name\":\"twitter:description\",\"content\":\"I'm Rachel, a product builder who loves bringing ideas to life with design + code.\"}],[\"$\",\"meta\",\"22\",{\"name\":\"twitter:image\",\"content\":\"https://rachel-chen-portfolio.vercel.app/og-image.png\"}],[\"$\",\"meta\",\"23\",{\"name\":\"twitter:image:width\",\"content\":\"1200\"}],[\"$\",\"meta\",\"24\",{\"name\":\"twitter:image:height\",\"content\":\"630\"}],[\"$\",\"meta\",\"25\",{\"name\":\"twitter:image:alt\",\"content\":\"Rachel Chen - Product Designer \u0026 Engineer\"}],[\"$\",\"link\",\"26\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"type\":\"image/x-icon\",\"sizes\":\"16x16\"}],[\"$\",\"link\",\"27\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"sizes\":\"16x16\",\"type\":\"image/x-icon\"}],[\"$\",\"link\",\"28\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"sizes\":\"32x32\",\"type\":\"image/x-icon\"}],[\"$\",\"link\",\"29\",{\"rel\":\"apple-touch-icon\",\"href\":\"/favicon.ico\",\"sizes\":\"180x180\",\"type\":\"image/png\"}]],\"error\":null,\"digest\":\"$undefined\"}\n"])</script>
+  <script>self.__next_f.push([1, "17:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"PokerGPT | Aravindh Maya\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"The world's first AI poker coach\"}],[\"$\",\"meta\",\"2\",{\"name\":\"author\",\"content\":\"Aravindh Maya\"}],[\"$\",\"meta\",\"3\",{\"name\":\"keywords\",\"content\":\"product design,software engineering,portfolio,Aravindh Maya,UX design,frontend development\"}],[\"$\",\"meta\",\"4\",{\"name\":\"creator\",\"content\":\"Aravindh Maya\"}],[\"$\",\"meta\",\"5\",{\"name\":\"publisher\",\"content\":\"Aravindh Maya\"}],[\"$\",\"meta\",\"6\",{\"name\":\"robots\",\"content\":\"index, follow\"}],[\"$\",\"meta\",\"7\",{\"name\":\"googlebot\",\"content\":\"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1\"}],[\"$\",\"meta\",\"8\",{\"name\":\"google-site-verification\",\"content\":\"your-google-verification-code\"}],[\"$\",\"meta\",\"9\",{\"property\":\"og:title\",\"content\":\"Aravindh Maya | Product Designer \u0026 Engineer\"}],[\"$\",\"meta\",\"10\",{\"property\":\"og:description\",\"content\":\"I'm Rachel and I love bringing ideas to life with design + code.\"}],[\"$\",\"meta\",\"11\",{\"property\":\"og:url\",\"content\":\"https://rachelchen.tech\"}],[\"$\",\"meta\",\"12\",{\"property\":\"og:site_name\",\"content\":\"Rachel Aravindh Maya | Product Designer \u0026 Engineer'\"}],[\"$\",\"meta\",\"13\",{\"property\":\"og:locale\",\"content\":\"en_US\"}],[\"$\",\"meta\",\"14\",{\"property\":\"og:image\",\"content\":\"https://rachel-chen-portfolio.vercel.app/og-image.png\"}],[\"$\",\"meta\",\"15\",{\"property\":\"og:image:width\",\"content\":\"1200\"}],[\"$\",\"meta\",\"16\",{\"property\":\"og:image:height\",\"content\":\"630\"}],[\"$\",\"meta\",\"17\",{\"property\":\"og:image:alt\",\"content\":\"Aravindh Maya - Product Designer \u0026 Engineer\"}],[\"$\",\"meta\",\"18\",{\"property\":\"og:type\",\"content\":\"website\"}],[\"$\",\"meta\",\"19\",{\"name\":\"twitter:card\",\"content\":\"summary_large_image\"}],[\"$\",\"meta\",\"20\",{\"name\":\"twitter:title\",\"content\":\"Aravindh Maya | Product Designer \u0026 Engineer\"}],[\"$\",\"meta\",\"21\",{\"name\":\"twitter:description\",\"content\":\"I'm Rachel, a product builder who loves bringing ideas to life with design + code.\"}],[\"$\",\"meta\",\"22\",{\"name\":\"twitter:image\",\"content\":\"https://rachel-chen-portfolio.vercel.app/og-image.png\"}],[\"$\",\"meta\",\"23\",{\"name\":\"twitter:image:width\",\"content\":\"1200\"}],[\"$\",\"meta\",\"24\",{\"name\":\"twitter:image:height\",\"content\":\"630\"}],[\"$\",\"meta\",\"25\",{\"name\":\"twitter:image:alt\",\"content\":\"Aravindh Maya - Product Designer \u0026 Engineer\"}],[\"$\",\"link\",\"26\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"type\":\"image/x-icon\",\"sizes\":\"16x16\"}],[\"$\",\"link\",\"27\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"sizes\":\"16x16\",\"type\":\"image/x-icon\"}],[\"$\",\"link\",\"28\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"sizes\":\"32x32\",\"type\":\"image/x-icon\"}],[\"$\",\"link\",\"29\",{\"rel\":\"apple-touch-icon\",\"href\":\"/favicon.ico\",\"sizes\":\"180x180\",\"type\":\"image/png\"}]],\"error\":null,\"digest\":\"$undefined\"}\n"])</script>
   <script>self.__next_f.push([1, "11:{\"metadata\":\"$17:metadata\",\"error\":null,\"digest\":\"$undefined\"}\n"])</script>
 </body>
 

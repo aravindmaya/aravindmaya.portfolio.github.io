@@ -1,4 +1,4 @@
-const CACHE_NAME = "maya-chen-portfolio-v1";
+const CACHE_NAME = "aravindh-maya-portfolio-v2";
 const urlsToCache = [
   "/",
   "/index.html",
@@ -35,6 +35,23 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+  const url = new URL(event.request.url);
+  
+  // Always fetch HTML files from network first (no cache for HTML)
+  if (url.pathname.endsWith('.html') || event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request).then((response) => {
+        // Return fresh HTML from network
+        return response;
+      }).catch(() => {
+        // Fallback to cache only if network fails
+        return caches.match(event.request);
+      })
+    );
+    return;
+  }
+  
+  // For other assets, use cache-first strategy
   event.respondWith(
     caches.match(event.request).then((response) => {
       // Return cached version or fetch from network
@@ -44,7 +61,6 @@ self.addEventListener("fetch", (event) => {
       
       // Handle navigation requests
       if (event.request.mode === 'navigate') {
-        const url = new URL(event.request.url);
         const path = url.pathname;
         
         // Try to serve .html files for navigation requests

@@ -29,10 +29,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.json" />
-  <title>Maya Chen | Product Designer &amp; Engineer</title>
+  <title>Aravindh Maya | Product Designer &amp; Engineer</title>
   <meta name="description" content="I&#x27;m Maya, a product builder who loves bringing ideas to life with design + code." />
   <meta name="author" content="MAYA" />
-  <meta name="keywords" content="product design,software engineering,portfolio,Maya Chen,UX design,frontend development" />
+  <meta name="keywords" content="product design,software engineering,portfolio,Aravindh Maya,UX design,frontend development" />
   <meta name="creator" content="Aravindh Maya" />
   <meta name="publisher" content="Aravindh Maya" />
   <meta name="robots" content="index, follow" />
@@ -40,18 +40,17 @@
   <meta name="google-site-verification" content="your-google-verification-code" />
   <meta property="og:title" content="Aravindh Maya | Product Designer &amp; Engineer" />
   <meta property="og:description" content="I&#x27;m Maya and I love bringing ideas to life with design + code." />
-  <meta property="og:url" content="https://rachelchen.tech" />
+  <meta property="og:url" content="https://aravindhmaya.com" />
   <meta property="og:site_name" content="Aravindh Maya | Product Designer &amp; Engineer&#x27;" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:image" content="https://rachel-chen-portfolio.vercel.app/og-image.png" />
+  <meta property="og:image" content="https://aravindhmaya.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Aravindh Maya - Product Designer &amp; Engineer" />
   <meta property="og:type" content="website" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16" />
-  <link rel="icon" href="favicon.ico" sizes="16x16" type="image/x-icon" />
-  <link rel="icon" href="favicon.ico" sizes="32x32" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="favicon.ico" sizes="180x180" type="image/png" />
+  <link rel="icon" href="favicon.svg?t=1" type="image/svg+xml" />
+  <link rel="alternate icon" href="favicon.ico?t=1" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="favicon.ico?t=1" sizes="180x180" />
   <script>document.querySelectorAll('body link[rel="icon"], body link[rel="apple-touch-icon"]').forEach(el => document.head.appendChild(el))</script>
   <script src="_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script>
   
@@ -295,6 +294,12 @@
       .responsive-project-title {
         font-size: 1.5rem; /* Desktops (24px) */
       }
+      
+      /* Reduce project title size in fun section for desktop */
+      #fun .responsive-project-title,
+      .fun-projects-grid .responsive-project-title {
+        font-size: 1.125rem; /* Reduced size for fun projects (18px) */
+      }
     }
 
     /* Responsive project subtitles (h4) */
@@ -455,17 +460,17 @@
       background: radial-gradient(
         circle at center,
         rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.004) 30%,
-        rgba(255, 255, 255, 0.012) 70%,
-        rgba(255, 255, 255, 0.025) 90%,
-        rgba(255, 255, 255, 0.008) 100%
+        rgba(255, 255, 255, 0.003) 30%,
+        rgba(255, 255, 255, 0.009) 70%,
+        rgba(255, 255, 255, 0.018) 90%,
+        rgba(255, 255, 255, 0.006) 100%
       );
-      backdrop-filter: blur(15px) contrast(1.04) brightness(1.02) saturate(1.02);
+      backdrop-filter: blur(13px) contrast(1.03) brightness(1.015) saturate(1.015);
       box-shadow: 
-        0 6px 30px rgba(0, 0, 0, 0.12),
-        inset 0 2px 4px rgba(255, 255, 255, 0.08),
-        inset 0 -2px 4px rgba(0, 0, 0, 0.04);
-      transform: translateY(-2px) scale(1.01);
+        0 4px 22px rgba(0, 0, 0, 0.09),
+        inset 0 1px 3px rgba(255, 255, 255, 0.07),
+        inset 0 -1px 3px rgba(0, 0, 0, 0.035);
+      transform: translateY(-1px) scale(1.005);
     }
     @media (prefers-reduced-motion: reduce) {
       .design-tip-card, .design-tip-card:hover {
@@ -474,6 +479,200 @@
       }
     }
     .design-tip-section h2 { color: var(--primary); }
+    
+    /* Neumorphic Toggle Switch */
+    .neumorphic-toggle {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      outline: none;
+      flex-shrink: 0;
+    }
+    
+    .neumorphic-toggle:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 2px;
+      border-radius: 12px;
+    }
+    
+    .toggle-track {
+      position: relative;
+      width: 52px;
+      height: 28px;
+      background: #f0f0f0;
+      border-radius: 14px;
+      box-shadow: 
+        inset 4px 4px 8px rgba(0, 0, 0, 0.1),
+        inset -4px -4px 8px rgba(255, 255, 255, 0.9);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .toggle-handle {
+      position: absolute;
+      left: 3px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 22px;
+      height: 22px;
+      background: #f8f8f8;
+      border-radius: 6px;
+      box-shadow: 
+        4px 4px 8px rgba(0, 0, 0, 0.15),
+        -2px -2px 4px rgba(255, 255, 255, 0.8);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .neumorphic-toggle[aria-expanded="true"] .toggle-handle {
+      left: calc(100% - 25px);
+    }
+    
+    /* Toggle Indicator Light */
+    .toggle-indicator-light {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #e0e0e0;
+      opacity: 0;
+      transition: opacity 0.3s ease, background 0.3s ease;
+      box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+    }
+    
+    .neumorphic-toggle[aria-expanded="true"] ~ .toggle-indicator-light {
+      opacity: 1;
+      background: #4caf50;
+      box-shadow: 
+        0 0 8px rgba(76, 175, 80, 0.8),
+        0 0 16px rgba(76, 175, 80, 0.6),
+        0 0 24px rgba(76, 175, 80, 0.4);
+      animation: glow-pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes glow-pulse {
+      0%, 100% {
+        box-shadow: 
+          0 0 8px rgba(76, 175, 80, 0.8),
+          0 0 16px rgba(76, 175, 80, 0.6),
+          0 0 24px rgba(76, 175, 80, 0.4);
+      }
+      50% {
+        box-shadow: 
+          0 0 12px rgba(76, 175, 80, 1),
+          0 0 20px rgba(76, 175, 80, 0.8),
+          0 0 30px rgba(76, 175, 80, 0.6);
+      }
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .toggle-indicator-light {
+        animation: none;
+      }
+    }
+    
+    .toggle-dots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 2px;
+      width: 12px;
+      height: 12px;
+    }
+    
+    .toggle-dots span {
+      width: 2px;
+      height: 2px;
+      background: #b0b0b0;
+      border-radius: 50%;
+      display: block;
+    }
+    
+    .neumorphic-toggle:hover .toggle-track {
+      box-shadow: 
+        inset 4px 4px 8px rgba(0, 0, 0, 0.12),
+        inset -4px -4px 8px rgba(255, 255, 255, 0.95);
+    }
+    
+    .neumorphic-toggle:active .toggle-handle {
+      box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.2),
+        -1px -1px 2px rgba(255, 255, 255, 0.9);
+    }
+    
+    /* Dark mode styles for neumorphic toggle */
+    .dark-mode .toggle-track {
+      background: #2a2a2a;
+      box-shadow: 
+        inset 4px 4px 8px rgba(0, 0, 0, 0.5),
+        inset -4px -4px 8px rgba(255, 255, 255, 0.05);
+    }
+    
+    .dark-mode .toggle-handle {
+      background: #333333;
+      box-shadow: 
+        4px 4px 8px rgba(0, 0, 0, 0.6),
+        -2px -2px 4px rgba(255, 255, 255, 0.1);
+    }
+    
+    .dark-mode .toggle-dots span {
+      background: #888888;
+    }
+    
+    .dark-mode .neumorphic-toggle:hover .toggle-track {
+      box-shadow: 
+        inset 4px 4px 8px rgba(0, 0, 0, 0.6),
+        inset -4px -4px 8px rgba(255, 255, 255, 0.08);
+    }
+    
+    .dark-mode .neumorphic-toggle:active .toggle-handle {
+      box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.7),
+        -1px -1px 2px rgba(255, 255, 255, 0.12);
+    }
+    
+    /* Dark mode tip card content - show message, hide normal content */
+    .dark-mode-tip-message {
+      display: none;
+    }
+    
+    .dark-mode .dark-mode-tip-message {
+      display: block;
+    }
+    
+    .light-mode-tip-content {
+      display: block;
+    }
+    
+    .dark-mode .light-mode-tip-content {
+      display: none;
+    }
+    
+    /* Hide wisdom footer text in dark mode */
+    .wisdom-footer-text {
+      display: block;
+    }
+    
+    .dark-mode .wisdom-footer-text {
+      display: none;
+    }
+    
+    /* Wisdom Content Wrapper */
+    .wisdom-content-wrapper {
+      overflow: hidden;
+      transition: opacity 0.3s ease, max-height 0.3s ease;
+      opacity: 0;
+      max-height: 0;
+    }
+    
+    .wisdom-content-wrapper.show {
+      opacity: 1;
+      max-height: 1000px;
+      display: block !important;
+    }
     
     /* Make design tip section responsive on mobile */
     .design-tip-section {
@@ -533,18 +732,32 @@
       border-width: 1px;
       border-color: rgba(50, 64, 79, 0.1);
       transition: border-color 0.3s ease-in-out;
+      outline: none;
     }
     
     .home-hero .design-tip-card:hover {
-      border-color: var(--primary);
+      border-color: rgba(50, 64, 79, 0.1);
+      outline: none;
+    }
+    
+    .home-hero .design-tip-card:focus,
+    .home-hero .design-tip-card:focus-visible,
+    .home-hero .design-tip-card:active {
+      outline: none;
+      border-color: rgba(50, 64, 79, 0.1);
     }
     
     .dark-mode .home-hero .design-tip-card {
       border-color: rgba(229, 229, 229, 0.1);
+      outline: none;
     }
     
-    .dark-mode .home-hero .design-tip-card:hover {
-      border-color: var(--primary);
+    .dark-mode .home-hero .design-tip-card:hover,
+    .dark-mode .home-hero .design-tip-card:focus,
+    .dark-mode .home-hero .design-tip-card:focus-visible,
+    .dark-mode .home-hero .design-tip-card:active {
+      border-color: rgba(229, 229, 229, 0.1);
+      outline: none;
     }
     .home-hero .design-tip-section h2 { color: var(--foreground); font-size: 1rem; font-weight: 400; margin-bottom: 0; }
     .home-hero h3 { font-family: var(--font-tiempos-text), serif; letter-spacing: -0.02em; font-size: 1rem; }
@@ -1328,6 +1541,20 @@ html.dark-mode {
     color: var(--primary);
   }
   
+  /* Resume link styling to match inactive nav-item */
+  .nav-link-resume {
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link-resume:hover {
+    color: var(--primary);
+  }
+  
+  .nav-link-resume p {
+    color: inherit;
+  }
+  
   .category-badge {
     background-color: var(--card-bg);
     border-color: var(--card-border);
@@ -1347,7 +1574,7 @@ html.dark-mode {
 }
 
 .dark-mode .design-tip-card:hover {
-  border-color: var(--primary);
+  border-color: rgba(229, 229, 229, 0.1);
 }
 
 .dark-mode .design-tip-section h2 {
@@ -1378,6 +1605,15 @@ html.dark-mode {
 
 .dark-mode .nav-item.active {
   color: #60a5fa;
+}
+
+/* Resume link dark mode styling */
+.dark-mode .nav-link-resume {
+  color: rgba(229, 229, 229, 0.7);
+}
+
+.dark-mode .nav-link-resume:hover {
+  color: #e5e5e5;
 }
   
   .dark-mode .category-badge {
@@ -1639,7 +1875,15 @@ html.dark-mode {
       transition: transform 0.3s ease;
     }
 
-    .project-header-image:hover .project-modal-image {
+    .project-modal-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .project-header-image:hover .project-modal-image,
+    .project-header-image:hover .project-modal-video {
       transform: scale(1.02);
     }
 
@@ -1779,6 +2023,18 @@ html.dark-mode {
     }
 
     .nav-item:hover p {
+      color: var(--foreground);
+      opacity: 1;
+    }
+    
+    /* Resume link p styling to match inactive nav-item */
+    .nav-link-resume p {
+      color: var(--foreground);
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link-resume:hover p {
       color: var(--foreground);
       opacity: 1;
     }
@@ -2666,12 +2922,12 @@ html.dark-mode {
         rgba(0, 0, 0, 0.003) 95%,
         rgba(0, 0, 0, 0.001) 100%
       );
-      border: 0.5px solid rgba(0, 0, 0, 0.06);
+      border: 0.5px solid rgba(0, 0, 0, 0.3);
       box-shadow: 
-        0 0 0 0.5px rgba(0, 0, 0, 0.02),
-        0 0 12px rgba(0, 0, 0, 0.04),
-        0 0 24px rgba(0, 0, 0, 0.02),
-        inset 0 0 12px rgba(0, 0, 0, 0.008);
+        0 0 0 0.5px rgba(0, 0, 0, 0.15),
+        0 0 12px rgba(0, 0, 0, 0.08),
+        0 0 24px rgba(0, 0, 0, 0.04),
+        inset 0 0 12px rgba(0, 0, 0, 0.02);
     }
 
     body:not(.dark-mode) .glass-cursor.hover .cursor-glass-effect {
@@ -2685,12 +2941,12 @@ html.dark-mode {
         rgba(0, 0, 0, 0.006) 90%,
         rgba(0, 0, 0, 0.002) 100%
       );
-      border: 0.75px solid rgba(0, 0, 0, 0.08);
+      border: 0.75px solid rgba(0, 0, 0, 0.4);
       box-shadow: 
-        0 0 0 1px rgba(0, 0, 0, 0.03),
-        0 0 18px rgba(0, 0, 0, 0.04),
-        0 0 36px rgba(0, 0, 0, 0.03),
-        inset 0 0 18px rgba(0, 0, 0, 0.01);
+        0 0 0 1px rgba(0, 0, 0, 0.2),
+        0 0 18px rgba(0, 0, 0, 0.08),
+        0 0 36px rgba(0, 0, 0, 0.05),
+        inset 0 0 18px rgba(0, 0, 0, 0.03);
     }
 
     body:not(.dark-mode) .glass-cursor.hover .cursor-dot {
@@ -2719,11 +2975,11 @@ html.dark-mode {
         rgba(0, 0, 0, 0.006) 90%,
         rgba(0, 0, 0, 0.002) 100%
       );
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.5);
       box-shadow: 
-        0 0 0 1.5px rgba(0, 0, 0, 0.05),
-        0 0 24px rgba(0, 0, 0, 0.06),
-        0 0 48px rgba(0, 0, 0, 0.05);
+        0 0 0 1.5px rgba(0, 0, 0, 0.25),
+        0 0 24px rgba(0, 0, 0, 0.12),
+        0 0 48px rgba(0, 0, 0, 0.08);
       animation: waterRippleLight 0.4s ease-out;
     }
 
@@ -2739,13 +2995,13 @@ html.dark-mode {
           rgba(0, 0, 0, 0.006) 90%,
           rgba(0, 0, 0, 0.002) 100%
         );
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.5);
         backdrop-filter: blur(8px) contrast(1.03) brightness(1.015);
         transform: translate(-50%, -50%) scale(1);
         box-shadow: 
-          0 0 0 1.5px rgba(0, 0, 0, 0.05),
-          0 0 24px rgba(0, 0, 0, 0.06),
-          0 0 48px rgba(0, 0, 0, 0.05);
+          0 0 0 1.5px rgba(0, 0, 0, 0.25),
+          0 0 24px rgba(0, 0, 0, 0.12),
+          0 0 48px rgba(0, 0, 0, 0.08);
         filter: blur(0.15px);
       }
       50% {
@@ -2759,13 +3015,13 @@ html.dark-mode {
           rgba(0, 0, 0, 0.005) 90%,
           rgba(0, 0, 0, 0.002) 100%
         );
-        border: 0.75px solid rgba(0, 0, 0, 0.08);
+        border: 0.75px solid rgba(0, 0, 0, 0.35);
         backdrop-filter: blur(9px) contrast(1.04) brightness(1.02);
         transform: translate(-50%, -50%) scale(1);
         box-shadow: 
-          0 0 0 1px rgba(0, 0, 0, 0.04),
-          0 0 18px rgba(0, 0, 0, 0.05),
-          0 0 36px rgba(0, 0, 0, 0.04);
+          0 0 0 1px rgba(0, 0, 0, 0.18),
+          0 0 18px rgba(0, 0, 0, 0.1),
+          0 0 36px rgba(0, 0, 0, 0.07);
         filter: blur(0.15px);
       }
       100% {
@@ -2780,13 +3036,13 @@ html.dark-mode {
           rgba(0, 0, 0, 0.003) 95%,
           rgba(0, 0, 0, 0.001) 100%
         );
-        border: 0.5px solid rgba(0, 0, 0, 0.06);
+        border: 0.5px solid rgba(0, 0, 0, 0.25);
         backdrop-filter: blur(10px) contrast(1.02) brightness(1.01);
         transform: translate(-50%, -50%) scale(1);
         box-shadow: 
-          0 0 0 0.5px rgba(0, 0, 0, 0.03),
-          0 0 12px rgba(0, 0, 0, 0.04),
-          0 0 24px rgba(0, 0, 0, 0.03);
+          0 0 0 0.5px rgba(0, 0, 0, 0.15),
+          0 0 12px rgba(0, 0, 0, 0.08),
+          0 0 24px rgba(0, 0, 0, 0.05);
         filter: blur(0.15px);
       }
     }
@@ -3000,18 +3256,8 @@ html.dark-mode {
             </div>
         
         <div class="flex flex-col gap-4">
-          <h1 class="max-w-2xl responsive-hero-title">I&#x27;m Aravind Maya and I love bringing ideas to life with
-            <span class="whitespace-nowrap">
-              <span class="italic relative after:absolute after:bottom-[0.05em] after:left-[1px] after:right-[7px] after:h-[3px] after:bg-[var(--primary)]">desi</span>
-              <span class="italic">g</span>
-              <span class="italic relative after:absolute after:bottom-[0.05em] after:left-0 after:w-full after:h-[3px] after:bg-[var(--primary)]">n</span>
-            </span>
-            <span class="whitespace-nowrap italic relative after:absolute after:bottom-[0.05em] after:left-0 after:w-full after:h-[3px] after:bg-[var(--primary)]">
-              <span class="italic whitespace-nowrap">+ </span>
-              <span class="italic whitespace-nowrap">code</span>
-            </span>.
-          </h1>
-          <p class="max-w-xl">Currently thinking about designing for the future, knowing what&#x27;s possible today and what will be possible tomorrow.</p>
+          <h1 class="max-w-2xl responsive-hero-title">I&#x27;m Aravindh Maya —<br>designing for clarity, scale, and impact, from concept to shipped product.</h1>
+          <p class="max-w-xl">I&#x27;m interested in designing more contextual and impactful digital experiences with a system-thinking approach</p>
         </div>
         
         <div class="flex flex-col gap-6 fade-in fade-in-delay-2">
@@ -3050,30 +3296,54 @@ html.dark-mode {
       <!-- Right Side - Design Tips -->
       <div class="design-tip-section flex flex-col gap-3 fade-in fade-in-delay-3">
         <div class="flex flex-col gap-2">
-          <h2 class="responsive-tip-header font-normal mb-0">Today's design tip</h2>
+          <h2 class="responsive-tip-header font-normal mb-0">For Little wisdom — </h2>
+          <div class="flex items-center gap-3">
+            <button id="wisdomToggle" class="neumorphic-toggle" aria-label="Toggle wisdom" aria-expanded="false" title="Toggle wisdom">
+              <div class="toggle-track">
+                <div class="toggle-handle">
+                  <div class="toggle-dots">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              </div>
+            </button>
+            <div class="toggle-indicator-light"></div>
+          </div>
         </div>
         
-        <div class="flex flex-col gap-2">
+        <div class="wisdom-content-wrapper" id="wisdomContent">
+          <div class="flex flex-col gap-2">
           <div id="designTipCard" role="button" tabindex="0" aria-label="Show another design tip" class="design-tip-card responsive-design-tip-card cursor-pointer">
-            <div class="flex items-start justify-between mb-3">
-              <h3 class="responsive-tip-title font-semibold italic" id="tipTitle">Start with User Research</h3>
-              <button id="refreshDesignTipButton" class="refresh-btn" title="Get a new tip" aria-label="Get a new tip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
-                  <path d="M21 3v5h-5"/>
-                  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
-                  <path d="M3 21v-5h5"/>
-                </svg>
-              </button>
+            <!-- Dark Mode Message -->
+            <div class="dark-mode-tip-message">
+              <p class="responsive-tip-content text-[var(--foreground)]/70 leading-relaxed text-center">There is no wisdom in the dark—turn on the light.</p>
             </div>
-            <p class="responsive-tip-content text-[var(--foreground)]/70 leading-relaxed" id="tipContent">Before diving into design, spend time understanding your users. Conduct interviews, surveys, and observe their behavior. The insights you gather will guide every design decision.</p>
-            <div class="flex justify-end items-center gap-2 mt-2">
-              <span id="tipCounter" class="category-badge inline-flex items-center shadow-sm responsive-tip-badge">1/3</span>
-              <button type="button" id="tipCategory" class="category-badge inline-flex items-center shadow-sm responsive-tip-badge" title="Refresh tip"># UX Research</button>
+            
+            <!-- Light Mode Content -->
+            <div class="light-mode-tip-content">
+              <div class="flex items-start justify-between mb-3">
+                <h3 class="responsive-tip-title font-semibold italic" id="tipTitle">Research Before Opinions</h3>
+                <button id="refreshDesignTipButton" class="refresh-btn" title="Get a new tip" aria-label="Get a new tip">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+                    <path d="M21 3v5h-5"/>
+                    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+                    <path d="M3 21v-5h5"/>
+                  </svg>
+                </button>
+              </div>
+              <p class="responsive-tip-content text-[var(--foreground)]/70 leading-relaxed" id="tipContent">"I don't trust my instincts until I've tested them against real users." Every good decision I've made started with listening, not designing.</p>
+              <div class="flex justify-end items-center gap-2 mt-2">
+                <span id="tipCounter" class="category-badge inline-flex items-center shadow-sm responsive-tip-badge">1/3</span>
+                <button type="button" id="tipCategory" class="category-badge inline-flex items-center shadow-sm responsive-tip-badge" title="Refresh tip"># User Research</button>
+              </div>
             </div>
           </div>
+          </div>
           
-          <p class="text-sm text-[var(--foreground)]/50">A little wisdom for visiting my portfolio ✨</p>
+          <p class="text-sm text-[var(--foreground)]/50 wisdom-footer-text">A little wisdom for visiting my portfolio ✨</p>
         </div>
       </div>
     </div>
@@ -3097,15 +3367,15 @@ html.dark-mode {
             <button class="flex items-start nav-item" data-section="about">
               <p class="transition-colors cursor-pointer text-left hover:text-foreground">About</p>
             </button>
-            <a href="Aravindh_Nagarajan_SeniorProductDesigner_2025-2.pdf" target="_blank" rel="noopener noreferrer" class="flex items-start">
-              <p class="transition-colors cursor-pointer text-left hover:text-foreground">Resume</p>
+            <a href="Aravindh_Nagarajan_SeniorProductDesigner_2025-2.pdf" target="_blank" rel="noopener noreferrer" class="flex items-start nav-link-resume">
+              <p class="transition-colors cursor-pointer text-left">Resume</p>
             </a>
           </div>
         </nav>
       </aside>
 
       <!-- Center Content Area (Like earth.html) -->
-      <div class="w-fill md:max-w-5xl lg:max-w-6xl py-12 flex flex-col gap-12 md:gap-24">
+      <div class="w-full md:max-w-5xl lg:max-w-6xl py-12 flex flex-col gap-12 md:gap-24">
         <!-- Mobile Navigation -->
         <nav class="md:hidden flex flex-wrap items-center gap-4 mb-4">
           <button class="nav-item active" data-section="work">
@@ -3117,8 +3387,8 @@ html.dark-mode {
           <button class="nav-item" data-section="about">
             <p class="transition-colors cursor-pointer hover:text-foreground">About</p>
           </button>
-          <a href="Aravindh_Nagarajan_SeniorProductDesigner_2025-2.pdf" target="_blank" rel="noopener noreferrer">
-            <p class="transition-colors cursor-pointer hover:text-foreground">Resume</p>
+          <a href="Aravindh_Nagarajan_SeniorProductDesigner_2025-2.pdf" target="_blank" rel="noopener noreferrer" class="nav-link-resume">
+            <p class="transition-colors cursor-pointer">Resume</p>
           </a>
         </nav>
         
@@ -3264,73 +3534,101 @@ html.dark-mode {
               <h2 class="responsive-section-header font-bold">Fun Projects</h2>
             </div>
             <div style="opacity:0;transform:translateY(20px)">
-              <div class="flex flex-col gap-12">
+              <div class="flex flex-col gap-12" style="width: 100%; min-width: 100%;">
                 
                 <!-- Spatial computing & XR Section -->
                 <section class="flex flex-col gap-6">
                   <h3 class="text-xl font-semibold text-foreground">Spatial computing & XR</h3>
                   
                   <!-- Project Grid - 2 Columns -->
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 fun-projects-grid" style="display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 1.5rem;">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 fun-projects-grid" style="display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 1.5rem; width: 100%; min-width: 100%;">
                     <style>
+                      /* Ensure fun projects grid always maintains full width */
+                      .fun-projects-grid {
+                        width: 100% !important;
+                        max-width: 100% !important;
+                        min-width: 100% !important;
+                        box-sizing: border-box;
+                      }
                       @media (min-width: 768px) {
                         .fun-projects-grid {
                           grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                          width: 100% !important;
+                          max-width: 100% !important;
+                          min-width: 100% !important;
+                        }
+                        .fun-projects-grid > * {
+                          min-width: 0;
+                          width: 100%;
+                          max-width: 100%;
+                          box-sizing: border-box;
+                          overflow-wrap: break-word;
+                          word-wrap: break-word;
+                        }
+                        /* Force grid to always use full width regardless of content */
+                        .fun-projects-grid {
+                          grid-auto-columns: 1fr;
+                        }
+                        /* Prevent grid items from causing grid to shrink */
+                        .fun-projects-grid .project-link {
+                          width: 100% !important;
+                          max-width: 100% !important;
+                          min-width: 0 !important;
                         }
                       }
                     </style>
                     <!-- Visionary -->
-                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="devpost" data-project="visionary">
+                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="devpost" data-project="virtual-co-parenting">
                       <div class="flex flex-col gap-2">
                         <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden transition-all duration-300 ease-in-out group-hover:border-primary box-border rounded-[25px]" style="border-radius:25px">
-                          <img alt="Visionary" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="_next/visionaryd349.png" />
+                          <img alt="Virtual Co-Parenting" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="Images/Fun poster/Lilly poster.png" />
                           <div class="absolute inset-0 bg-background/0 transition-colors duration-300 ease-in-out group-hover:bg-background/20 rounded-[25px]" style="border-radius:25px"></div>
                         </div>
                         <div class="flex flex-col gap-0.5 mt-1 transition-colors duration-300 ease-in-out">
-                          <h3 class="responsive-project-title transition-colors duration-300 ease-in-out group-hover:text-primary">Eye-tracking application for eye health</h3>
-                          <h4 class="responsive-project-subtitle transition-colors duration-300 ease-in-out group-hover:!text-primary/70">Visionary • Best Eye-Tracking Hack @ Hack the North 2023</h4>
+                          <h3 class="responsive-project-title transition-colors duration-300 ease-in-out group-hover:text-primary">Virtual Co-Parenting — to address PMAD by leveraging future technology like Extended Reality</h3>
+                          <h4 class="responsive-project-subtitle transition-colors duration-300 ease-in-out group-hover:!text-primary/70">XR Education • Eli Lilly</h4>
                         </div>
                       </div>
                     </a>
 
                     <!-- ASL Translator -->
-                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="github" data-project="asl-translator">
+                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="github" data-project="coffee-maker-ar">
                       <div class="flex flex-col gap-2">
                         <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden transition-all duration-300 ease-in-out group-hover:border-primary box-border rounded-[25px]" style="border-radius:25px">
-                          <img alt="ASL Translator" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="_next/asl968f.png" />
+                          <img alt="Coffee Maker - On Boarding in AR" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="Images/Fun poster/Coffee.png" />
                           <div class="absolute inset-0 bg-background/0 transition-colors duration-300 ease-in-out group-hover:bg-background/20 rounded-[25px]" style="border-radius:25px"></div>
                         </div>
                         <div class="flex flex-col gap-0.5 mt-1 transition-colors duration-300 ease-in-out">
-                          <h3 class="responsive-project-title transition-colors duration-300 ease-in-out group-hover:text-primary">Real-time sign language translation with computer vision</h3>
-                          <h4 class="responsive-project-subtitle transition-colors duration-300 ease-in-out group-hover:!text-primary/70">ASL Translator • Personal Project</h4>
+                          <h3 class="responsive-project-title transition-colors duration-300 ease-in-out group-hover:text-primary">Coffee Maker AR Onboarding</h3>
+                          <h4 class="responsive-project-subtitle transition-colors duration-300 ease-in-out group-hover:!text-primary/70">VR Training • Personal Project</h4>
                         </div>
                       </div>
                     </a>
 
                     <!-- Empa -->
-                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="devpost" data-project="empa">
+                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="devpost" data-project="dynamic-spatial-ui">
                       <div class="flex flex-col gap-2">
                         <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden transition-all duration-300 ease-in-out group-hover:border-primary box-border rounded-[25px]" style="border-radius:25px">
-                          <img alt="empa" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="_next/empa9037.png" />
+                          <img alt="Dynamic Spatial UI" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="Images/Fun poster/Dynamic.png" />
                           <div class="absolute inset-0 bg-background/0 transition-colors duration-300 ease-in-out group-hover:bg-background/20 rounded-[25px]" style="border-radius:25px"></div>
                         </div>
                         <div class="flex flex-col gap-0.5 mt-1 transition-colors duration-300 ease-in-out">
-                          <h3 class="responsive-project-title transition-colors duration-300 ease-in-out group-hover:text-primary">Real-time emotion mapping with a custom computer vision model</h3>
-                          <h4 class="responsive-project-subtitle transition-colors duration-300 ease-in-out group-hover:!text-primary/70">empa • 1st place @ Shehacks 2024</h4>
+                          <h3 class="responsive-project-title transition-colors duration-300 ease-in-out group-hover:text-primary">Dynamic Spatial UI</h3>
+                          <h4 class="responsive-project-subtitle transition-colors duration-300 ease-in-out group-hover:!text-primary/70">Spatial Computing • Personal Project</h4>
                         </div>
                       </div>
                     </a>
 
                     <!-- MayaAI -->
-                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="blog" data-project="mayaai">
+                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="blog" data-project="nike-shopping-xr">
                       <div class="flex flex-col gap-2">
                         <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden transition-all duration-300 ease-in-out group-hover:border-primary box-border rounded-[25px]" style="border-radius:25px">
-                          <img alt="MayaAI" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="_next/rachelaic1c9.png" />
+                          <img alt="Nike - Future of Shopping with XR" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="Images/Fun poster/nikeposter.png" />
                           <div class="absolute inset-0 bg-background/0 transition-colors duration-300 ease-in-out group-hover:bg-background/20 rounded-[25px]" style="border-radius:25px"></div>
                         </div>
                         <div class="flex flex-col gap-0.5 mt-1 transition-colors duration-300 ease-in-out">
-                          <h3 class="responsive-project-title transition-colors duration-300 ease-in-out group-hover:text-primary">Talking chatbot of myself with stable diffusion and Google Vertex AI</h3>
-                          <h4 class="responsive-project-subtitle transition-colors duration-300 ease-in-out group-hover:!text-primary/70">MayaAI • Client Project</h4>
+                          <h3 class="responsive-project-title transition-colors duration-300 ease-in-out group-hover:text-primary">Nike XR Shopping</h3>
+                          <h4 class="responsive-project-subtitle transition-colors duration-300 ease-in-out group-hover:!text-primary/70">Micro Interaction • Personal Project</h4>
                         </div>
                       </div>
                     </a>
@@ -3342,62 +3640,39 @@ html.dark-mode {
                   <h3 class="text-xl font-semibold text-foreground">Motion graphics</h3>
                   
                   <!-- Project Grid - 2 Columns -->
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 fun-projects-grid" style="display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 1.5rem;">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 fun-projects-grid" style="display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 1.5rem; width: 100%; min-width: 100%;">
                     <!-- Bubbl -->
-                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="video" data-project="bubbl">
+                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="video" data-project="automotive-contextual-ai">
                       <div class="flex flex-col gap-2">
                         <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden transition-all duration-300 ease-in-out group-hover:border-primary box-border rounded-[25px]" style="border-radius:25px">
-                          <img alt="bubbl" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="_next/bubbl0ab0.png" />
+                          <img alt="Automotive - Contextual AI in Dashboard AR" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="Images/Fun poster/accident.png" />
                           <div class="absolute inset-0 bg-background/0 transition-colors duration-300 ease-in-out group-hover:bg-background/20 rounded-[25px]" style="border-radius:25px"></div>
                         </div>
                         <div class="flex flex-col gap-0.5 mt-1 transition-colors duration-300 ease-in-out">
-                          <h3 class="responsive-project-title transition-colors duration-300 ease-in-out group-hover:text-primary">Mobile app for spontaneous hangouts and quality time with friends</h3>
-                          <h4 class="responsive-project-subtitle transition-colors duration-300 ease-in-out group-hover:!text-primary/70">bubbl • 1st place @ UXL designathon 2024</h4>
+                          <h3 class="responsive-project-title transition-colors duration-300 ease-in-out group-hover:text-primary">Contextual AI Dashboard</h3>
+                          <h4 class="responsive-project-subtitle transition-colors duration-300 ease-in-out group-hover:!text-primary/70">AI & Geo Spatial • Personal Project</h4>
                         </div>
                       </div>
                     </a>
+
+                 
 
                     <!-- Infu -->
-                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="devpost" data-project="infu">
+                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="devpost" data-project="automotive-ar-navigation">
                       <div class="flex flex-col gap-2">
                         <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden transition-all duration-300 ease-in-out group-hover:border-primary box-border rounded-[25px]" style="border-radius:25px">
-                          <img alt="infu" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="_next/infubebe.png" />
-                          <div class="absolute inset-0 bg-background/0 transition-colors duration-300 ease-in-out group-hover:bg-background/20 rounded-[25px]" style="border-radius:25px"></div>
-                        </div>
-                        <div class="flex flex-col gap-0.5 mt-1 transition-colors duration-300 ease-in-out">
-                          <h3 class="responsive-project-title transition-colors duration-300 ease-in-out group-hover:text-primary">Facial recognition + speech-to-text summarization to never forget people</h3>
-                          <h4 class="responsive-project-subtitle transition-colors duration-300 ease-in-out group-hover:!text-primary/70">infu • 2nd place @ Hack Western 10</h4>
-                        </div>
-                      </div>
-                    </a>
-
-                    <!-- Dataquest -->
-                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="devpost" data-project="dataquest">
-                      <div class="flex flex-col gap-2">
-                        <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden transition-all duration-300 ease-in-out group-hover:border-primary box-border rounded-[25px]" style="border-radius:25px">
-                          <img alt="dataquest" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="_next/dataquestd5ab.png" />
+                          <img alt="Automotive - AR Navigation" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="Images/Fun poster/Fuel.png" />
                           <div class="absolute inset-0 bg-background/0 transition-colors duration-300 ease-in-out group-hover:bg-background/20 rounded-[25px]"></div>
                         </div>
                         <div class="flex flex-col gap-0.5 mt-1 transition-colors duration-300 ease-in-out">
-                          <h3 class="responsive-project-title transition-colors duration-300 ease-in-out group-hover:text-primary">Predictive modelling and data analysis for preventing hotel cancellations</h3>
-                          <h4 class="responsive-project-subtitle transition-colors duration-300 ease-in-out group-hover:!text-primary/70">dataquest • 1st place @ Dataquest 2024</h4>
+                          <h3 class="responsive-project-title transition-colors duration-300 ease-in-out group-hover:text-primary">AR Navigation</h3>
+                          <h4 class="responsive-project-subtitle transition-colors duration-300 ease-in-out group-hover:!text-primary/70">AI & Geo Spatial • Personal Project</h4>
                         </div>
                       </div>
                     </a>
 
                     <!-- TL;DW -->
-                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="devpost" data-project="tldw">
-                      <div class="flex flex-col gap-2">
-                        <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden transition-all duration-300 ease-in-out group-hover:border-primary box-border rounded-[25px]" style="border-radius:25px">
-                          <img alt="TL;DW" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="_next/tldw3d26.png" />
-                          <div class="absolute inset-0 bg-background/0 transition-colors duration-300 ease-in-out group-hover:bg-background/20 rounded-[25px]"></div>
-                        </div>
-                        <div class="flex flex-col gap-0.5 mt-1 transition-colors duration-300 ease-in-out">
-                          <h3 class="responsive-project-title transition-colors duration-300 ease-in-out group-hover:text-primary">Youtube video to organized notes</h3>
-                          <h4 class="responsive-project-subtitle transition-colors duration-300 ease-in-out group-hover:!text-primary/70">TL;DW • Best Cohere Hack @ UofTHacks X</h4>
-                        </div>
-                      </div>
-                    </a>
+                   
                   </div>
                 </section>
               </div>
@@ -3434,7 +3709,9 @@ html.dark-mode {
                     pushing the boundaries of spatial computing.
                   </p>
                   <div class="mt-12 pt-8 border-t border-foreground/10">
-                    <h3 class="text-sm md:text-base font-normal text-foreground/60 uppercase tracking-wider mb-2">contact me →</h3>
+                    <a href="https://www.linkedin.com/in/aravindmaya/" target="_blank" rel="noopener noreferrer" class="hover:!opacity-100">
+                      <h3 class="text-sm md:text-base font-normal text-foreground/60 uppercase tracking-wider mb-2 hover:!text-foreground cursor-pointer transition-colors">contact me →</h3>
+                    </a>
                   </div>
                 </div>
               </section>
@@ -3456,7 +3733,7 @@ html.dark-mode {
                       <span class="work-experience-date text-xs md:text-sm text-foreground/40 whitespace-nowrap font-medium">Mar 2025 - Present</span>
                     </div>
                     <div class="flex items-center justify-between gap-4 mt-1">
-                      <p class="text-sm md:text-base text-foreground/70 font-medium">Interaction Designer, Android XR Platform</p>
+                      <p class="text-sm md:text-base text-foreground/30 font-medium">Interaction Designer, Android XR Platform</p>
                       <button class="work-expand-btn flex items-center justify-center w-6 h-6 rounded-full hover:bg-foreground/5 transition-all" data-expand-target="google-desc" aria-label="Toggle details">
                         <svg class="expand-icon w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
@@ -3465,7 +3742,7 @@ html.dark-mode {
                     </div>
                     <div id="google-desc" class="work-description hidden mt-2">
                       <p class="text-sm md:text-base text-foreground/70 leading-relaxed">
-                        Designed core UX patterns for Android XR, building scalable multimodal frameworks aligned with Google's system-level design standards across Android's 3B+ device footprint. Shaped motion patterns aligned with Material Design and system-level design frameworks for XR accessibility.
+                        Designing UX patterns for Android XR used by 3B+ devices. Creating scalable frameworks that define how users interact with spatial computing at Google scale.
                       </p>
                     </div>
                   </div>
@@ -3479,7 +3756,7 @@ html.dark-mode {
                       <span class="work-experience-date text-xs md:text-sm text-foreground/40 whitespace-nowrap font-medium">Sep 2024 - Dec 2024</span>
                     </div>
                     <div class="flex items-center justify-between gap-4 mt-1">
-                      <p class="text-sm md:text-base text-foreground/70 font-medium">UX Lead</p>
+                      <p class="text-sm md:text-base text-foreground/30 font-medium">UX Lead</p>
                       <button class="work-expand-btn flex items-center justify-center w-6 h-6 rounded-full hover:bg-foreground/5 transition-all" data-expand-target="subvrsive-desc" aria-label="Toggle details">
                         <svg class="expand-icon w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
@@ -3488,7 +3765,7 @@ html.dark-mode {
                     </div>
                     <div id="subvrsive-desc" class="work-description hidden mt-2">
                       <p class="text-sm md:text-base text-foreground/70 leading-relaxed">
-                        Led UX and UI strategy for immersive brand campaigns with Marvel, Star Wars, and Coca-Cola, achieving 1.95B global impressions. Owned end-to-end product design from wireframes to prototypes, ensuring brand alignment and usability across XR and mobile platforms.
+                        Led UX strategy for award-winning campaigns (Marvel, Star Wars, Coca-Cola) reaching 1.95B impressions. Delivered end-to-end design from concept to launch.
                       </p>
                     </div>
                   </div>
@@ -3502,7 +3779,7 @@ html.dark-mode {
                       <span class="work-experience-date text-xs md:text-sm text-foreground/40 whitespace-nowrap font-medium">Aug 2022 - Mar 2025</span>
                     </div>
                     <div class="flex items-center justify-between gap-4 mt-1">
-                      <p class="text-sm md:text-base text-foreground/70 font-medium">Senior Interaction Designer, Data Lab</p>
+                      <p class="text-sm md:text-base text-foreground/30 font-medium">Senior Interaction Designer, Data Lab</p>
                       <button class="work-expand-btn flex items-center justify-center w-6 h-6 rounded-full hover:bg-foreground/5 transition-all" data-expand-target="iu-desc" aria-label="Toggle details">
                         <svg class="expand-icon w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
@@ -3511,7 +3788,7 @@ html.dark-mode {
                     </div>
                     <div id="iu-desc" class="work-description hidden mt-2">
                       <p class="text-sm md:text-base text-foreground/70 leading-relaxed">
-                        Led the design of a VR empathy game and interactive data visualizations through user research, workshop facilitation, and iterative prototyping. Contributed to AR/XR academic research, working with faculty to build and evaluate mixed-reality prototypes using Unity 3D and C#.
+                        Designed VR experiences and data visualizations that advanced academic research. Built and evaluated mixed-reality prototypes using Unity, contributing to published research.
                       </p>
                     </div>
                   </div>
@@ -3525,7 +3802,7 @@ html.dark-mode {
                       <span class="work-experience-date text-xs md:text-sm text-foreground/40 whitespace-nowrap font-medium">Jul 2019 - Jul 2022</span>
                     </div>
                     <div class="flex items-center justify-between gap-4 mt-1">
-                      <p class="text-sm md:text-base text-foreground/70 font-medium">Senior UX Designer, XR Team</p>
+                      <p class="text-sm md:text-base text-foreground/30 font-medium">Senior UX Designer, XR Team</p>
                       <button class="work-expand-btn flex items-center justify-center w-6 h-6 rounded-full hover:bg-foreground/5 transition-all" data-expand-target="samsung-desc" aria-label="Toggle details">
                         <svg class="expand-icon w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
@@ -3534,7 +3811,7 @@ html.dark-mode {
                     </div>
                     <div id="samsung-desc" class="work-description hidden mt-2">
                       <p class="text-sm md:text-base text-foreground/70 leading-relaxed">
-                        Designed multimodal interaction systems and adaptive UI for Samsung AR Glass and wearables, resulting in 20%+ increase in user engagement. Created system-level UI guidelines and pixel-perfect design documentation for AR Zone app used by 500M+ users globally. Conducted usability testing and led UX research to validate AI-enhanced multimodal & input experiences.
+                        Designed interaction systems for Samsung AR Glass, increasing engagement 20%+. Created design guidelines for AR Zone (500M+ users). Led UX research validating AI-enhanced experiences.
                       </p>
                     </div>
                   </div>
@@ -3548,7 +3825,7 @@ html.dark-mode {
                       <span class="work-experience-date text-xs md:text-sm text-foreground/40 whitespace-nowrap font-medium">Nov 2018 - Mar 2019</span>
                     </div>
                     <div class="flex items-center justify-between gap-4 mt-1">
-                      <p class="text-sm md:text-base text-foreground/70 font-medium">UX Designer</p>
+                      <p class="text-sm md:text-base text-foreground/30 font-medium">UX Designer</p>
                       <button class="work-expand-btn flex items-center justify-center w-6 h-6 rounded-full hover:bg-foreground/5 transition-all" data-expand-target="walmart-desc" aria-label="Toggle details">
                         <svg class="expand-icon w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
@@ -3557,7 +3834,7 @@ html.dark-mode {
                     </div>
                     <div id="walmart-desc" class="work-description hidden mt-2">
                       <p class="text-sm md:text-base text-foreground/70 leading-relaxed">
-                        Led 6 months of user research and ideation through quantitative and qualitative analysis, delivering an iOS prototype that optimized user interactions and ensured regulatory compliance. Delivered prototypes and final design assets for 4 innovative product features, with 1 adopted across Walmart's global ecosystem.
+                        Led user research and delivered iOS prototypes ensuring regulatory compliance. Designed 4 product features, with 1 scaling globally across Walmart's ecosystem.
                       </p>
                     </div>
                   </div>
@@ -3579,14 +3856,9 @@ html.dark-mode {
     <div class="flex flex-col max-w-[1600px] md:flex-row w-full items-start md:items-center justify-between gap-6">
       <div class="flex gap-2">
         <span>
-          <h4 class="font-bold flex items-center gap-2">Designed and vibe coded with</h4>
+          <h4 class="font-bold flex items-center gap-2">Designed and vibe coded by Aravindh Maya</h4>
         </span>
-        <span>
-          <img alt="heart" loading="lazy" width="24" height="24" decoding="async" data-nimg="1" style="color:transparent" src="home/heart.svg" />
-        </span>
-        <span>
-          <h4>by Aravind Maya</h4>
-        </span>
+       
       </div>
       <div class="flex flex-col md:flex-row gap-3 md:gap-8">
         <a href="https://www.linkedin.com/in/aravindmaya/" target="_blank" rel="noopener noreferrer" class="hover:!opacity-100">
@@ -3861,16 +4133,16 @@ html.dark-mode {
   <script>
     // Design tips database
     const designTips = [
-      { title: "Start with User Research", content: "Before diving into design, spend time understanding your users. Conduct interviews, surveys, and observe their behavior. The insights you gather will guide every design decision.", category: "UX Research" },
-      { title: "Embrace White Space", content: "Don't be afraid of empty space. White space helps create visual hierarchy, improves readability, and gives your design room to breathe. Less clutter often means better communication.", category: "Visual Design" },
-      { title: "Design for Accessibility", content: "Make your designs inclusive from the start. Use sufficient color contrast, provide alternative text, and ensure keyboard navigation. Good design should work for everyone.", category: "Accessibility" },
-      { title: "Prototype Early and Often", content: "Don't wait until the end to test your ideas. Create quick prototypes to validate concepts early. It's much cheaper to iterate on paper than in code.", category: "Prototyping" },
-      { title: "Focus on the Problem", content: "Don't fall in love with your first solution. Stay focused on solving the user's problem, not defending your design. Be willing to pivot based on feedback and data.", category: "Problem Solving" },
-      { title: "Use Consistent Patterns", content: "Create and follow design patterns consistently. This reduces cognitive load for users and makes your interface more predictable and easier to learn.", category: "Design Systems" },
-      { title: "Test with Real Users", content: "Your assumptions are just guesses until validated. Test your designs with actual users, not just your team. Real feedback will surprise you and improve your work.", category: "User Testing" },
-      { title: "Design for Mobile First", content: "Start with mobile constraints and work your way up. This forces you to focus on essential features and creates better experiences across all devices.", category: "Responsive Design" },
-      { title: "Use Data to Inform Decisions", content: "Combine qualitative insights with quantitative data. Analytics can reveal user behavior patterns that interviews might miss. Let data guide your design decisions.", category: "Data-Driven Design" },
-      { title: "Iterate Based on Feedback", content: "Design is never finished. Continuously gather feedback and iterate on your work. The best designs evolve through multiple cycles of testing and refinement.", category: "Iteration" }
+      { title: "Research Before Opinions", content: "\"I don't trust my instincts until I've tested them against real users.\" Every good decision I've made started with listening, not designing.", category: "User Research" },
+      { title: "Clarity Over Cleverness", content: "\"If something needs explanation, the design already failed.\" White space isn't aesthetic — it's cognitive relief.", category: "Clarity" },
+      { title: "Accessibility Is Product Quality", content: "\"If it doesn't work for everyone, it doesn't really work.\" Inclusive design isn't a checklist — it's a baseline.", category: "Accessibility" },
+      { title: "Prototypes Protect the Product", content: "\"I prototype to fail early — and cheaply.\" Rough ideas expose bad assumptions before they reach code.", category: "Prototyping" },
+      { title: "Problems First, Solutions Second", content: "\"I'm more interested in the right problem than the perfect UI.\" Great design comes from reframing, not polishing.", category: "Problem Solving" },
+      { title: "Consistency Builds Trust", content: "\"Predictable interfaces let users focus on their goals, not the UI.\" Design systems aren't about control — they're about clarity.", category: "Consistency" },
+      { title: "Users > Assumptions", content: "\"Every user test humbles the design.\" Real behavior beats internal alignment every time.", category: "User Testing" },
+      { title: "Constraints Reveal Priorities", content: "\"Mobile-first design forces honesty.\" When space is limited, only what matters survives.", category: "Mobile First" },
+      { title: "Data Keeps Me Honest", content: "\"Data doesn't replace intuition — it sharpens it.\" I design with insight, then validate with evidence.", category: "Data Informed" },
+      { title: "Iteration Is the Job", content: "\"Shipping isn't the finish line — learning is.\" The best products evolve because the team keeps listening.", category: "Iteration" }
     ];
 
     let currentTipIndex = 0;
@@ -3888,7 +4160,7 @@ html.dark-mode {
         const refreshBtn = document.getElementById('refreshDesignTipButton');
 
         tipTitle.textContent = 'That\'s all for now';
-        tipContent.innerHTML = 'Want more tips? <a href="https://www.linkedin.com/in/rachelchenmaya" target="_blank" rel="noopener noreferrer" class="text-primary underline font-medium">Connect on LinkedIn</a> or <a href="mailto:mayac0715@gmail.com" class="text-primary underline">email me</a>.';
+        tipContent.innerHTML = 'Want more tips? <a href="https://www.linkedin.com/in/aravindmaya/" target="_blank" rel="noopener noreferrer" class="text-primary underline font-medium">Connect on LinkedIn</a> or <a href="mailto:mayac0715@gmail.com" class="text-primary underline">email me</a>.';
         tipCategory.textContent = '# Thanks';
         if (tipCounter) tipCounter.textContent = `${tipViewLimit}/${tipViewLimit}`;
         if (card) { card.style.opacity = '0.95'; }
@@ -4020,6 +4292,26 @@ html.dark-mode {
           refreshBtn.classList.add('idle-animation');
         }
       }, 3000);
+      
+      // Wisdom Toggle Functionality
+      const wisdomToggle = document.getElementById('wisdomToggle');
+      const wisdomContent = document.getElementById('wisdomContent');
+      
+      if (wisdomToggle && wisdomContent) {
+        wisdomToggle.addEventListener('click', function() {
+          const isExpanded = wisdomToggle.getAttribute('aria-expanded') === 'true';
+          
+          if (isExpanded) {
+            // Collapse
+            wisdomContent.classList.remove('show');
+            wisdomToggle.setAttribute('aria-expanded', 'false');
+          } else {
+            // Expand
+            wisdomContent.classList.add('show');
+            wisdomToggle.setAttribute('aria-expanded', 'true');
+          }
+        });
+      }
     });
   </script>
   
@@ -4088,105 +4380,29 @@ html.dark-mode {
 
 
     // Project Modal Functionality
-    const projectOrder = ['asl-translator', 'mayaai', 'bubbl', 'infu', 'empa', 'visionary', 'dataquest', 'tldw'];
+    const projectOrder = ['virtual-co-parenting', 'coffee-maker-ar', 'dynamic-spatial-ui', 'nike-shopping-xr', 'automotive-contextual-ai', 'automotive-ar-navigation',];
     let currentProjectIndex = 0;
     
+    // Mapping of project IDs to video files in Fun poster folder
+    // Set to null if no video available, or provide path to video file
+    const projectVideoMap = {
+      'virtual-co-parenting': 'Images/Fun poster/Lilly.MP4',
+      'coffee-maker-ar': 'Images/Fun poster/Coffee.MP4',
+      'dynamic-spatial-ui': 'Images/Fun poster/Dynamic.mp4',
+      'nike-shopping-xr': 'Images/Fun poster/nike.mp4',
+      'automotive-contextual-ai': 'Images/Fun poster/accident.mp4',
+      'automotive-ar-navigation': 'Images/Fun poster/fuel.mp4',
+      'dataquest': 'Images/Fun poster/accident.mp4',
+      'tldw': null,
+      'zensphere': null,
+    };
+
     const projectData = {
-      'asl-translator': {
-        title: 'Real-time sign language translation with computer vision',
-        company: 'ASL Translator • Personal Project',
-        image: '_next/asl968f.png',
-        description: 'A real-time American Sign Language (ASL) translation system using computer vision and machine learning to bridge communication gaps between hearing and deaf communities.',
-        links: [
-          {
-            label: 'View on GitHub',
-            url: 'https://github.com/aravindmaya/asl-translator'
-          }
-        ],
-        features: [
-          'Real-time hand gesture recognition using MediaPipe',
-          'Custom trained machine learning model for ASL alphabet recognition', 
-          'Live camera feed processing with instant translation feedback',
-          'User-friendly web interface built with Python Flask'
-        ]
-      },
-      'mayaai': {
-        title: 'Talking chatbot of myself with stable diffusion and Google Vertex AI',
-        company: 'MayaAI • Client Project',
-        image: '_next/rachelaic1c9.png',
-        description: 'An innovative AI-powered chatbot that creates a virtual representation of myself, combining advanced conversation capabilities with personalized visual generation.',
-        links: [
-          {
-            label: 'Try MayaAI',
-            url: 'https://mayaai.demo.com'
-          }
-        ],
-        features: [
-          'Natural language processing using Google Vertex AI',
-          'Real-time image generation with Stable Diffusion',
-          'Personalized conversation model trained on communication style',
-          'Interactive web interface with voice and text capabilities'
-        ]
-      },
-      'bubbl': {
-        title: 'Mobile app for spontaneous hangouts and quality time with friends',
-        company: 'bubbl • 1st place @ UXL designathon 2024',
-        image: '_next/bubbl0ab0.png',
-        description: 'A mobile application designed to facilitate spontaneous social connections and help friends spend quality time together through smart coordination and activity suggestions.',
-        links: [
-          {
-            label: 'View Demo Video',
-            url: 'https://youtube.com/watch?v=bubbl-demo'
-          }
-        ],
-        features: [
-          'Real-time availability sharing among friend groups',
-          'Smart activity suggestions based on location and preferences',
-          'Instant group coordination for spontaneous meetups',
-          'Social calendar integration for optimal timing'
-        ]
-      },
-      'infu': {
-        title: 'Facial recognition + speech-to-text summarization to never forget people',
-        company: 'infu • 2nd place @ Hack Western 10',
-        image: '_next/infubebe.png',
-        description: 'An intelligent assistant that helps users remember people and conversations by combining facial recognition with speech-to-text summarization, creating a personal memory enhancement tool.',
-        links: [
-          {
-            label: 'View on Devpost',
-            url: 'https://devpost.com/software/infu'
-          }
-        ],
-        features: [
-          'Real-time facial recognition to identify individuals',
-          'Automatic speech-to-text conversion during conversations',
-          'AI-powered conversation summarization and key point extraction',
-          'Personal database of interactions and important details'
-        ]
-      },
-      'empa': {
-        title: 'Real-time emotion mapping with a custom computer vision model',
-        company: 'empa • 1st place @ Shehacks 2024',
-        image: '_next/empa9037.png',
-        description: 'An advanced emotion recognition system that uses computer vision to detect and map human emotions in real-time, providing insights into emotional patterns and well-being.',
-        links: [
-          {
-            label: 'View Project',
-            url: 'https://github.com/aravindmaya/empa'
-          }
-        ],
-        features: [
-          'Custom-trained computer vision model for emotion detection',
-          'Real-time facial expression analysis',
-          'Emotion mapping and pattern tracking over time',
-          'Privacy-focused local processing'
-        ]
-      },
-      'visionary': {
-        title: 'Eye-tracking application for eye health',
-        company: 'Visionary • Best Eye-Tracking Hack @ Hack the North 2023',
+      'virtual-co-parenting': {
+        title: 'Virtual Co-Parenting ',
+        company: 'XR Education • Eli Lilly',
         image: '_next/visionaryd349.png',
-        description: 'An innovative eye-tracking application designed to promote eye health through monitoring, exercises, and preventive care, addressing the growing concern of digital eye strain.',
+        description: 'Collaborating with Eli Lilly to address PMAD (Perinatal Mood and Anxiety Disorders) by leveraging future technology. This XR education solution provides innovative support for new parents through immersive virtual experiences.',
         links: [
           {
             label: 'View Demo',
@@ -4194,38 +4410,103 @@ html.dark-mode {
           }
         ],
         features: [
-          'Real-time eye movement tracking and analysis',
-          'Personalized eye exercise recommendations',
-          'Screen time monitoring and break reminders',
-          'Eye health metrics and progress tracking'
+          'Immersive XR experiences for parent education',
+          'Virtual support systems for perinatal mental health',
+          'Interactive learning modules for new parents',
+          'Collaborative virtual environments for co-parenting support'
         ]
       },
-      'dataquest': {
-        title: 'Predictive modelling and data analysis for preventing hotel cancellations',
-        company: 'dataquest • 1st place @ Dataquest 2024',
-        image: '_next/dataquestd5ab.png',
-        description: 'A comprehensive data science solution that uses predictive modeling to help hotels reduce cancellation rates and optimize booking strategies through advanced analytics.',
-        links: [],
+      'coffee-maker-ar': {
+        title: 'Coffee Maker AR Onboarding',
+        company: 'VR Training • Personal Project',
+        image: '_next/asl968f.png',
+        description: 'Utilize augmented reality (AR) technology to enhance the ease and intuitiveness of product onboarding. This immersive experience guides users through coffee maker setup with interactive 3D instructions overlaid on the physical device.',
+        links: [
+          {
+            label: 'View on GitHub',
+            url: 'https://github.com/aravindmaya/asl-translator'
+          }
+        ],
         features: [
-          'Machine learning models for cancellation prediction',
-          'Customer behavior analysis and segmentation',
-          'Revenue optimization recommendations',
-          'Interactive dashboard for hotel management'
+          'AR-powered step-by-step onboarding guidance',
+          '3D model overlays for visual instruction',
+          'Interactive tutorials with spatial tracking',
+          'Intuitive product setup through immersive AR experience'
         ]
       },
-      'tldw': {
-        title: 'AI-powered video summarization tool',
-        company: 'tldw • Personal Project',
-        image: '_next/tldw3d26.png',
-        description: 'An AI-powered tool that automatically generates concise summaries of long-form video content, helping users quickly understand key information.',
-        links: [],
+      'dynamic-spatial-ui': {
+        title: 'Dynamic Spatial UI',
+        company: 'Spatial Computing • Personal Project',
+        image: '_next/empa9037.png',
+        description: 'Harness the power of AI and Spatial Computing to create meaningful, context-aware experiences through AR glasses. This dynamic interface adapts to user context and environment, providing intelligent spatial interactions.',
+        links: [
+          {
+            label: 'View Project',
+            url: 'https://github.com/aravindmaya/empa'
+          }
+        ],
         features: [
-          'Automatic video transcription',
-          'AI-powered content summarization',
-          'Key point extraction',
-          'Time-stamped highlights'
+          'Context-aware spatial interface adaptation',
+          'AI-powered dynamic UI elements',
+          'Intelligent spatial interaction design',
+          'Seamless integration with AR glasses environment'
         ]
-      }
+      },
+      'nike-shopping-xr': {
+        title: 'Nike XR Shopping',
+        company: 'Micro Interaction • Personal Project',
+        image: '_next/mayaai1c9.png',
+        description: 'Crafted a seamless transition from 2D screen interaction to immersive 3D spatial engagement, enhancing the way you shop! Experience Nike products in an immersive XR environment with interactive product exploration.',
+        links: [
+          {
+            label: 'Try MayaAI',
+            url: 'https://mayaai.demo.com'
+          }
+        ],
+        features: [
+          'Immersive 3D product visualization',
+          'Spatial interaction for product exploration',
+          'Seamless 2D to 3D transition',
+          'Interactive shopping experience in XR environment'
+        ]
+      },
+      'automotive-contextual-ai': {
+        title: 'Contextual AI Dashboard',
+        company: 'AI & Geo Spatial • Personal Project',
+        image: '_next/bubbl0ab0.png',
+        description: 'Utilize AI-powered augmented reality (AR) to provide upfront contextual information for an enhanced and safer driving experience. The dashboard displays intelligent, context-aware information directly in the driver\'s field of view.',
+        links: [
+          {
+            label: 'View Demo Video',
+            url: 'https://youtube.com/watch?v=bubbl-demo'
+          }
+        ],
+        features: [
+          'AI-powered contextual information display',
+          'AR overlay on automotive dashboard',
+          'Real-time geo-spatial data integration',
+          'Enhanced safety through intelligent information delivery'
+        ]
+      },
+      'automotive-ar-navigation': {
+        title: 'AR Navigation',
+        company: 'AI & Geo Spatial • Personal Project',
+        image: '_next/infubebe.png',
+        description: 'Utilize AI-powered augmented reality (AR) to provide upfront contextual information for an enhanced and safer driving experience. Navigate with intelligent AR overlays that show directions and route information directly in your view.',
+        links: [
+          {
+            label: 'View on Devpost',
+            url: 'https://devpost.com/software/infu'
+          }
+        ],
+        features: [
+          'AR-powered navigation overlays',
+          'Real-time route guidance in driver\'s view',
+          'AI-enhanced contextual navigation information',
+          'Geo-spatial intelligence for optimal routing'
+        ]
+      },
+      
     };
 
     function openProjectModal(projectId) {
@@ -4235,7 +4516,24 @@ html.dark-mode {
       // Update current project index
       currentProjectIndex = projectOrder.indexOf(projectId);
       
-      loadProjectContent(projectId);
+      // Find the project link element and extract title/subtitle
+      const projectLink = document.querySelector(`.project-link[data-project="${projectId}"]`);
+      let projectTitle = project.title;
+      let projectSubtitle = project.company;
+      
+      if (projectLink) {
+        const titleElement = projectLink.querySelector('.responsive-project-title');
+        const subtitleElement = projectLink.querySelector('.responsive-project-subtitle');
+        
+        if (titleElement) {
+          projectTitle = titleElement.textContent.trim();
+        }
+        if (subtitleElement) {
+          projectSubtitle = subtitleElement.textContent.trim();
+        }
+      }
+      
+      loadProjectContent(projectId, projectTitle, projectSubtitle);
       
       const modal = document.getElementById('projectModal');
       modal.classList.add('active');
@@ -4244,49 +4542,54 @@ html.dark-mode {
       updateNavigationButtons();
     }
 
-    function loadProjectContent(projectId) {
+    function loadProjectContent(projectId, customTitle = null, customSubtitle = null) {
       const project = projectData[projectId];
       if (!project) return;
 
+      // Use custom title/subtitle if provided, otherwise use project data
+      const displayTitle = customTitle || project.title;
+      const displaySubtitle = customSubtitle || project.company;
+
       // Update header
       const modalTitle = document.getElementById('modalTitle');
-      modalTitle.textContent = project.title;
+      modalTitle.textContent = displayTitle;
 
-      // Update image
+      // Update image or video
       const modalImage = document.getElementById('modalImage');
-      modalImage.src = project.image;
-      modalImage.alt = project.title;
+      const modalVideo = document.getElementById('modalVideo');
+      const videoPath = projectVideoMap[projectId];
+      
+      if (videoPath) {
+        // Show video, hide image
+        modalImage.style.display = 'none';
+        modalVideo.style.display = 'block';
+        modalVideo.src = videoPath;
+        modalVideo.setAttribute('aria-label', displayTitle);
+      } else {
+        // Show image, hide video
+        modalImage.style.display = 'block';
+        modalVideo.style.display = 'none';
+        modalImage.src = project.image;
+        modalImage.alt = displayTitle;
+        // Pause video if it was playing
+        if (modalVideo) {
+          modalVideo.pause();
+          modalVideo.currentTime = 0;
+        }
+      }
 
       // Update project details
-      const projectTitle = document.getElementById('projectTitle');
       const projectCompany = document.getElementById('projectCompany');
       const projectDescription = document.getElementById('projectDescription');
       const projectLinks = document.getElementById('projectLinks');
       const projectFeatures = document.getElementById('projectFeatures');
 
-      projectTitle.textContent = project.title;
-      projectCompany.textContent = project.company;
+      projectCompany.textContent = displaySubtitle;
       projectDescription.textContent = project.description;
 
-      // Clear and populate links
-      projectLinks.innerHTML = '';
-      if (project.links && project.links.length > 0) {
-        project.links.forEach(link => {
-          const linkElement = document.createElement('a');
-          linkElement.href = link.url;
-          linkElement.target = '_blank';
-          linkElement.rel = 'noopener noreferrer';
-          linkElement.className = 'project-link-item';
-          linkElement.innerHTML = `
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18 13V19C18 19.5304 17.7893 20.0391 17.4142 20.4142C17.0391 20.7893 16.5304 21 16 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V8C3 7.46957 3.21071 6.96086 3.58579 6.58579C3.96086 6.21071 4.46957 6 5 6H11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10 14L21 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            ${link.label}
-          `;
-          projectLinks.appendChild(linkElement);
-        });
+      // Hide project links section
+      if (projectLinks) {
+        projectLinks.style.display = 'none';
       }
 
       // Clear and populate features
@@ -4308,7 +4611,25 @@ html.dark-mode {
       if (newIndex >= 0 && newIndex < projectOrder.length) {
         currentProjectIndex = newIndex;
         const projectId = projectOrder[currentProjectIndex];
-        loadProjectContent(projectId);
+        
+        // Find the project link element and extract title/subtitle
+        const projectLink = document.querySelector(`.project-link[data-project="${projectId}"]`);
+        let projectTitle = null;
+        let projectSubtitle = null;
+        
+        if (projectLink) {
+          const titleElement = projectLink.querySelector('.responsive-project-title');
+          const subtitleElement = projectLink.querySelector('.responsive-project-subtitle');
+          
+          if (titleElement) {
+            projectTitle = titleElement.textContent.trim();
+          }
+          if (subtitleElement) {
+            projectSubtitle = subtitleElement.textContent.trim();
+          }
+        }
+        
+        loadProjectContent(projectId, projectTitle, projectSubtitle);
         updateNavigationButtons();
       }
     }
@@ -4336,6 +4657,13 @@ html.dark-mode {
       const modal = document.getElementById('projectModal');
       modal.classList.remove('active');
       document.body.style.overflow = '';
+      
+      // Pause any playing video
+      const modalVideo = document.getElementById('modalVideo');
+      if (modalVideo) {
+        modalVideo.pause();
+        modalVideo.currentTime = 0;
+      }
     }
 
     // Modal event listeners
@@ -4892,19 +5220,21 @@ html.dark-mode {
       <div class="project-modal-body">
         <!-- Project Overview Section -->
         <div class="project-overview">
-          <!-- Header Image -->
+          <!-- Header Image/Video -->
           <div class="project-header-image">
             <img id="modalImage" class="project-modal-image" src="" alt="" />
+            <video id="modalVideo" class="project-modal-video" controls preload="metadata" style="display: none;">
+              Your browser does not support the video tag.
+            </video>
           </div>
           
           <div class="project-details">
-            <h3 id="projectTitle" class="project-title"></h3>
             <p id="projectCompany" class="project-company"></p>
             
             <div class="project-content">
               <p id="projectDescription" class="project-description"></p>
               
-              <div id="projectLinks" class="project-links">
+              <div id="projectLinks" class="project-links" style="display: none;">
                 <!-- Dynamic links will be loaded here -->
               </div>
               
@@ -5114,7 +5444,7 @@ html.dark-mode {
         <div class="project-brief">
           <!-- Header Image -->
           <div class="project-header-image">
-            <img src="_next/rachelaic1c9.png" alt="PokerGPT AI poker coach interface showing advanced strategy recommendations and real-time hand analysis" class="header-img" />
+            <img src="_next/mayaai1c9.png" alt="PokerGPT AI poker coach interface showing advanced strategy recommendations and real-time hand analysis" class="header-img" />
             <div class="image-overlay">
               <div class="overlay-badge">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

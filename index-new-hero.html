@@ -25,36 +25,35 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.json" />
-  <title>Maya Chen | Product Designer &amp; Engineer</title>
+  <title>Aravindh Maya | Product Designer &amp; Engineer</title>
   <meta name="description" content="I&#x27;m Maya, a product builder who loves bringing ideas to life with design + code." />
   <meta name="author" content="MAYA" />
-  <meta name="keywords" content="product design,software engineering,portfolio,Maya Chen,UX design,frontend development" />
-  <meta name="creator" content="Maya Chen" />
-  <meta name="publisher" content="Maya Chen" />
+  <meta name="keywords" content="product design,software engineering,portfolio,Aravindh Maya,UX design,frontend development" />
+  <meta name="creator" content="Aravindh Maya" />
+  <meta name="publisher" content="Aravindh Maya" />
   <meta name="robots" content="index, follow" />
   <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
   <meta name="google-site-verification" content="your-google-verification-code" />
-  <meta property="og:title" content="Maya Chen | Product Designer &amp; Engineer" />
+  <meta property="og:title" content="Aravindh Maya | Product Designer &amp; Engineer" />
   <meta property="og:description" content="I&#x27;m Maya and I love bringing ideas to life with design + code." />
-  <meta property="og:url" content="https://rachelchen.tech" />
-  <meta property="og:site_name" content="Maya Maya Chen | Product Designer &amp; Engineer&#x27;" />
+  <meta property="og:url" content="https://aravindhmaya.com" />
+  <meta property="og:site_name" content="Aravindh Maya | Product Designer &amp; Engineer&#x27;" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:image" content="https://rachel-chen-portfolio.vercel.app/og-image.png" />
+  <meta property="og:image" content="https://aravindhmaya.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Maya Chen - Product Designer &amp; Engineer" />
+  <meta property="og:image:alt" content="Aravindh Maya - Product Designer &amp; Engineer" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Maya | Product Designer &amp;" />
   <meta name="twitter:description" content="I&#x27;m Maya, a product builder who loves bringing ideas to life with design + code." />
-  <meta name="twitter:image" content="https://rachel-chen-portfolio.vercel.app/og-image.png" />
+  <meta name="twitter:image" content="https://aravindhmaya.com/og-image.png" />
   <meta name="twitter:image:width" content="1200" />
   <meta name="twitter:image:height" content="630" />
-  <meta name="twitter:image:alt" content="Maya Chen - Product Designer &amp; Engineer" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon" sizes="16x16" />
-  <link rel="icon" href="favicon.ico" sizes="16x16" type="image/x-icon" />
-  <link rel="icon" href="favicon.ico" sizes="32x32" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="favicon.ico" sizes="180x180" type="image/png" />
+  <meta name="twitter:image:alt" content="Aravindh Maya - Product Designer &amp; Engineer" />
+  <link rel="icon" href="favicon.svg?t=1" type="image/svg+xml" />
+  <link rel="alternate icon" href="favicon.ico?t=1" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="favicon.ico?t=1" sizes="180x180" />
   <script>document.querySelectorAll('body link[rel="icon"], body link[rel="apple-touch-icon"]').forEach(el => document.head.appendChild(el))</script>
   <script src="_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script>
   
@@ -105,22 +104,54 @@
       font-weight: 600;
       font-size: 14px;
       transition: transform 0.3s ease;
+      overflow: hidden;
     }
     
     .company-logo:hover {
       transform: scale(1.1);
     }
     
+    .company-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
     .google-logo {
-      background: linear-gradient(135deg, #4285F4, #34A853, #FBBC05, #EA4335);
+      background: white;
+      border: 1px solid rgba(120, 120, 120, 0.1);
+      box-shadow: 
+        0 0 0 0.5px rgba(120, 120, 120, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        inset 0 1px 2px rgba(255, 255, 255, 0.5),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.03);
+    }
+    .google-logo img {
+      position: relative;
+      left: 0px;
+      top: 0px;
     }
     
     .samsung-logo {
-      background: linear-gradient(135deg, #1428A0, #00C7B7);
+      background: transparent;
+      width: 40px;
+      height: 40px;
     }
     
     .walmart-logo {
-      background: linear-gradient(135deg, #0071CE, #FFC220);
+      background: transparent;
+      width: 40px;
+      height: 40px;
+    }
+    
+    .samsung-logo img,
+    .walmart-logo img {
+      position: relative;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
     
     /* Ensure blue backgrounds are visible */
@@ -189,6 +220,23 @@
     /* Design tip card custom radius */
     .design-tip-card {
       border-radius: 20px;
+      outline: none;
+    }
+    
+    .design-tip-card:hover,
+    .design-tip-card:focus,
+    .design-tip-card:focus-visible,
+    .design-tip-card:active {
+      outline: none;
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    .dark-mode .design-tip-card:hover,
+    .dark-mode .design-tip-card:focus,
+    .dark-mode .design-tip-card:focus-visible,
+    .dark-mode .design-tip-card:active {
+      outline: none;
+      border-color: rgba(255, 255, 255, 0.1);
     }
 
     /* Global h3 typography override */
@@ -265,11 +313,13 @@
         </div>
         
         <div class="flex flex-col gap-6 fade-in fade-in-delay-2">
-          <div class="flex items-center gap-12">
+          <div class="flex items-start gap-12">
             <div class="flex flex-col gap-2">
               <h4 class="!opacity-100">Currently</h4>
               <div class="flex items-center gap-3">
-                <div class="company-logo google-logo">G</div>
+                <div class="company-logo google-logo">
+                  <img src="Images/Google.png" alt="Google" />
+                </div>
                 <div class="flex flex-col">
                   <a href="https://google.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--primary)] transition-colors">Google</a>
                   <p class="text-sm text-[var(--foreground)]/70">Product Designer</p>
@@ -279,9 +329,18 @@
             
             <div class="flex flex-col gap-2">
               <h4 class="!opacity-100">Previously</h4>
-              <div class="flex items-center gap-4">
-                <div class="company-logo samsung-logo" title="Samsung">S</div>
-                <div class="company-logo walmart-logo" title="Walmart">W</div>
+              <div class="flex items-start justify-start gap-0">
+                <div class="flex flex-col">
+                  <div class="flex flex-wrap items-start gap-2">
+                    <a href="#" class="hover:text-[var(--primary)] transition-colors">Samsung</a>
+                    <span class="text-[var(--foreground)]/40">•</span>
+                    <a href="#" class="hover:text-[var(--primary)] transition-colors">Walmart</a>
+                    <span class="text-[var(--foreground)]/40">•</span>
+                    <a href="#" class="hover:text-[var(--primary)] transition-colors">IU</a>
+                    <span class="text-[var(--foreground)]/40">•</span>
+                    <a href="#" class="hover:text-[var(--primary)] transition-colors">4+ ...</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -291,13 +350,13 @@
       <!-- Right Side - Design Tips -->
       <div class="design-tip-section flex flex-col gap-3 fade-in fade-in-delay-3">
         <div class="flex flex-col gap-2">
-          <h2 class="text-xl font-bold mb-0">Design Tip</h2>
+          <h2 class="text-xl font-medium mb-0">Design Tip</h2>
         </div>
         
         <div class="flex flex-col gap-2">
-        <div id="designTipCard" role="button" tabindex="0" aria-label="Show another design tip" class="design-tip-card border-1 border-foreground/10 p-6 hover:border-primary transition-all duration-300 ease-in-out cursor-pointer">
+        <div id="designTipCard" role="button" tabindex="0" aria-label="Show another design tip" class="design-tip-card border-1 border-foreground/10 p-6 transition-all duration-300 ease-in-out cursor-pointer">
           <div class="flex items-start justify-between mb-3">
-            <h3 class="text-base font-semibold italic" id="tipTitle">Start with User Research</h3>
+            <h3 class="text-base font-semibold italic" id="tipTitle">Research Before Opinions</h3>
             <button id="refreshDesignTipButton" class="refresh-btn" title="Get a new tip" aria-label="Get a new tip">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
@@ -307,10 +366,10 @@
               </svg>
             </button>
           </div>
-          <p class="text-sm md:text-[0.95rem] text-[var(--foreground)]/70 leading-relaxed" id="tipContent">Before diving into design, spend time understanding your users. Conduct interviews, surveys, and observe their behavior. The insights you gather will guide every design decision.</p>
+          <p class="text-sm md:text-[0.95rem] text-[var(--foreground)]/70 leading-relaxed" id="tipContent">"I don't trust my instincts until I've tested them against real users." Every good decision I've made started with listening, not designing.</p>
           <div class="flex justify-end items-center gap-2 mt-2">
             <span id="tipCounter" class="category-badge inline-flex items-center shadow-sm">1/3</span>
-            <button type="button" id="tipCategory" class="category-badge inline-flex items-center shadow-sm" title="Refresh tip"># UX Research</button>
+            <button type="button" id="tipCategory" class="category-badge inline-flex items-center shadow-sm" title="Refresh tip"># User Research</button>
           </div>
         </div>
         
@@ -324,53 +383,53 @@
     // Design tips database
     const designTips = [
       {
-        title: "Start with User Research",
-        content: "Before diving into design, spend time understanding your users. Conduct interviews, surveys, and observe their behavior. The insights you gather will guide every design decision.",
-        category: "UX Research"
+        title: "Research Before Opinions",
+        content: "\"I don't trust my instincts until I've tested them against real users.\" Every good decision I've made started with listening, not designing.",
+        category: "User Research"
       },
       {
-        title: "Embrace White Space",
-        content: "Don't be afraid of empty space. White space helps create visual hierarchy, improves readability, and gives your design room to breathe. Less clutter often means better communication.",
-        category: "Visual Design"
+        title: "Clarity Over Cleverness",
+        content: "\"If something needs explanation, the design already failed.\" White space isn't aesthetic — it's cognitive relief.",
+        category: "Clarity"
       },
       {
-        title: "Design for Accessibility",
-        content: "Make your designs inclusive from the start. Use sufficient color contrast, provide alternative text, and ensure keyboard navigation. Good design should work for everyone.",
+        title: "Accessibility Is Product Quality",
+        content: "\"If it doesn't work for everyone, it doesn't really work.\" Inclusive design isn't a checklist — it's a baseline.",
         category: "Accessibility"
       },
       {
-        title: "Prototype Early and Often",
-        content: "Don't wait until the end to test your ideas. Create quick prototypes to validate concepts early. It's much cheaper to iterate on paper than in code.",
+        title: "Prototypes Protect the Product",
+        content: "\"I prototype to fail early — and cheaply.\" Rough ideas expose bad assumptions before they reach code.",
         category: "Prototyping"
       },
       {
-        title: "Focus on the Problem",
-        content: "Don't fall in love with your first solution. Stay focused on solving the user's problem, not defending your design. Be willing to pivot based on feedback and data.",
+        title: "Problems First, Solutions Second",
+        content: "\"I'm more interested in the right problem than the perfect UI.\" Great design comes from reframing, not polishing.",
         category: "Problem Solving"
       },
       {
-        title: "Use Consistent Patterns",
-        content: "Create and follow design patterns consistently. This reduces cognitive load for users and makes your interface more predictable and easier to learn.",
-        category: "Design Systems"
+        title: "Consistency Builds Trust",
+        content: "\"Predictable interfaces let users focus on their goals, not the UI.\" Design systems aren't about control — they're about clarity.",
+        category: "Consistency"
       },
       {
-        title: "Test with Real Users",
-        content: "Your assumptions are just guesses until validated. Test your designs with actual users, not just your team. Real feedback will surprise you and improve your work.",
+        title: "Users > Assumptions",
+        content: "\"Every user test humbles the design.\" Real behavior beats internal alignment every time.",
         category: "User Testing"
       },
       {
-        title: "Design for Mobile First",
-        content: "Start with mobile constraints and work your way up. This forces you to focus on essential features and creates better experiences across all devices.",
-        category: "Responsive Design"
+        title: "Constraints Reveal Priorities",
+        content: "\"Mobile-first design forces honesty.\" When space is limited, only what matters survives.",
+        category: "Mobile First"
       },
       {
-        title: "Use Data to Inform Decisions",
-        content: "Combine qualitative insights with quantitative data. Analytics can reveal user behavior patterns that interviews might miss. Let data guide your design decisions.",
-        category: "Data-Driven Design"
+        title: "Data Keeps Me Honest",
+        content: "\"Data doesn't replace intuition — it sharpens it.\" I design with insight, then validate with evidence.",
+        category: "Data Informed"
       },
       {
-        title: "Iterate Based on Feedback",
-        content: "Design is never finished. Continuously gather feedback and iterate on your work. The best designs evolve through multiple cycles of testing and refinement.",
+        title: "Iteration Is the Job",
+        content: "\"Shipping isn't the finish line — learning is.\" The best products evolve because the team keeps listening.",
         category: "Iteration"
       }
     ];
@@ -391,7 +450,7 @@
 
         tipTitle.textContent = 'That\'s all for now';
         // Show CTA inside the card body instead of caption
-        tipContent.innerHTML = 'Want more tips? <a href="https://www.linkedin.com/in/rachelchenmaya" target="_blank" rel="noopener noreferrer" class="text-primary underline font-medium">Connect on LinkedIn</a> or <a href="mailto:mayac0715@gmail.com" class="text-primary underline">email me</a>.';
+        tipContent.innerHTML = 'Want more tips? <a href="https://www.linkedin.com/in/aravindmaya" target="_blank" rel="noopener noreferrer" class="text-primary underline font-medium">Connect on LinkedIn</a> or <a href="mailto:mayac0715@gmail.com" class="text-primary underline">email me</a>.';
         tipCategory.textContent = '# Thanks';
         if (tipCounter) tipCounter.textContent = `${tipViewLimit}/${tipViewLimit}`;
 
@@ -520,7 +579,7 @@
           const cursorDot = cursor.querySelector('div');
           if (cursorDot) {
             cursorDot.style.transform = 'scale(1.5)';
-            cursorDot.style.background = 'var(--primary)';
+            cursorDot.style.background = 'rgba(50, 64, 79, 0.25)';
             cursorDot.style.borderRadius = '50%';
           }
         });
@@ -528,12 +587,15 @@
           const cursorDot = cursor.querySelector('div');
           if (cursorDot) {
             cursorDot.style.transform = 'scale(1)';
-            cursorDot.style.background = 'var(--primary)';
+            cursorDot.style.background = 'rgba(50, 64, 79, 0.15)';
             cursorDot.style.borderRadius = '50%';
           }
         });
       });
     });
   </script>
+  
+  <!-- Visual Editor Script -->
+  <script src="visual-editor.js"></script>
 </body>
 </html>
