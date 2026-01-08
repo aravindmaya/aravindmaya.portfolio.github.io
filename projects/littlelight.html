@@ -592,6 +592,20 @@
       margin: 0;
     }
     
+    /* Dark mode styles for NDA note text */
+    .dark-mode .nda-note p,
+    .dark-mode .nda-note-text {
+      color: rgba(229, 229, 229, 0.9) !important;
+    }
+    
+    /* Dark mode styles for outcome spans with dark color */
+    .dark-mode .outcomes-grid span[style*="color:#32404F"],
+    .dark-mode .outcomes-grid span[style*="color: #32404F"],
+    .dark-mode span[style*="color:#32404F"],
+    .dark-mode span[style*="color: #32404F"] {
+      color: rgba(229, 229, 229, 0.8) !important;
+    }
+    
     /* Default Paragraph Styling - Responsive */
     p {
       font-size: 15px;

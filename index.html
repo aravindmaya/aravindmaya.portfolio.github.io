@@ -180,6 +180,10 @@
     .featured-work-hover-text {
       z-index: 999 !important;
       display: flex !important;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
     }
     
     .featured-work-container:hover .featured-work-hover-text,
@@ -198,32 +202,73 @@
       transform: scale(1.07);
     }
     
-    /* Responsive font size for featured work hover text */
+    /* Responsive font size for featured work hover text - using clamp for fluid scaling */
     .featured-work-text-responsive {
-      font-size: 3rem; /* Base size for mobile */
+      font-size: clamp(1.25rem, 4vw, 5.5rem); /* Fluid scaling from 20px to 88px */
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      padding: 0 0.5rem;
+      text-align: center;
+    }
+    
+    /* Fallback for older browsers - responsive breakpoints */
+    @media (min-width: 320px) {
+      .featured-work-text-responsive {
+        font-size: 1.25rem; /* Small phones (20px) */
+      }
+    }
+    
+    @media (min-width: 375px) {
+      .featured-work-text-responsive {
+        font-size: 1.5rem; /* Standard phones (24px) */
+      }
     }
     
     @media (min-width: 640px) {
       .featured-work-text-responsive {
-        font-size: 4.5rem; /* Small tablets */
+        font-size: 2rem; /* Small tablets (32px) */
       }
     }
     
     @media (min-width: 768px) {
       .featured-work-text-responsive {
-        font-size: 6rem; /* Tablets */
+        font-size: 3rem; /* Tablets (48px) */
       }
     }
     
     @media (min-width: 1024px) {
       .featured-work-text-responsive {
-        font-size: 7.5rem; /* Desktops */
+        font-size: 4rem; /* Desktops (64px) */
       }
     }
     
     @media (min-width: 1280px) {
       .featured-work-text-responsive {
-        font-size: 8.5rem; /* Large desktops */
+        font-size: 5rem; /* Large desktops (80px) */
+      }
+    }
+    
+    /* Ensure hover text container handles overflow properly */
+    .featured-work-hover-text {
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    /* Adjust text for smaller containers on mobile */
+    @media (max-width: 767px) {
+      .featured-work-hover-text {
+        padding: 0.5rem;
+      }
+      
+      .featured-work-text-responsive {
+        font-size: clamp(1rem, 3vw, 1.75rem); /* Smaller on mobile */
+        word-break: break-word;
+        white-space: normal;
+        hyphens: auto;
+        max-width: 90%;
       }
     }
 
@@ -3375,7 +3420,7 @@ html.dark-mode {
             <button class="flex items-start nav-item" data-section="about">
               <p class="transition-colors cursor-pointer text-left hover:text-foreground">About</p>
             </button>
-            <a href="Aravindh_Nagarajan_SeniorProductDesigner_2025-2.pdf" target="_blank" rel="noopener noreferrer" class="flex items-start nav-link-resume">
+            <a href="Resume/Aravindh_Nagarajan_Resume.pdf" target="_blank" rel="noopener noreferrer" class="flex items-start nav-link-resume">
               <p class="transition-colors cursor-pointer text-left">Resume</p>
             </a>
           </div>
@@ -3395,7 +3440,7 @@ html.dark-mode {
           <button class="nav-item" data-section="about">
             <p class="transition-colors cursor-pointer hover:text-foreground">About</p>
           </button>
-          <a href="Aravindh_Nagarajan_SeniorProductDesigner_2025-2.pdf" target="_blank" rel="noopener noreferrer" class="nav-link-resume">
+          <a href="Resume/Aravindh_Nagarajan_Resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link-resume">
             <p class="transition-colors cursor-pointer">Resume</p>
           </a>
         </nav>
@@ -5606,9 +5651,6 @@ html.dark-mode {
       }
     })();
   </script>
-
-  <!-- Visual Editor Script -->
-  <script src="visual-editor.js"></script>
 
   <!-- Featured Work Hover Text Script -->
   <script>
