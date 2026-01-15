@@ -1,26 +1,6 @@
-// Google Analytics 4 (GA4) Configuration
-// Replace 'G-XXXXXXXXXX' with your actual GA4 Measurement ID
-const GA4_MEASUREMENT_ID = 'G-LX6ZJQBQM8'; // Your GA4 Measurement ID
-
-// Initialize Google Analytics 4
-(function() {
-  // Load gtag.js
-  const script1 = document.createElement('script');
-  script1.async = true;
-  script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`;
-  document.head.appendChild(script1);
-
-  // Initialize gtag
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  window.gtag = gtag;
-  gtag('js', new Date());
-  gtag('config', GA4_MEASUREMENT_ID, {
-    page_path: window.location.pathname + window.location.search,
-    page_title: document.title,
-    page_location: window.location.href
-  });
-})();
+// Google Analytics 4 (GA4) - Enhanced Tracking
+// Note: The base GA4 code is loaded inline in the HTML <head> section
+// This file adds enhanced tracking features (scroll depth, time on page, project views, etc.)
 
 // Track page views
 function trackPageView(pageName, pagePath) {
