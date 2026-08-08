@@ -16,8 +16,8 @@
     type="font/woff2" />
 <link rel="preload" href="../_next/static/media/ae9433eb6d16fb7b-s.p.woff2" as="font" crossorigin=""
     type="font/woff2" />
-  <link rel="stylesheet" href="../fonts.css" />
-  <link rel="stylesheet" href="../cursor.css" />
+  <link rel="stylesheet" href="../fonts.css?v=20260808" />
+  <link rel="stylesheet" href="../cursor.css?v=20260808" />
 <link rel="stylesheet" href="../_next/static/css/052620bd47d3101a.css" data-precedence="next" />
   <style>
     /* Force static content to be visible - override any hiding */
@@ -537,7 +537,7 @@
     gtag('js', new Date());
     gtag('config', 'G-LX6ZJQBQM8');
   </script>
-  <script src="../analytics.js"></script>
+  <script src="../analytics.js?v=20260808"></script>
   
 </head>
 
@@ -799,7 +799,34 @@
     </div>
   </footer>
 
-<script src="../sw-register.js" defer></script>
-  <script src="../cursor.js" defer></script>
+<script src="../sw-register.js?v=20260808" defer></script>
+  <!-- Page interactions: section nav, expandable sections, image lightbox -->
+  <script>
+// Smooth scroll to section with offset
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const offset = 80; // Offset in pixels for any fixed headers
+        const elementPosition = section.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    // Dark Mode Support - Apply theme from localStorage
+    (function() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+        document.body.classList.add('dark-mode');
+      }
+    })();
+  </script>
+
+  <script src="../cursor.js?v=20260808" defer></script>
 </body>
 </html>

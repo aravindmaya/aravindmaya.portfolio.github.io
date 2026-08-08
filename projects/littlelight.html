@@ -16,8 +16,8 @@
     type="font/woff2" />
 <link rel="preload" href="../_next/static/media/ae9433eb6d16fb7b-s.p.woff2" as="font" crossorigin=""
     type="font/woff2" />
-  <link rel="stylesheet" href="../fonts.css" />
-  <link rel="stylesheet" href="../cursor.css" />
+  <link rel="stylesheet" href="../fonts.css?v=20260808" />
+  <link rel="stylesheet" href="../cursor.css?v=20260808" />
 <link rel="stylesheet" href="../_next/static/css/052620bd47d3101a.css" data-precedence="next" />
   <style>
     /* Force static content to be visible - override any hiding */
@@ -608,7 +608,7 @@
     gtag('js', new Date());
     gtag('config', 'G-LX6ZJQBQM8');
   </script>
-  <script src="../analytics.js"></script>
+  <script src="../analytics.js?v=20260808"></script>
   
 </head>
 
@@ -972,7 +972,177 @@
       }
     })();
   </script>
-  <script src="../sw-register.js" defer></script>
-  <script src="../cursor.js" defer></script>
+  <script src="../sw-register.js?v=20260808" defer></script>
+  <!-- Page interactions: section nav, expandable sections, image lightbox -->
+  <script>
+// Smooth scroll to section with offset
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const offset = 80; // Offset in pixels for any fixed headers
+        const elementPosition = section.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+    
+    // Level Design Carousel
+    (function() {
+      let currentSlide = 0;
+      const totalSlides = 7;
+      const carousel = document.getElementById('levelDesignCarousel');
+      const carouselContainer = carousel ? carousel.parentElement : null;
+      const prevBtn = document.getElementById('levelDesignPrev');
+      const nextBtn = document.getElementById('levelDesignNext');
+      const dots = document.querySelectorAll('#levelDesignDots .carousel-dot');
+      let autoScrollInterval = null;
+      const autoScrollDelay = 4000; // 4 seconds
+      
+      function updateCarousel() {
+        if (carousel) {
+          // Each slide is 14.2857% (100% / 7 slides) of the container width
+          const slideWidth = 100 / totalSlides;
+          carousel.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+        }
+        
+        // Update dots
+        dots.forEach((dot, index) => {
+          if (index === currentSlide) {
+            dot.classList.add('active');
+            dot.style.background = 'rgba(255, 255, 255, 0.5)';
+          } else {
+            dot.classList.remove('active');
+            dot.style.background = 'rgba(255, 255, 255, 0.3)';
+          }
+        });
+        
+        // Update button states (always enabled since we loop)
+        if (prevBtn) {
+          prevBtn.style.opacity = '1';
+          prevBtn.style.pointerEvents = 'auto';
+        }
+        if (nextBtn) {
+          nextBtn.style.opacity = '1';
+          nextBtn.style.pointerEvents = 'auto';
+        }
+      }
+      
+      function goToSlide(slideIndex) {
+        if (slideIndex >= 0 && slideIndex < totalSlides) {
+          currentSlide = slideIndex;
+          updateCarousel();
+          resetAutoScroll();
+        }
+      }
+      
+      function nextSlide() {
+        if (currentSlide < totalSlides - 1) {
+          currentSlide++;
+        } else {
+          // Loop back to first slide
+          currentSlide = 0;
+        }
+        updateCarousel();
+        resetAutoScroll();
+      }
+      
+      function prevSlide() {
+        if (currentSlide > 0) {
+          currentSlide--;
+        } else {
+          // Loop to last slide
+          currentSlide = totalSlides - 1;
+        }
+        updateCarousel();
+        resetAutoScroll();
+      }
+      
+      function startAutoScroll() {
+        stopAutoScroll();
+        autoScrollInterval = setInterval(() => {
+          nextSlide();
+        }, autoScrollDelay);
+        updateIndicator();
+      }
+      
+      function stopAutoScroll() {
+        if (autoScrollInterval) {
+          clearInterval(autoScrollInterval);
+          autoScrollInterval = null;
+        }
+        updateIndicator();
+      }
+      
+      function resetAutoScroll() {
+        stopAutoScroll();
+        startAutoScroll();
+      }
+      
+      // Update indicator visibility
+      function updateIndicator() {
+        const indicator = document.getElementById('carouselIndicator');
+        if (indicator) {
+          // Show indicator when auto-scrolling, hide when paused
+          if (autoScrollInterval) {
+            indicator.style.opacity = '0.6';
+          } else {
+            indicator.style.opacity = '0.3';
+          }
+        }
+      }
+      
+      // Event listeners
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          prevSlide();
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          nextSlide();
+        });
+      }
+      
+      // Dot navigation
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => goToSlide(index));
+      });
+      
+      // Pause auto-scroll on hover
+      if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', stopAutoScroll);
+        carouselContainer.addEventListener('mouseleave', startAutoScroll);
+      }
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        const levelDesignSection = document.getElementById('level-design');
+        if (levelDesignSection && levelDesignSection.getBoundingClientRect().top < window.innerHeight && levelDesignSection.getBoundingClientRect().bottom > 0) {
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            prevSlide();
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            nextSlide();
+          }
+        }
+      });
+      
+      // Initialize
+      updateCarousel();
+      startAutoScroll();
+      
+      // Cleanup on page unload
+      window.addEventListener('beforeunload', stopAutoScroll);
+    })();
+  </script>
+
+  <script src="../cursor.js?v=20260808" defer></script>
 </body>
 </html>

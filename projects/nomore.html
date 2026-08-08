@@ -15,8 +15,8 @@
     type="font/woff2" />
 <link rel="preload" href="../_next/static/media/ae9433eb6d16fb7b-s.p.woff2" as="font" crossorigin=""
     type="font/woff2" />
-  <link rel="stylesheet" href="../fonts.css" />
-  <link rel="stylesheet" href="../cursor.css" />
+  <link rel="stylesheet" href="../fonts.css?v=20260808" />
+  <link rel="stylesheet" href="../cursor.css?v=20260808" />
 <link rel="stylesheet" href="../_next/static/css/052620bd47d3101a.css" data-precedence="next" />
   <style>
     /* Glassmorphism Custom Cursor - Same as index.html */
@@ -998,7 +998,7 @@
     gtag('js', new Date());
     gtag('config', 'G-LX6ZJQBQM8');
   </script>
-  <script src="../analytics.js"></script>
+  <script src="../analytics.js?v=20260808"></script>
 </head>
 
 <body
@@ -1494,8 +1494,118 @@
     })();
   </script>
   <!-- Next.js scripts removed to prevent content overwriting -->
-  <script src="../sw-register.js" defer></script>
-  <script src="../cursor.js" defer></script>
+  <script src="../sw-register.js?v=20260808" defer></script>
+  <!-- Page interactions: section nav, expandable sections, image lightbox -->
+  <script>
+// Smooth scroll to section function
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    
+    function toggleResearch() {
+      const section = document.getElementById('research');
+      if (section) {
+        const expandableDiv = section.querySelector('.expandable-section');
+        if (expandableDiv) {
+          expandableDiv.classList.toggle('expanded');
+        }
+      }
+    }
+    
+    function toggleIdeation() {
+      const section = document.getElementById('ideation');
+      if (section) {
+        const expandableDiv = section.querySelector('.expandable-section');
+        if (expandableDiv) {
+          expandableDiv.classList.toggle('expanded');
+        }
+      }
+    }
+    
+    function toggleDesign() {
+      const section = document.getElementById('design');
+      if (section) {
+        const expandableDiv = section.querySelector('.expandable-section');
+        if (expandableDiv) {
+          expandableDiv.classList.toggle('expanded');
+        }
+      }
+    }
+    
+    function toggleTesting() {
+      const section = document.getElementById('testing');
+      if (section) {
+        const expandableDiv = section.querySelector('.expandable-section');
+        if (expandableDiv) {
+          expandableDiv.classList.toggle('expanded');
+        }
+      }
+    }
+    
+    function toggleUserTesting() {
+      const section = document.getElementById('user-testing');
+      if (section) {
+        const expandableDiv = section.querySelector('.expandable-section');
+        if (expandableDiv) {
+          expandableDiv.classList.toggle('expanded');
+        }
+      }
+    }
+    
+    function toggleDesignArtifacts() {
+      const section = document.getElementById('design-artifacts');
+      if (section) {
+        const expandableDiv = section.querySelector('.expandable-section');
+        if (expandableDiv) {
+          expandableDiv.classList.toggle('expanded');
+        }
+      }
+    }
+    
+    // Image Modal Functions
+    function openImageModal(imageSrc, imageAlt) {
+      const overlay = document.getElementById('imageModalOverlay');
+      const modalImg = document.getElementById('imageModalImg');
+      if (overlay && modalImg) {
+        modalImg.src = imageSrc;
+        modalImg.alt = imageAlt;
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    
+    function closeImageModal() {
+      const overlay = document.getElementById('imageModalOverlay');
+      if (overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+    
+    // Close modal on overlay click
+    document.addEventListener('DOMContentLoaded', function() {
+      const overlay = document.getElementById('imageModalOverlay');
+      if (overlay) {
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            closeImageModal();
+          }
+        });
+      }
+      
+      // Close modal on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeImageModal();
+        }
+      });
+    });
+  </script>
+
+  <script src="../cursor.js?v=20260808" defer></script>
 </body>
 
 </html>
