@@ -19,7 +19,8 @@ analytics.js          GA4 engagement tracking on top of the inline gtag snippet
 sw.js                 Service worker
 sw-register.js        Service worker registration
 _next/static/css      Compiled utility classes, inherited from an earlier build
-_next/static/media    Web fonts (Geist, Geist Mono, Tiempos Text)
+_next/static/media    Web fonts (Geist, Geist Mono)
+fonts/                Newsreader (SIL OFL), self-hosted
 Images/               Case study and concept-film assets
 Resume/               Résumé PDF
 ```
@@ -52,7 +53,7 @@ The workflow can also be run manually from the Actions tab via
 - **Theme.** A small inline snippet in each `<head>` sets `.dark-mode` on
   `<html>` before first paint to avoid a flash. Never assign to
   `document.body.className` — the body carries the font-variable classes that
-  define `--font-tiempos-text` and `--font-geist-mono`. Use
+  define `--font-serif` and `--font-geist-mono`. Use
   `classList.toggle`.
 - **Canonical domain.** `https://www.aravindmaya.com`. Canonical, `og:url` and
   `sitemap.xml` should agree.

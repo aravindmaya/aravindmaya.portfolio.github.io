@@ -13,7 +13,6 @@
 :root {
   --font-geist-sans: "Geist", "Geist Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-geist-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, SFMono-Regular, Menlo, monospace;
-  --font-tiempos-text: "tiemposText", "tiemposText Fallback", Georgia, serif;
   --font-crimson-pro: "Crimson Pro", "Crimson Pro Fallback", Georgia, serif;
 }
 
@@ -265,7 +264,7 @@ body {
 }
 
 .page__title {
-  font-family: var(--font-tiempos-text), Georgia, serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-size: clamp(2rem, 5vw, 3.25rem);
   line-height: 1.12;
   letter-spacing: -0.02em;

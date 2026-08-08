@@ -6,12 +6,11 @@
   <link rel="preload" href="_next/static/media/39b0e861c537f507-s.p.woff2" as="font" crossorigin="" type="font/woff2" />
   <link rel="preload" href="_next/static/media/569ce4b8f30dc480-s.p.woff2" as="font" crossorigin="" type="font/woff2" />
   <link rel="preload" href="_next/static/media/93f479601ee12b01-s.p.woff2" as="font" crossorigin="" type="font/woff2" />
-  <link rel="preload" href="_next/static/media/993e471824edad3f-s.p.otf" as="font" crossorigin="" type="font/otf" />
-  <link rel="preload" href="_next/static/media/ae9433eb6d16fb7b-s.p.woff2" as="font" crossorigin="" type="font/woff2" />
-  <link rel="preload" href="_next/static/media/fcda245ca6032974-s.p.otf" as="font" crossorigin="" type="font/otf" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preload" href="_next/static/media/ae9433eb6d16fb7b-s.p.woff2" as="font" crossorigin="" type="font/woff2" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="fonts.css" />
   <link rel="stylesheet" href="_next/static/css/052620bd47d3101a.css" data-precedence="next" />
 <meta name="next-size-adjust" content="" />
   <meta name="theme-color" content="#fafcfd" />
@@ -66,7 +65,6 @@
     /* Font Family Definitions */
     :root {
       --font-geist-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --font-tiempos: 'Tiempos Text', Georgia, serif;
       
       /* Light Mode Colors */
       --background: #fafcfd;
@@ -126,9 +124,9 @@
       font-family: var(--font-geist-sans);
     }
 
-    /* Keep Tiempos for specific elements that need serif */
+    /* Serif face for headings */
     .home-hero h3 {
-      font-family: var(--font-tiempos-text), serif;
+      font-family: var(--font-serif), serif;
       letter-spacing: -0.02em;
       font-size: 1rem;
     }
@@ -813,7 +811,7 @@
       outline: none;
     }
     .home-hero .design-tip-section h2 { color: var(--foreground); font-size: 1rem; font-weight: 400; margin-bottom: 0; }
-    .home-hero h3 { font-family: var(--font-tiempos-text), serif; letter-spacing: -0.02em; font-size: 1rem; }
+    .home-hero h3 { font-family: var(--font-serif), serif; letter-spacing: -0.02em; font-size: 1rem; }
     
     /* Ensure grid container is full width on mobile */
     @media (max-width: 1023px) {
@@ -3732,7 +3730,7 @@ html.dark-mode {
               <section class="flex flex-col gap-8 w-full md:w-[40%] md:flex-shrink-0">
                 <!-- Section Header -->
                 <div class="flex flex-col gap-4">
-                  <h4 class="!opacity-100 mb-1" style="font-family:var(--font-tiempos-text),serif;">About Me</h4>
+                  <h4 class="!opacity-100 mb-1" style="font-family:var(--font-serif),serif;">About Me</h4>
                   <h1 class="text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold text-foreground leading-tight">
                     <span class="block mb-8">Aravindh</span>
                     <span class="block mb-8">Nagarajan</span>
@@ -3926,7 +3924,7 @@ html.dark-mode {
       function applyTheme(theme) {
         var isDark = theme === 'dark';
         // classList.toggle, never `className =` — <body> carries the font
-        // variable classes that define --font-tiempos-text and --font-geist-mono.
+        // variable classes that define --font-serif and --font-geist-mono.
         document.documentElement.classList.toggle('dark-mode', isDark);
         document.body.classList.toggle('dark-mode', isDark);
         var meta = document.querySelector('meta[name="theme-color"]');
