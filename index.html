@@ -55,8 +55,7 @@
     (function () {
       try {
         var stored = localStorage.getItem('theme');
-        var dark = stored ? stored === 'dark'
-          : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var dark = stored === 'dark';
         if (dark) document.documentElement.classList.add('dark-mode');
       } catch (e) { }
     })();
@@ -3719,15 +3718,6 @@ html.dark-mode {
           toggle.style.transform = 'scale(1.06)';
           setTimeout(function () { toggle.style.transform = 'scale(1)'; }, 120);
         });
-
-        // Follow the OS only while the visitor has never chosen for themselves.
-        var media = window.matchMedia('(prefers-color-scheme: dark)');
-        if (!storedTheme()) {
-          applyTheme(media.matches ? 'dark' : 'light');
-          media.addEventListener('change', function (e) {
-            if (!storedTheme()) applyTheme(e.matches ? 'dark' : 'light');
-          });
-        }
       }
 
       if (document.readyState === 'loading') {

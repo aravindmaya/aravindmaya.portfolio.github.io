@@ -64,17 +64,6 @@
         storeTheme(next);
       });
     });
-
-    // Follow the OS only while the visitor has never chosen for themselves.
-    var media = window.matchMedia('(prefers-color-scheme: dark)');
-    if (!storedTheme()) {
-      applyTheme(media.matches ? 'dark' : 'light');
-      media.addEventListener('change', function (e) {
-        if (!storedTheme()) {
-          applyTheme(e.matches ? 'dark' : 'light');
-        }
-      });
-    }
   }
 
   /* ---------------------------------------------------------------------
