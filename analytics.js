@@ -1,160 +1,156 @@
-// Google Analytics 4 (GA4) - Enhanced Tracking
-// Note: The base GA4 code is loaded inline in the HTML <head> section
-// This file adds enhanced tracking features (scroll depth, time on page, project views, etc.)
+/* Google Analytics 4 — enhanced tracking
+ *
+ * The base gtag snippet lives inline in each page's <head>. gtag('config')
+ * already sends the page_view, so this file must never send another one;
+ * it only adds engagement signal on top.
+ */
+(function () {
+  'use strict';
 
-// Track page views
-function trackPageView(pageName, pagePath) {
-  if (typeof gtag !== 'undefined') {
-    gtag('event', 'page_view', {
-      page_title: pageName,
-      page_location: window.location.href,
-      page_path: pagePath
-    });
+  function track(name, params) {
+    if (typeof gtag !== 'function') return;
+    var payload = params || {};
+    payload.page_path = window.location.pathname;
+    payload.page_title = document.title;
+    gtag('event', name, payload);
   }
-}
 
-// Track project views
-function trackProjectView(projectName) {
-  if (typeof gtag !== 'undefined') {
-    gtag('event', 'view_project', {
-      project_name: projectName,
-      page_path: window.location.pathname,
-      page_title: document.title
-    });
-  }
-}
+  /* -------------------------------------------------------------------
+     Scroll depth
+     Each milestone fires at most once per page view. The old version
+     compared against maxDepth *after* updating it, so every new maximum
+     between two milestones re-sent the lower one.
+     ------------------------------------------------------------------- */
+  var MILESTONES = [25, 50, 75, 100];
+  var reached = {};
+  var maxDepth = 0;
+  var ticking = false;
 
-// Track engagement metrics
-let engagementStartTime = Date.now();
-let maxScrollDepth = 0;
-let scrollCheckInterval;
+  function measureScroll() {
+    ticking = false;
+    var doc = document.documentElement;
+    var scrollable = doc.scrollHeight - window.innerHeight;
+    if (scrollable <= 0) return;
 
-// Track scroll depth
-function trackScrollDepth() {
-  const windowHeight = window.innerHeight;
-  const documentHeight = document.documentElement.scrollHeight;
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  const scrollPercent = Math.round((scrollTop / (documentHeight - windowHeight)) * 100);
-  
-  if (scrollPercent > maxScrollDepth) {
-    maxScrollDepth = scrollPercent;
-    
-    // Track milestones: 25%, 50%, 75%, 100%
-    if (scrollPercent >= 25 && maxScrollDepth < 50) {
-      trackEvent('scroll', { scroll_depth: 25 });
-    } else if (scrollPercent >= 50 && maxScrollDepth < 75) {
-      trackEvent('scroll', { scroll_depth: 50 });
-    } else if (scrollPercent >= 75 && maxScrollDepth < 100) {
-      trackEvent('scroll', { scroll_depth: 75 });
-    } else if (scrollPercent >= 100) {
-      trackEvent('scroll', { scroll_depth: 100 });
+    var pct = Math.round((window.pageYOffset || doc.scrollTop) / scrollable * 100);
+    pct = Math.max(0, Math.min(100, pct));
+    if (pct > maxDepth) maxDepth = pct;
+
+    for (var i = 0; i < MILESTONES.length; i++) {
+      var m = MILESTONES[i];
+      if (pct >= m && !reached[m]) {
+        reached[m] = true;
+        track('scroll', { scroll_depth: m });
+      }
     }
   }
-}
 
-// Track time on page
-function trackTimeOnPage() {
-  const timeOnPage = Math.round((Date.now() - engagementStartTime) / 1000); // in seconds
-  
-  // Track milestones: 30s, 1min, 2min, 5min
-  if (timeOnPage === 30) {
-    trackEvent('engagement_time', { time_seconds: 30 });
-  } else if (timeOnPage === 60) {
-    trackEvent('engagement_time', { time_seconds: 60 });
-  } else if (timeOnPage === 120) {
-    trackEvent('engagement_time', { time_seconds: 120 });
-  } else if (timeOnPage === 300) {
-    trackEvent('engagement_time', { time_seconds: 300 });
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(measureScroll);
   }
-}
 
-// Generic event tracking
-function trackEvent(eventName, eventParams = {}) {
-  if (typeof gtag !== 'undefined') {
-    gtag('event', eventName, {
-      ...eventParams,
-      page_path: window.location.pathname,
-      page_title: document.title
-    });
-  }
-}
+  /* -------------------------------------------------------------------
+     Time on page
+     Threshold comparison rather than `=== 30`, which silently missed
+     milestones whenever the interval drifted by a millisecond.
+     ------------------------------------------------------------------- */
+  var THRESHOLDS = [30, 60, 120, 300];
+  var fired = {};
+  var startedAt = Date.now();
+  var timer = null;
 
-// Track link clicks
-function trackLinkClick(linkText, linkUrl) {
-  trackEvent('click', {
-    link_text: linkText,
-    link_url: linkUrl,
-    event_category: 'outbound'
-  });
-}
-
-// Track resume downloads
-function trackResumeDownload() {
-  trackEvent('download', {
-    file_name: 'resume',
-    file_type: 'pdf',
-    event_category: 'download'
-  });
-}
-
-// Initialize engagement tracking when page loads
-document.addEventListener('DOMContentLoaded', function() {
-  // Track scroll depth
-  window.addEventListener('scroll', trackScrollDepth);
-  
-  // Track time on page every 10 seconds
-  scrollCheckInterval = setInterval(trackTimeOnPage, 10000);
-  
-  // Track link clicks
-  document.querySelectorAll('a[href]').forEach(link => {
-    link.addEventListener('click', function() {
-      const linkText = this.textContent.trim() || this.getAttribute('aria-label') || 'Unknown';
-      const linkUrl = this.href;
-      
-      // Track outbound links
-      if (linkUrl && !linkUrl.includes(window.location.hostname)) {
-        trackLinkClick(linkText, linkUrl);
+  function checkTime() {
+    var elapsed = (Date.now() - startedAt) / 1000;
+    for (var i = 0; i < THRESHOLDS.length; i++) {
+      var t = THRESHOLDS[i];
+      if (elapsed >= t && !fired[t]) {
+        fired[t] = true;
+        track('engagement_time', { time_seconds: t });
       }
-      
-      // Track resume downloads
-      if (linkUrl && linkUrl.includes('Resume') && linkUrl.includes('.pdf')) {
-        trackResumeDownload();
-      }
-    });
-  });
-  
-  // Detect project pages and track them
-  const path = window.location.pathname;
-  if (path.includes('/projects/')) {
-    const projectName = path.split('/projects/')[1]?.replace('.html', '') || 'unknown';
-    trackProjectView(projectName);
+    }
+    if (fired[THRESHOLDS[THRESHOLDS.length - 1]] && timer) {
+      clearInterval(timer);
+      timer = null;
+    }
   }
-  
-  // Track page view
-  trackPageView(document.title, path);
-});
 
-// Track engagement when user leaves page
-window.addEventListener('beforeunload', function() {
-  const totalTime = Math.round((Date.now() - engagementStartTime) / 1000);
-  if (typeof gtag !== 'undefined') {
-    gtag('event', 'page_engagement', {
-      engagement_time_msec: totalTime * 1000,
-      max_scroll_depth: maxScrollDepth,
-      page_path: window.location.pathname
+  /* -------------------------------------------------------------------
+     Outbound links, resume downloads, project views
+     ------------------------------------------------------------------- */
+  function onClick(e) {
+    var link = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!link) return;
+
+    var href = link.href || '';
+    if (!href) return;
+
+    var isSameOrigin;
+    try {
+      isSameOrigin = new URL(href, window.location.href).origin === window.location.origin;
+    } catch (err) {
+      return;
+    }
+
+    if (/\.pdf($|\?)/i.test(href) && /resume/i.test(href)) {
+      track('file_download', { file_name: 'resume', file_extension: 'pdf' });
+      return;
+    }
+
+    if (!isSameOrigin) {
+      track('click', {
+        link_text: (link.textContent || '').trim().slice(0, 100) ||
+          link.getAttribute('aria-label') || 'unknown',
+        link_url: href,
+        outbound: true
+      });
+    }
+  }
+
+  function trackProjectView() {
+    var path = window.location.pathname;
+    if (path.indexOf('/projects/') === -1) return;
+    var name = path.split('/projects/')[1] || '';
+    name = name.replace(/\.html$/, '');
+    if (name) track('view_project', { project_name: name });
+  }
+
+  /* -------------------------------------------------------------------
+     Session summary
+     visibilitychange rather than beforeunload: beforeunload is unreliable
+     on mobile and disqualifies the page from the back/forward cache.
+     ------------------------------------------------------------------- */
+  var summarySent = false;
+
+  function sendSummary() {
+    if (summarySent) return;
+    summarySent = true;
+    track('page_engagement', {
+      engagement_time_msec: Date.now() - startedAt,
+      max_scroll_depth: maxDepth
     });
   }
-  
-  if (scrollCheckInterval) {
-    clearInterval(scrollCheckInterval);
-  }
-});
 
-// Export functions for manual tracking if needed
-window.analytics = {
-  trackPageView,
-  trackProjectView,
-  trackEvent,
-  trackLinkClick,
-  trackResumeDownload
-};
+  function init() {
+    window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('click', onClick, true);
+    timer = setInterval(checkTime, 5000);
+    trackProjectView();
+    measureScroll();
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.visibilityState === 'hidden') sendSummary();
+    });
+    window.addEventListener('pagehide', sendSummary);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  // Kept for manual instrumentation from page scripts.
+  window.analytics = { track: track };
+})();

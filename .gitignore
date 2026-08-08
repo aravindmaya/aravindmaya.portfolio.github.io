@@ -55,3 +55,6 @@ build/
 
 
 
+
+# Build output (kept out of the repo; the site is served as plain static files)
+_next/cache/

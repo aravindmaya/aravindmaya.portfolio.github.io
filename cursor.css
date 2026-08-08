@@ -1,0 +1,143 @@
+/* ==========================================================================
+   Magnetic cursor
+   Small targets: the cursor takes their exact bounds, so it outlines the
+   thing you're about to click instead of covering it.
+   Large media: outlining a hero image says nothing, so it hands over to a
+   solid chip naming the action — Play, View, Open.
+
+   The palette is declared here rather than borrowed from the page. The
+   project pages define .dark-mode without remapping --foreground, so a
+   cursor built on that token would render in light colours on a dark
+   surface and disappear.
+   ========================================================================== */
+
+:root {
+  --cur-ink: #32404f;
+  --cur-paper: #fafcfd;
+  --cur-accent: #3266d0;
+}
+
+.dark-mode {
+  --cur-ink: #e5e5e5;
+  --cur-paper: #0a0a0a;
+  --cur-accent: #60a5fa;
+}
+
+.mcur,
+.mcur * {
+  pointer-events: none;
+}
+
+.mcur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+/* Revealed on first pointer move, so it never sits parked at 0,0 on load. */
+.mcur.is-active {
+  opacity: 1;
+}
+
+.mcur__box,
+.mcur__chip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+/* ---------- the mark ---------- */
+.mcur__box {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  border: 1.5px solid var(--cur-ink);
+  background: color-mix(in srgb, var(--cur-paper) 20%, transparent);
+  transform: translate(-50%, -50%);
+  /* Counter-stroke: a halo in the opposite tone keeps the outline legible
+     over photographs, where a single-colour stroke can vanish. */
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--cur-paper) 70%, transparent),
+    0 1px 5px rgba(0, 0, 0, 0.28);
+  transition:
+    width 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    border-radius 0.22s ease,
+    transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.mcur.is-hovering .mcur__box {
+  border-color: var(--cur-accent);
+  background: color-mix(in srgb, var(--cur-accent) 12%, transparent);
+}
+
+.mcur.is-pressed .mcur__box {
+  background: color-mix(in srgb, var(--cur-accent) 28%, transparent);
+}
+
+/* ---------- the chip, for anything past the size ceiling ---------- */
+.mcur__chip {
+  display: none;
+  align-items: center;
+  height: 34px;
+  padding: 0 0.95rem;
+  border-radius: 999px;
+  background: var(--cur-ink);
+  color: var(--cur-paper);
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.63rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.18s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.2s ease;
+}
+
+.mcur.is-over-media .mcur__box {
+  opacity: 0;
+}
+
+.mcur.is-over-media .mcur__chip {
+  display: flex;
+}
+
+.mcur.is-pressed .mcur__chip {
+  transform: translate(-50%, -50%) scale(0.93);
+}
+
+/* ---------- native pointer suppression ----------
+   Only where a replacement can actually be drawn. Touch and coarse pointers
+   keep their default, and the class is set by script — so if the script
+   fails, the native cursor is still there. */
+@media (hover: hover) and (pointer: fine) {
+  html.has-magnetic-cursor,
+  html.has-magnetic-cursor * {
+    cursor: none;
+  }
+
+  /* Text selection is a real interaction; give it back its I-beam. */
+  html.has-magnetic-cursor input,
+  html.has-magnetic-cursor textarea,
+  html.has-magnetic-cursor select {
+    cursor: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mcur,
+  .mcur__box,
+  .mcur__chip {
+    transition: none !important;
+  }
+}

@@ -1,94 +1,102 @@
-const CACHE_NAME = "aravindh-maya-portfolio-v2";
-const urlsToCache = [
-  "/",
-  "/index.html",
-  "/about.html",
-  "/fun.html",
-  "/projects/1password.html",
-  "/projects/pokergpt.html",
-  "/projects/earth.html",
-  "/projects/linkedin.html",
-  "/projects/rbc.html",
+/* Service worker — Aravindh Maya portfolio
+ *
+ * Strategy:
+ *   HTML       network-first, cache as fallback (so edits go live immediately)
+ *   everything else  cache-first, then network
+ *
+ * The precache list is deliberately small and limited to files that are known
+ * to exist. cache.addAll() is atomic: a single 404 rejects the whole promise
+ * and the worker never installs, which is exactly what used to happen here.
+ * Each entry is also fetched individually so one bad URL can't take the rest
+ * down again.
+ */
+
+const CACHE_NAME = 'aravindh-maya-portfolio-v3';
+
+const PRECACHE = [
+  '/',
+  '/index.html',
+  '/about.html',
+  '/fun.html',
+  '/site.css',
+  '/site.js',
+  '/favicon.svg',
+  '/manifest.json',
+  '/_next/static/css/052620bd47d3101a.css',
 ];
 
-// Cache project assets
-const projectAssets = [
-  "/projects/1password/1password.mp4",
-  "/projects/pokergpt/pokergpt.mp4",
-  "/projects/earth/earth.mp4",
-  "/projects/1password/1password.png",
-  "/projects/pokergpt/pokergpt.png",
-  "/projects/earth/earth.png",
-  "/projects/linkedin/linkedin.png",
-  "/projects/rbc/rbc.png",
-  "/projects/chattin/chattin.png",
-  "/projects/biogenesis/biogenesis.png",
-];
-
-self.addEventListener("install", (event) => {
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log("Opened cache");
-      return cache.addAll(urlsToCache.concat(projectAssets));
-    })
+    caches.open(CACHE_NAME).then((cache) =>
+      // Individually, not addAll: one missing file must not abort the install.
+      Promise.all(
+        PRECACHE.map((url) =>
+          cache.add(new Request(url, { cache: 'reload' })).catch(() => {
+            /* skip anything unavailable at install time */
+          })
+        )
+      )
+    ).then(() => self.skipWaiting())
   );
 });
 
-self.addEventListener("fetch", (event) => {
-  const url = new URL(event.request.url);
-  
-  // Always fetch HTML files from network first (no cache for HTML)
-  if (url.pathname.endsWith('.html') || event.request.mode === 'navigate') {
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys()
+      .then((names) =>
+        Promise.all(
+          names
+            .filter((name) => name !== CACHE_NAME)
+            .map((name) => caches.delete(name))
+        )
+      )
+      .then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', (event) => {
+  const request = event.request;
+
+  if (request.method !== 'GET') return;
+
+  const url = new URL(request.url);
+
+  // Same-origin only. Analytics and any other third party goes straight out.
+  if (url.origin !== self.location.origin) return;
+
+  const isHTML =
+    request.mode === 'navigate' ||
+    url.pathname.endsWith('.html') ||
+    url.pathname.endsWith('/');
+
+  if (isHTML) {
+    // Network first, so a deploy is visible on the next load.
     event.respondWith(
-      fetch(event.request).then((response) => {
-        // Return fresh HTML from network
-        return response;
-      }).catch(() => {
-        // Fallback to cache only if network fails
-        return caches.match(event.request);
-      })
+      fetch(request)
+        .then((response) => {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+          return response;
+        })
+        .catch(() =>
+          caches.match(request).then((cached) => cached || caches.match('/index.html'))
+        )
     );
     return;
   }
-  
-  // For other assets, use cache-first strategy
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      // Return cached version or fetch from network
-      if (response) {
-        return response;
-      }
-      
-      // Handle navigation requests
-      if (event.request.mode === 'navigate') {
-        const path = url.pathname;
-        
-        // Try to serve .html files for navigation requests
-        if (!path.endsWith('.html') && !path.endsWith('/')) {
-          const htmlUrl = new URL(path + '.html', event.request.url);
-          return fetch(htmlUrl).catch(() => {
-            // If .html version doesn't exist, try the original request
-            return fetch(event.request);
-          });
-        }
-      }
-      
-      return fetch(event.request);
-    })
-  );
-});
 
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME) {
-            console.log("Deleting old cache:", cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
+  // Everything else: cache first, fall back to network, then populate.
+  event.respondWith(
+    caches.match(request).then((cached) => {
+      if (cached) return cached;
+      return fetch(request).then((response) => {
+        // Only cache complete, same-origin, successful responses.
+        if (response && response.status === 200 && response.type === 'basic') {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+        }
+        return response;
+      });
     })
   );
 });

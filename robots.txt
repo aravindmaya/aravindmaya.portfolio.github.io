@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Build artefacts and bundled assets — no reason to index these.
+Disallow: /_next/
+Disallow: /.next/
+
+Sitemap: https://www.aravindmaya.com/sitemap.xml

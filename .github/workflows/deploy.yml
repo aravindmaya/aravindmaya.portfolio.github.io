@@ -10,13 +10,13 @@ jobs:
   deploy:
     name: Deploy to Hostinger via FTP
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-      
+        uses: actions/checkout@v4
+
       - name: Deploy to Hostinger
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        uses: SamKirkland/FTP-Deploy-Action@4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
@@ -27,12 +27,8 @@ jobs:
             **/.git*/**
             **/node_modules/**
             **/.DS_Store
+            **/.vscode/**
             **/README.md
-            **/DEPLOYMENT*.md
-            **/LAUNCH_CHECKLIST.md
-            **/VISUAL_EDITOR_GUIDE.md
           dangerous-clean-slate: false
           dry-run: false
-          log-level: verbose
-          state: ${{ github.sha }}
-
+          log-level: standard

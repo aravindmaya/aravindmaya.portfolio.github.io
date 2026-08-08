@@ -1,6 +1,6 @@
 <!-- FORCE UPDATE: 1767480367 -->
 <!DOCTYPE html>
-<!-- Deployed: 2026-01-03T22:45:00Z - Footer: "Designed and vibe coded by Aravindh Maya" -->
+<!-- Deployed: 2026-01-03T22:45:00Z - Footer: "Designed and built by Aravindh Maya — San Francisco" -->
 <html lang="en">
 <head>
   <meta charSet="utf-8" />
@@ -8,18 +8,17 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="preload" href="../_next/static/media/39b0e861c537f507-s.p.woff2" as="font" crossorigin=""
     type="font/woff2" />
   <link rel="preload" href="../_next/static/media/569ce4b8f30dc480-s.p.woff2" as="font" crossorigin=""
     type="font/woff2" />
   <link rel="preload" href="../_next/static/media/93f479601ee12b01-s.p.woff2" as="font" crossorigin=""
     type="font/woff2" />
-  <link rel="preload" href="../_next/static/media/993e471824edad3f-s.p.otf" as="font" crossorigin="" type="font/otf" />
-  <link rel="preload" href="../_next/static/media/ae9433eb6d16fb7b-s.p.woff2" as="font" crossorigin=""
+<link rel="preload" href="../_next/static/media/ae9433eb6d16fb7b-s.p.woff2" as="font" crossorigin=""
     type="font/woff2" />
-  <link rel="preload" href="../_next/static/media/fcda245ca6032974-s.p.otf" as="font" crossorigin="" type="font/otf" />
-  <link rel="stylesheet" href="../_next/static/css/052620bd47d3101a.css" data-precedence="next" />
+  <link rel="stylesheet" href="../fonts.css?v=20260808" />
+  <link rel="stylesheet" href="../cursor.css?v=20260808" />
+<link rel="stylesheet" href="../_next/static/css/052620bd47d3101a.css" data-precedence="next" />
   <style>
     /* Force static content to be visible - override any hiding */
     [data-static-visible="true"] {
@@ -41,137 +40,10 @@
       opacity: 1 !important;
       visibility: visible !important;
     }
-    
-    /* Glassmorphism Custom Cursor - Same as index.html */
-    * {
-      cursor: none;
-    }
-
-    .glass-cursor {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 16px;
-      height: 16px;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: opacity 0.3s ease;
-    }
-
-    .cursor-dot {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 1.5px;
-      height: 1.5px;
-      background: radial-gradient(
-        circle at center,
-        rgba(255, 255, 255, 0.7) 0%,
-        rgba(255, 255, 255, 0.5) 70%,
-        rgba(255, 255, 255, 0.2) 100%
-      );
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      box-shadow: 
-        0 0 4px rgba(255, 255, 255, 0.2),
-        0 0 2px rgba(255, 255, 255, 0.3),
-        inset 0 0 2px rgba(255, 255, 255, 0.1);
-      filter: blur(0.2px);
-    }
-
-    .cursor-glass-effect {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 28px;
-      height: 28px;
-      background: radial-gradient(
-        circle at center,
-        rgba(255, 255, 255, 0.03) 0%,
-        rgba(255, 255, 255, 0.015) 50%,
-        rgba(255, 255, 255, 0.008) 80%,
-        rgba(255, 255, 255, 0.003) 95%,
-        rgba(255, 255, 255, 0.001) 100%
-      );
-      backdrop-filter: blur(6px) contrast(1.005) brightness(1.002);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      border-radius: 50%;
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
-      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      box-shadow: 
-        0 0 0 0.5px rgba(255, 255, 255, 0.05),
-        0 0 12px rgba(255, 255, 255, 0.08),
-        0 0 24px rgba(255, 255, 255, 0.05),
-        inset 0 0 12px rgba(255, 255, 255, 0.02);
-      filter: blur(0.1px);
-    }
 
     /* Hover state - enhanced water-like gradient */
-    .glass-cursor.hover .cursor-glass-effect {
-      width: 38px;
-      height: 38px;
-      background: radial-gradient(
-        circle at center,
-        rgba(255, 255, 255, 0.05) 0%,
-        rgba(255, 255, 255, 0.025) 40%,
-        rgba(255, 255, 255, 0.015) 70%,
-        rgba(255, 255, 255, 0.008) 90%,
-        rgba(255, 255, 255, 0.003) 100%
-      );
-      backdrop-filter: blur(7px) contrast(1.02) brightness(1.01) saturate(1.01);
-      border: 1.5px solid rgba(255, 255, 255, 0.9);
-      transform: translate(-50%, -50%) scale(1);
-      box-shadow: 
-        0 0 0 1px rgba(255, 255, 255, 0.08),
-        0 0 18px rgba(255, 255, 255, 0.12),
-        0 0 36px rgba(255, 255, 255, 0.08),
-        inset 0 0 18px rgba(255, 255, 255, 0.04);
-      filter: blur(0.15px);
-    }
-
-    .glass-cursor.hover .cursor-dot {
-      width: 2px;
-      height: 2px;
-      background: radial-gradient(
-        circle at center,
-        rgba(255, 255, 255, 0.85) 0%,
-        rgba(255, 255, 255, 0.65) 60%,
-        rgba(255, 255, 255, 0.3) 100%
-      );
-      box-shadow: 
-        0 0 6px rgba(255, 255, 255, 0.4),
-        0 0 3px rgba(255, 255, 255, 0.5),
-        inset 0 0 3px rgba(255, 255, 255, 0.2);
-      filter: blur(0.2px);
-    }
-
-    /* Click effect - water ripple with radial gradient */
-    .glass-cursor.click .cursor-glass-effect {
-      width: 48px;
-      height: 48px;
-      background: radial-gradient(
-        circle at center,
-        rgba(255, 255, 255, 0.06) 0%,
-        rgba(255, 255, 255, 0.03) 30%,
-        rgba(255, 255, 255, 0.015) 70%,
-        rgba(255, 255, 255, 0.008) 90%,
-        rgba(255, 255, 255, 0.003) 100%
-      );
-      backdrop-filter: blur(8px) contrast(1.03) brightness(1.015);
-      border: 2px solid rgba(255, 255, 255, 0.95);
-      animation: waterRipple 0.4s ease-out;
-      transform: translate(-50%, -50%) scale(1);
-      box-shadow: 
-        0 0 0 1.5px rgba(255, 255, 255, 0.15),
-        0 0 24px rgba(255, 255, 255, 0.2),
-        0 0 48px rgba(255, 255, 255, 0.15);
-      filter: blur(0.15px);
-    }
-
-    @keyframes waterRipple {
+    .glass-cursor.hover .glass-cursor.hover /* Click effect - water ripple with radial gradient */
+    .glass-cursor.click @keyframes waterRipple {
       0% {
         width: 48px;
         height: 48px;
@@ -236,99 +108,8 @@
     }
 
     /* Hidden state */
-    .glass-cursor.hidden {
-      opacity: 0;
-    }
-
     /* Light mode cursor styles - inverted colors */
-    body:not(.dark-mode) .cursor-dot {
-      width: 1.5px;
-      height: 1.5px;
-      background: radial-gradient(
-        circle at center,
-        rgba(0, 0, 0, 0.5) 0%,
-        rgba(0, 0, 0, 0.35) 70%,
-        rgba(0, 0, 0, 0.15) 100%
-      );
-      box-shadow: 
-        0 0 4px rgba(0, 0, 0, 0.15),
-        0 0 2px rgba(0, 0, 0, 0.2),
-        inset 0 0 2px rgba(0, 0, 0, 0.08);
-    }
-
-    body:not(.dark-mode) .cursor-glass-effect {
-      width: 28px;
-      height: 28px;
-      background: radial-gradient(
-        circle at center,
-        rgba(0, 0, 0, 0.025) 0%,
-        rgba(0, 0, 0, 0.012) 50%,
-        rgba(0, 0, 0, 0.006) 80%,
-        rgba(0, 0, 0, 0.003) 95%,
-        rgba(0, 0, 0, 0.001) 100%
-      );
-      border: 0.5px solid rgba(128, 128, 128, 0.25);
-      box-shadow: 
-        0 0 0 0.5px rgba(0, 0, 0, 0.02),
-        0 0 12px rgba(0, 0, 0, 0.04),
-        0 0 24px rgba(0, 0, 0, 0.02),
-        inset 0 0 12px rgba(0, 0, 0, 0.008);
-    }
-
-    body:not(.dark-mode) .glass-cursor.hover .cursor-glass-effect {
-      width: 38px;
-      height: 38px;
-      background: radial-gradient(
-        circle at center,
-        rgba(0, 0, 0, 0.04) 0%,
-        rgba(0, 0, 0, 0.02) 40%,
-        rgba(0, 0, 0, 0.012) 70%,
-        rgba(0, 0, 0, 0.006) 90%,
-        rgba(0, 0, 0, 0.002) 100%
-      );
-      border: 0.75px solid rgba(128, 128, 128, 0.35);
-      box-shadow: 
-        0 0 0 1px rgba(0, 0, 0, 0.03),
-        0 0 18px rgba(0, 0, 0, 0.04),
-        0 0 36px rgba(0, 0, 0, 0.03),
-        inset 0 0 18px rgba(0, 0, 0, 0.01);
-    }
-
-    body:not(.dark-mode) .glass-cursor.hover .cursor-dot {
-      width: 2px;
-      height: 2px;
-      background: radial-gradient(
-        circle at center,
-        rgba(0, 0, 0, 0.6) 0%,
-        rgba(0, 0, 0, 0.4) 60%,
-        rgba(0, 0, 0, 0.2) 100%
-      );
-      box-shadow: 
-        0 0 6px rgba(0, 0, 0, 0.2),
-        0 0 3px rgba(0, 0, 0, 0.25),
-        inset 0 0 3px rgba(0, 0, 0, 0.1);
-    }
-
-    body:not(.dark-mode) .glass-cursor.click .cursor-glass-effect {
-      width: 48px;
-      height: 48px;
-      background: radial-gradient(
-        circle at center,
-        rgba(0, 0, 0, 0.05) 0%,
-        rgba(0, 0, 0, 0.025) 30%,
-        rgba(0, 0, 0, 0.012) 70%,
-        rgba(0, 0, 0, 0.006) 90%,
-        rgba(0, 0, 0, 0.002) 100%
-      );
-      border: 1px solid rgba(128, 128, 128, 0.4);
-      box-shadow: 
-        0 0 0 1.5px rgba(0, 0, 0, 0.05),
-        0 0 24px rgba(0, 0, 0, 0.06),
-        0 0 48px rgba(0, 0, 0, 0.05);
-      animation: waterRippleLight 0.4s ease-out;
-    }
-
-    @keyframes waterRippleLight {
+    body:not(.dark-mode) body:not(.dark-mode) body:not(.dark-mode) .glass-cursor.hover body:not(.dark-mode) .glass-cursor.hover body:not(.dark-mode) .glass-cursor.click @keyframes waterRippleLight {
       0% {
         width: 48px;
         height: 48px;
@@ -396,11 +177,7 @@
     @media (prefers-reduced-motion: reduce) {
       .glass-cursor,
       .cursor-dot,
-      .cursor-glass-effect {
-        transition: none;
-        animation: none;
       }
-    }
     
     /* Scale-102 utility class for images */
     .scale-102 {
@@ -748,7 +525,7 @@
       line-height: 1;
       color: #32404F;
       opacity: 0.3;
-      font-family: var(--font-tiempos-text), serif;
+      font-family: var(--font-serif), serif;
     }
     
     /* Quote answer styling */
@@ -921,6 +698,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="../manifest.json" />
+  <link rel="canonical" href="https://www.aravindmaya.com/projects/samsung.html" />
   <title>Samsung AI Work | Aravindh Maya</title>
   <meta name="description" content="Samsung AI Work - Add your project description for SEO here" />
   <meta name="author" content="Aravindh Maya" />
@@ -930,13 +708,12 @@
   <meta name="publisher" content="Aravindh Maya" />
   <meta name="robots" content="index, follow" />
   <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
-  <meta name="google-site-verification" content="your-google-verification-code" />
-  <meta property="og:title" content="Samsung AI Work | Aravindh Maya" />
+<meta property="og:title" content="Samsung AI Work | Aravindh Maya" />
   <meta property="og:description" content="Samsung AI Work - Add your project description here" />
-  <meta property="og:url" content="https://www.aravindhmaya.com" />
+  <meta property="og:url" content="https://www.aravindmaya.com/projects/samsung.html" />
   <meta property="og:site_name" content="Aravindh Maya | Product Designer&#x27;" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:image" content="https://www.aravindhmaya.com/og-image.png" />
+  <meta property="og:image" content="https://www.aravindmaya.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Aravindh Maya - Product Designer" />
@@ -945,13 +722,13 @@
   <meta name="twitter:title" content="Aravindh Maya | Product Designer" />
   <meta name="twitter:description"
     content="I&#x27;m Aravindh, a product builder who loves bringing ideas to life with design + code." />
-  <meta name="twitter:image" content="https://www.aravindhmaya.com/og-image.png" />
+  <meta name="twitter:image" content="https://www.aravindmaya.com/og-image.png" />
   <meta name="twitter:image:width" content="1200" />
   <meta name="twitter:image:height" content="630" />
   <meta name="twitter:image:alt" content="Aravindh Maya - Product Designer" />
   <link rel="icon" href="../favicon.svg?t=1" type="image/svg+xml" />
-  <link rel="alternate icon" href="https://www.aravindhmaya.com/favicon.ico?t=1" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="https://www.aravindhmaya.com/favicon.ico?t=1" sizes="180x180" />
+  <link rel="alternate icon" href="https://www.aravindmaya.com/favicon.ico?t=1" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="https://www.aravindmaya.com/favicon.ico?t=1" sizes="180x180" />
   <script>document.querySelectorAll('body link[rel="icon"], body link[rel="apple-touch-icon"]').forEach(el => document.head.appendChild(el))</script>
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LX6ZJQBQM8"></script>
@@ -961,16 +738,13 @@
     gtag('js', new Date());
     gtag('config', 'G-LX6ZJQBQM8');
   </script>
-  <script src="../analytics.js"></script>
+  <script src="../analytics.js?v=20260808"></script>
   
 </head>
 
 <body
-  class="__variable_5cfdac __variable_9a8899 __variable_25c604 __variable_293043 __variable_ee3f19 antialiased custom-cursor custom-pointer font-[family-name:var(--font-geist-sans)]">
-  <!-- Glassmorphism Cursor -->
-  <div id="glassCursor" class="glass-cursor">
-    <div class="cursor-dot"></div>
-    <div class="cursor-glass-effect"></div>
+  class="__variable_5cfdac __variable_9a8899 __variable_25c604 __variable_293043 __variable_ee3f19 antialiased font-[family-name:var(--font-geist-sans)]">
+<div class="cursor-glass-effect"></div>
   </div>
 
   <div class="flex items-center justify-center p-6 border-b border-foreground/10 relative">
@@ -1036,21 +810,13 @@
         <!-- ============================================ -->
         <!-- EDITING GUIDE -->
         <!-- ============================================ -->
-        <!-- 
-          HOW TO EDIT THIS PAGE:
-          1. HERO SECTION: Edit title, description, and hero image below
-          2. PROJECT DETAILS: Update Role, Timeline, Team, and Skills
-          3. CONTENT SECTIONS: Add your content in Overview, The Journey, and Reflection
-          4. IMAGES: Use format: <img src="../Images/your-image.jpg" alt="Description" />
-          5. All content is now in plain HTML - easy to edit!
-        -->
         <!-- ============================================ -->
         <!-- HERO SECTION - EDIT BELOW -->
         <!-- ============================================ -->
         <div class="flex flex-col gap-8" style="opacity:1;transform:translateY(0)" data-static-visible="true">
           <div class="flex flex-col gap-4">
-            <h4 style="font-family:var(--font-tiempos-text),serif;">Interaction Design<!-- --> • <!-- -->Samsung R&D</h4>
-            <h1 style="font-family:var(--font-tiempos-text),serif; margin-bottom: 1rem;">Designing Human–Machine Interaction</h1>
+            <h4 style="font-family:var(--font-serif),serif;">Interaction Design<!-- --> • <!-- -->Samsung R&D</h4>
+            <h1 style="font-family:var(--font-serif),serif; margin-bottom: 1rem;">Designing Human–Machine Interaction</h1>
           </div>
           <div class="w-full aspect-[16/9] border-1 border-foreground/10" style="opacity:1;transform:translateY(0)">
             <div class="relative w-full aspect-[16/9] overflow-hidden rounded-[25px]" style="border-radius: 25px;" role="img" aria-label="Project thumbnail for Samsung AI Work">
@@ -1059,15 +825,15 @@
           </div>
           <div class="w-full project-details-grid" style="opacity:1;transform:translateY(0);width:100%;justify-content:flex-start;align-items:flex-start;border-color:rgba(0,0,0,0);border-style:none;border-image:none;padding-top:20px;padding-bottom:20px;">
             <div class="flex flex-1 flex-col gap-2">
-              <h4 class="!opacity-100" style="font-family:var(--font-tiempos-text),serif;">Role</h4>
+              <h4 class="!opacity-100" style="font-family:var(--font-serif),serif;">Role</h4>
               <p>Interaction Designer</p>
             </div>
             <div class="flex flex-1 flex-col gap-2">
-              <h4 class="!opacity-100" style="font-family:var(--font-tiempos-text),serif;">Timeline</h4>
+              <h4 class="!opacity-100" style="font-family:var(--font-serif),serif;">Timeline</h4>
               <p>2022 - 2024</p>
             </div>
             <div class="flex flex-1 flex-col gap-2" data-protected-content="true">
-              <h4 class="!opacity-100" style="font-family:var(--font-tiempos-text),serif;">Domains</h4>
+              <h4 class="!opacity-100" style="font-family:var(--font-serif),serif;">Domains</h4>
               <div class="flex flex-col gap-0" id="team-content">
                 <p>XR & AR/VR</p>
                 <p>AI & Multimodal Systems</p>
@@ -1076,7 +842,7 @@
               </div>
             </div>
             <div class="flex flex-1 flex-col gap-2">
-              <h4 class="!opacity-100" style="font-family:var(--font-tiempos-text),serif;">Focus</h4>
+              <h4 class="!opacity-100" style="font-family:var(--font-serif),serif;">Focus</h4>
               <div class="flex flex-col gap-0">
                 <p>Interaction Behavior</p>
                 <p>Social Acceptability</p>
@@ -1097,14 +863,14 @@
             
             <!-- OVERVIEW SECTION -->
             <section id="overview" class="flex flex-col gap-4">
-              <h4 class="!opacity-100 mb-1" style="font-family:var(--font-tiempos-text),serif;">Overview</h4>
+              <h4 class="!opacity-100 mb-1" style="font-family:var(--font-serif),serif;">Overview</h4>
               
               <!-- Overview heading -->
-              <h2 style="font-family:var(--font-tiempos-text),serif;">At Samsung, my work centered on a single question:</h2>
+              <h2 style="font-family:var(--font-serif),serif;">At Samsung, my work centered on a single question:</h2>
               
-              <h2 class="quote-text" style="font-family:var(--font-tiempos-text),serif; font-style: italic;">How should intelligent systems behave when they enter human space?</h2>
+              <h2 class="quote-text" style="font-family:var(--font-serif),serif; font-style: italic;">How should intelligent systems behave when they enter human space?</h2>
               
-              <p class="quote-answer" style="font-family:var(--font-tiempos-text),serif;">
+              <p class="quote-answer" style="font-family:var(--font-serif),serif;">
                 Not how they look. Not how many features they support. But how they respond, adapt, and stay out of the way—while remaining powerful.
               </p>
               <!-- Image -->
@@ -1121,36 +887,36 @@
             <section class="flex flex-col gap-4">
               
               <!-- Outcomes Section -->
-              <h4 class="!opacity-100 mb-1" style="font-family:var(--font-tiempos-text),serif;">Impact</h4>
+              <h4 class="!opacity-100 mb-1" style="font-family:var(--font-serif),serif;">Impact</h4>
               <div class="flex flex-col md:flex-row w-full outcomes-grid" style="opacity:1;transform:translateY(0);width:100%;justify-content:flex-start;align-items:flex-start;border-color:rgba(0,0,0,0);border-style:none;border-image:none;display:flex;flex-direction:row;gap:80px;padding-top:20px;padding-bottom:20px;height:100%">
                 <div class="flex flex-1 flex-col gap-0">
-                  <span class="font-semibold" style="font-size:1.325rem;font-family:var(--font-tiempos-text),serif;">4</span>
+                  <span class="font-semibold" style="font-size:1.325rem;font-family:var(--font-serif),serif;">4</span>
                   <span style="color:#32404F;">Interaction frameworks created</span>
                 </div>
                 <div class="flex flex-1 flex-col gap-0">
-                  <span class="font-semibold" style="font-size:1.325rem;font-family:var(--font-tiempos-text),serif;">3+</span>
+                  <span class="font-semibold" style="font-size:1.325rem;font-family:var(--font-serif),serif;">3+</span>
                   <span style="color:#32404F;">Platforms: XR, AR/VR, AI, Robotics</span>
                 </div>
                 <div class="flex flex-1 flex-col gap-0">
-                  <span class="font-semibold" style="font-size:1.325rem;font-family:var(--font-tiempos-text),serif;">↑</span>
+                  <span class="font-semibold" style="font-size:1.325rem;font-family:var(--font-serif),serif;">↑</span>
                   <span style="color:#32404F;">Teams moved faster with aligned design language</span>
                 </div>
               </div>
               
               <!-- NDA Note -->
               <div class="nda-note p-4 border border-foreground/10 rounded-lg bg-foreground/5 w-full" style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;width:100%;gap:0;padding-top:20px;padding-bottom:20px;">
-                <p class="nda-note-text" style="font-size:1.325rem;font-family:var(--font-tiempos-text),serif;font-style:italic;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;width:100%;gap:0;">
+                <p class="nda-note-text" style="font-size:1.325rem;font-family:var(--font-serif),serif;font-style:italic;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;width:100%;gap:0;">
                   Value Delivered: I designed interaction systems that respect human behavior, social context, and emotional nuance—while working at real-world scale. Because much of this work is under NDA, projects are presented as themes rather than detailed case studies. Detailed walkthroughs and artifacts are available in interviews.
                 </p>
               </div>
             </section>
               <!-- THE JOURNEY SECTION -->
               <section id="the-journey" class="flex flex-col gap-4">
-                <h4 class="!opacity-100 mb-1" style="font-family:var(--font-tiempos-text),serif;">THE JOURNEY</h4>
+                <h4 class="!opacity-100 mb-1" style="font-family:var(--font-serif),serif;">THE JOURNEY</h4>
                 
                 <!-- Theme 1: Translating Messy Signals into Clear Intent -->
                 <div id="signals-to-intent" class="theme-section">
-                  <h2 style="font-family:var(--font-tiempos-text),serif; margin-bottom: 0.5rem;">Translating Messy Signals into Clear Intent</h2>
+                  <h2 style="font-family:var(--font-serif),serif; margin-bottom: 0.5rem;">Translating Messy Signals into Clear Intent</h2>
                   
                   <p>
                     As systems moved beyond single inputs, interaction design became less about UI states and more about interpreting human signals.
@@ -1171,13 +937,13 @@
                 
                 <!-- Theme 2: Making Interaction Socially Viable -->
                 <div id="social-world" class="theme-section">
-                  <h2 style="font-family:var(--font-tiempos-text),serif; margin-bottom: 0.5rem;">Making Interaction Socially Viable</h2>
+                  <h2 style="font-family:var(--font-serif),serif; margin-bottom: 0.5rem;">Making Interaction Socially Viable</h2>
                   
                   <p>
                     When interaction leaves the screen and enters the physical world, usability is only the baseline.
                   </p>
                   
-                  <h2 style="font-family:var(--font-tiempos-text),serif; margin-top: 2rem; margin-bottom: 1rem;">What follows is social acceptance.</h2>
+                  <h2 style="font-family:var(--font-serif),serif; margin-top: 2rem; margin-bottom: 1rem;">What follows is social acceptance.</h2>
                   
                   <p>
                     I worked on XR and AR glass concepts exploring how people interact with systems in public, shared, and private environments. Research focused on questions that determine real adoption:
@@ -1202,7 +968,7 @@
                 
                 <!-- Theme 3: Scaling Interaction Thinking Across Teams -->
                 <div id="experiments-to-systems" class="theme-section">
-                  <h2 style="font-family:var(--font-tiempos-text),serif; margin-bottom: 0.5rem;">Scaling Interaction Thinking Across Teams</h2>
+                  <h2 style="font-family:var(--font-serif),serif; margin-bottom: 0.5rem;">Scaling Interaction Thinking Across Teams</h2>
                   
                   <p>
                     As similar interaction problems surfaced across teams, consistency became the challenge.
@@ -1229,7 +995,7 @@
                 
                 <!-- Theme 4: When Design Decisions Reach Hundreds of Millions -->
                 <div id="human-scale" class="theme-section">
-                  <h2 style="font-family:var(--font-tiempos-text),serif; margin-bottom: 0.5rem;">When Design Decisions Reach Hundreds of Millions</h2>
+                  <h2 style="font-family:var(--font-serif),serif; margin-bottom: 0.5rem;">When Design Decisions Reach Hundreds of Millions</h2>
                   
                   <p>
                     Design decisions made early in a system often travel farther than intended.
@@ -1245,7 +1011,7 @@
                   
                   <p class="emphasis">commercial</p>
                   
-                  <h2 style="font-family:var(--font-tiempos-text),serif; margin-top: 1rem; margin-bottom: 1rem;">Designed 3D emoji Outfits for Samsung's AR emoji studio for 500m+ user</h2>
+                  <h2 style="font-family:var(--font-serif),serif; margin-top: 1rem; margin-bottom: 1rem;">Designed 3D emoji Outfits for Samsung's AR emoji studio for 500m+ user</h2>
                   
                   <!-- Visual -->
                   <div class="emoji-images-grid">
@@ -1266,10 +1032,10 @@
           <section id="reflection" class="reflection-section flex flex-col md:flex-row gap-6 md:gap-8 items-start">
             <!-- Left Div: Text Content -->
             <div class="flex flex-col gap-4">
-              <h4 class="!opacity-100 mb-1" style="font-family:var(--font-tiempos-text),serif;">REFLECTION</h4>
+              <h4 class="!opacity-100 mb-1" style="font-family:var(--font-serif),serif;">REFLECTION</h4>
               
               <!-- Overview heading -->
-              <h2 style="font-family:var(--font-tiempos-text),serif;">Keeping Systems Human</h2>
+              <h2 style="font-family:var(--font-serif),serif;">Keeping Systems Human</h2>
               
               <!-- Overview content paragraph -->
               <p>
@@ -1305,7 +1071,7 @@
     <div class="flex flex-col max-w-[1600px] md:flex-row w-full items-start md:items-center justify-between gap-6">
       <div class="flex gap-2">
         <span>
-          <h4 class="font-bold flex items-center gap-2" style="text-transform: none;">Designed and vibe coded by Aravindh Maya</h4>
+          <h4 class="font-bold flex items-center gap-2" style="text-transform: none;">Designed and built by Aravindh Maya — San Francisco</h4>
         </span>
       </div>
       <div class="flex flex-col md:flex-row gap-3 md:gap-8">
@@ -1318,78 +1084,10 @@
     </div>
   </footer>
 
-  <!-- Glassmorphism Cursor Script -->
+<script src="../sw-register.js?v=20260808" defer></script>
+  <!-- Page interactions: section nav, expandable sections, image lightbox -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const cursor = document.getElementById('glassCursor');
-      
-      if (!cursor) return;
-      
-      // Hide default cursor
-      document.body.style.cursor = 'none';
-      
-      // Check for reduced motion preference
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      
-      // Mouse movement
-      document.addEventListener('mousemove', function(e) {
-        const x = e.clientX;
-        const y = e.clientY;
-        
-        if (prefersReducedMotion) {
-          cursor.style.left = x + 'px';
-          cursor.style.top = y + 'px';
-        } else {
-          requestAnimationFrame(() => {
-            cursor.style.left = x + 'px';
-            cursor.style.top = y + 'px';
-          });
-        }
-      });
-      
-      // Show/hide cursor
-      document.addEventListener('mouseenter', () => {
-        cursor.classList.remove('hidden');
-      });
-      
-      document.addEventListener('mouseleave', () => {
-        cursor.classList.add('hidden');
-      });
-      
-      // Click effect
-      document.addEventListener('mousedown', () => {
-        cursor.classList.add('click');
-        setTimeout(() => {
-          cursor.classList.remove('click');
-        }, 600);
-      });
-      
-      // All interactive elements - activate enhanced glassmorphism effect
-      const interactiveElements = document.querySelectorAll(`
-        a, button, [role="button"], input, textarea, select, 
-        .project-link, .nav-item, .refresh-btn, .category-badge,
-        .design-tip-card, .company-logo, .modal-nav-arrow,
-        [data-cursor="pointer"], [data-cursor], .cursor-pointer
-      `);
-      
-      interactiveElements.forEach(element => {
-        element.addEventListener('mouseenter', () => {
-          cursor.classList.add('hover');
-        });
-        
-        element.addEventListener('mouseleave', () => {
-          cursor.classList.remove('hover');
-        });
-      });
-      
-      // Initial position
-      cursor.style.left = '50%';
-      cursor.style.top = '50%';
-      
-      console.log('✨ Glassmorphism cursor activated');
-    });
-    
-    // Smooth scroll to section with offset
+// Smooth scroll to section with offset
     function scrollToSection(sectionId) {
       const section = document.getElementById(sectionId);
       if (section) {
@@ -1413,5 +1111,7 @@
       }
     })();
   </script>
+
+  <script src="../cursor.js?v=20260808" defer></script>
 </body>
 </html>
