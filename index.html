@@ -3,7 +3,6 @@
 <head>
   <meta charSet="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="preload" href="_next/static/media/39b0e861c537f507-s.p.woff2" as="font" crossorigin="" type="font/woff2" />
   <link rel="preload" href="_next/static/media/569ce4b8f30dc480-s.p.woff2" as="font" crossorigin="" type="font/woff2" />
   <link rel="preload" href="_next/static/media/93f479601ee12b01-s.p.woff2" as="font" crossorigin="" type="font/woff2" />
@@ -14,21 +13,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="_next/static/css/052620bd47d3101a.css" data-precedence="next" />
-  <link rel="preload" as="script" fetchPriority="low" href="_next/static/chunks/webpack-ff985a36187696f5.js" />
-  <script src="_next/static/chunks/4bd1b696-ad45a0d75f1c7ab5.js" async=""></script>
-  <script src="_next/static/chunks/684-a9943a84a467106b.js" async=""></script>
-  <script src="_next/static/chunks/main-app-d9794b1200c643e4.js" async=""></script>
-  <script src="_next/static/chunks/766-08dda1e010e821f6.js" async=""></script>
-  <script src="_next/static/chunks/874-23bb25126bb99fa5.js" async=""></script>
-  <script src="_next/static/chunks/827-ae9952c1ad22ec9a.js" async=""></script>
-  <script src="_next/static/chunks/app/layout-23fc7aca66f01e26.js" async=""></script>
-  <script src="_next/static/chunks/934-f78983bf1ce540b1.js" async=""></script>
-  <script src="_next/static/chunks/app/page-e66654680b299ea3.js" async=""></script>
-  <meta name="next-size-adjust" content="" />
+<meta name="next-size-adjust" content="" />
   <meta name="theme-color" content="#fafcfd" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="manifest.json" />
+  <link rel="canonical" href="https://www.aravindmaya.com/" />
   <title>Aravindh Maya | Product Designer &amp; Engineer</title>
   <meta name="description" content="I&#x27;m Maya, a product builder who loves bringing ideas to life with design + code." />
   <meta name="author" content="MAYA" />
@@ -37,13 +27,12 @@
   <meta name="publisher" content="Aravindh Maya" />
   <meta name="robots" content="index, follow" />
   <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
-  <meta name="google-site-verification" content="your-google-verification-code" />
-  <meta property="og:title" content="Aravindh Maya | Product Designer &amp; Engineer" />
+<meta property="og:title" content="Aravindh Maya | Product Designer &amp; Engineer" />
   <meta property="og:description" content="I&#x27;m Maya and I love bringing ideas to life with design + code." />
-  <meta property="og:url" content="https://aravindhmaya.com" />
+  <meta property="og:url" content="https://www.aravindmaya.com/" />
   <meta property="og:site_name" content="Aravindh Maya | Product Designer &amp; Engineer&#x27;" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:image" content="https://aravindhmaya.com/og-image.png" />
+  <meta property="og:image" content="https://www.aravindmaya.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Aravindh Maya - Product Designer &amp; Engineer" />
@@ -52,8 +41,7 @@
   <link rel="alternate icon" href="favicon.ico?t=1" type="image/x-icon" />
   <link rel="apple-touch-icon" href="favicon.ico?t=1" sizes="180x180" />
   <script>document.querySelectorAll('body link[rel="icon"], body link[rel="apple-touch-icon"]').forEach(el => document.head.appendChild(el))</script>
-  <script src="_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script>
-  <!-- Google Analytics 4 -->
+<!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LX6ZJQBQM8"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -62,6 +50,17 @@
     gtag('config', 'G-LX6ZJQBQM8');
   </script>
   <script src="analytics.js"></script>
+  <script>
+    // Set the theme before first paint so there is no flash of the wrong mode.
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var dark = stored ? stored === 'dark'
+          : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (dark) document.documentElement.classList.add('dark-mode');
+      } catch (e) { }
+    })();
+  </script>
   
   <style>
     /* Font Family Definitions */
@@ -1286,42 +1285,14 @@ html.dark-mode {
   color: #e5e5e5;
 }
 
-/* Custom cursor with glassy white stroke */
-* {
-  cursor: none;
-}
-
-.custom-cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transition: all 0.1s ease;
-  backdrop-filter: blur(4px);
-  box-shadow: 
-    0 0 20px rgba(255, 255, 255, 0.2),
-    inset 0 0 20px rgba(255, 255, 255, 0.1);
-}
-
-.custom-cursor.hover {
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 
-    0 0 30px rgba(255, 255, 255, 0.3),
-    inset 0 0 30px rgba(255, 255, 255, 0.15);
-}
-
-.custom-cursor.click {
-  transform: scale(0.8);
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
-}
+/* Custom cursor: only hide the native one where a replacement can
+       actually be drawn. Touch and coarse pointers keep their default,
+       and if the cursor script fails nobody is left without a pointer. */
+    @media (hover: hover) and (pointer: fine) {
+      * {
+        cursor: none;
+      }
+    }
 
 .dark-mode .home-hero {
   background-color: #0a0a0a;
@@ -2773,6 +2744,16 @@ html.dark-mode {
       z-index: 9999;
       transform: translate(-50%, -50%);
       transition: opacity 0.3s ease;
+      /* Revealed on first pointer move; otherwise it sits parked at 0,0. */
+      opacity: 0;
+    }
+
+    .glass-cursor.is-active {
+      opacity: 1;
+    }
+
+    .glass-cursor.hidden {
+      opacity: 0;
     }
 
     .cursor-dot {
@@ -3276,7 +3257,7 @@ html.dark-mode {
   </style>
 </head>
 
-<body class="__variable_5cfdac __variable_9a8899 __variable_25c604 __variable_293043 __variable_ee3f19 antialiased custom-cursor custom-pointer font-[family-name:var(--font-geist-sans)]">
+<body class="__variable_5cfdac __variable_9a8899 __variable_25c604 __variable_293043 __variable_ee3f19 antialiased font-[family-name:var(--font-geist-sans)]">
   <!-- Glassmorphism Cursor -->
   <div id="glassCursor" class="glass-cursor">
     <div class="cursor-dot"></div>
@@ -3932,165 +3913,69 @@ html.dark-mode {
   </footer>
 
   <script>
-    // Dark Mode System
-    class DarkModeManager {
-      constructor() {
-        this.toggle = document.getElementById('darkModeToggle');
-        this.isDarkMode = this.getStoredTheme() === 'dark';
-        this.init();
+    // ---------------------------------------------------------------
+    // Theme
+    // One implementation. The pre-paint snippet in <head> sets the initial
+    // class; this only keeps it in sync and wires up the toggle.
+    // ---------------------------------------------------------------
+    (function () {
+      function storedTheme() {
+        try { return localStorage.getItem('theme'); } catch (e) { return null; }
       }
-      
-      init() {
-        this.applyTheme();
-        this.toggle.addEventListener('click', () => this.toggleTheme());
-        this.toggle.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            this.toggleTheme();
-          }
-        });
-        
-        // Add keyboard shortcut (Ctrl+Shift+D)
-        document.addEventListener('keydown', (e) => {
-          if (e.ctrlKey && e.shiftKey && e.key === 'D') {
-            e.preventDefault();
-            this.toggleTheme();
-          }
-        });
-        
-        // Auto-switch based on time (optional)
-        this.checkTimeBasedTheme();
-      }
-      
-      getStoredTheme() {
-        return localStorage.getItem('theme') || 'light';
-      }
-      
-      setStoredTheme(theme) {
-        localStorage.setItem('theme', theme);
-      }
-      
-      applyTheme() {
-        console.log('Applying theme:', this.isDarkMode ? 'dark' : 'light');
-        if (this.isDarkMode) {
-          document.documentElement.classList.add('dark-mode');
-          this.toggle.classList.add('dark-mode');
-          console.log('Dark mode classes added');
-        } else {
-          document.documentElement.classList.remove('dark-mode');
-          this.toggle.classList.remove('dark-mode');
-          console.log('Light mode classes applied');
+
+      function applyTheme(theme) {
+        var isDark = theme === 'dark';
+        // classList.toggle, never `className =` — <body> carries the font
+        // variable classes that define --font-tiempos-text and --font-geist-mono.
+        document.documentElement.classList.toggle('dark-mode', isDark);
+        document.body.classList.toggle('dark-mode', isDark);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', isDark ? '#0a0a0a' : '#fafcfd');
+        var toggle = document.getElementById('yinYangToggle');
+        if (toggle) {
+          toggle.setAttribute('aria-pressed', String(isDark));
+          toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
         }
       }
-      
-      toggleTheme() {
-        console.log('Toggling theme from:', this.isDarkMode ? 'dark' : 'light');
-        this.isDarkMode = !this.isDarkMode;
-        console.log('New theme:', this.isDarkMode ? 'dark' : 'light');
-        this.applyTheme();
-        this.setStoredTheme(this.isDarkMode ? 'dark' : 'light');
-        
-        // Add particle effect animation
-        this.animateParticles();
-        
-        // Add smooth page transition
-        this.addPageTransition();
-      }
-      
-      animateParticles() {
-        const particles = document.querySelectorAll('.particle');
-        particles.forEach((particle, index) => {
-          setTimeout(() => {
-            particle.style.opacity = '1';
-            particle.style.transform = `scale(2) translate(${Math.random() * 40 - 20}px, ${Math.random() * 40 - 20}px)`;
-            
-            setTimeout(() => {
-              particle.style.opacity = '0';
-              particle.style.transform = 'scale(1) translate(0, 0)';
-            }, 600);
-          }, index * 100);
-        });
-      }
-      
-      addPageTransition() {
-        // Create a subtle overlay transition
-        const overlay = document.createElement('div');
-        overlay.style.cssText = `
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: ${this.isDarkMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.1)'};
-          pointer-events: none;
-          z-index: 9999;
-          opacity: 0;
-          transition: opacity 0.3s ease-out;
-        `;
-        
-        document.body.appendChild(overlay);
-        
-        // Animate overlay
-        requestAnimationFrame(() => {
-          overlay.style.opacity = '1';
-          setTimeout(() => {
-            overlay.style.opacity = '0';
-            setTimeout(() => {
-              document.body.removeChild(overlay);
-            }, 300);
-          }, 150);
-        });
-      }
-      
-      checkTimeBasedTheme() {
-        const hour = new Date().getHours();
-        const shouldBeDark = hour < 6 || hour >= 18; // Dark from 6 PM to 6 AM
-        
-        if (shouldBeDark && !this.isDarkMode && this.getStoredTheme() === 'light') {
-          // Auto-switch to dark mode at night (only if user hasn't set a preference)
-          this.isDarkMode = true;
-          this.applyTheme();
-        }
-      }
-    }
-    
-    // Initialize Dark Mode
-    let darkModeManager;
-    
-    // Initialize SVG Toggle Button
-    document.addEventListener('DOMContentLoaded', function() {
-      const yinYangToggle = document.getElementById('yinYangToggle');
-      
-      if (yinYangToggle) {
-        yinYangToggle.addEventListener('click', function() {
-          // Toggle dark mode class on body
-          document.body.classList.toggle('dark-mode');
-          
-          // Toggle dark mode class on html element
-          document.documentElement.classList.toggle('dark-mode');
-          
-          // Store preference in localStorage
-          const isDark = document.body.classList.contains('dark-mode');
-          localStorage.setItem('theme', isDark ? 'dark' : 'light');
-          
-          // Add ripple effect
-          const ripple = this.querySelector('.toggle-ripple');
+
+      function init() {
+        applyTheme(storedTheme() === 'dark' ? 'dark' : 'light');
+
+        var toggle = document.getElementById('yinYangToggle');
+        if (!toggle) return;
+
+        toggle.addEventListener('click', function () {
+          var next = document.documentElement.classList.contains('dark-mode') ? 'light' : 'dark';
+          applyTheme(next);
+          try { localStorage.setItem('theme', next); } catch (e) { }
+
+          var ripple = toggle.querySelector('.toggle-ripple');
           if (ripple) {
             ripple.style.transform = 'translate(-50%, -50%) scale(1.5)';
-            setTimeout(() => {
+            setTimeout(function () {
               ripple.style.transform = 'translate(-50%, -50%) scale(0)';
             }, 300);
           }
+          toggle.style.transform = 'scale(1.06)';
+          setTimeout(function () { toggle.style.transform = 'scale(1)'; }, 120);
         });
-        
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-          document.body.classList.add('dark-mode');
-          document.documentElement.classList.add('dark-mode');
+
+        // Follow the OS only while the visitor has never chosen for themselves.
+        var media = window.matchMedia('(prefers-color-scheme: dark)');
+        if (!storedTheme()) {
+          applyTheme(media.matches ? 'dark' : 'light');
+          media.addEventListener('change', function (e) {
+            if (!storedTheme()) applyTheme(e.matches ? 'dark' : 'light');
+          });
         }
       }
-    });
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
     
     // Dynamic content loading functionality
     document.addEventListener('DOMContentLoaded', function() {
@@ -4181,13 +4066,6 @@ html.dark-mode {
           });
         }
       }
-      
-      // Initialize Dark Mode Manager
-      darkModeManager = new DarkModeManager();
-      
-      // Debug: Log dark mode status
-      console.log('Dark mode initialized:', darkModeManager.isDarkMode);
-      console.log('Current theme:', darkModeManager.getStoredTheme());
     });
   </script>
 
@@ -4222,7 +4100,7 @@ html.dark-mode {
         const refreshBtn = document.getElementById('refreshDesignTipButton');
 
         tipTitle.textContent = 'That\'s all for now';
-        tipContent.innerHTML = 'Want more tips? <a href="https://www.linkedin.com/in/aravindmaya/" target="_blank" rel="noopener noreferrer" class="text-primary underline font-medium">Connect on LinkedIn</a> or <a href="mailto:mayac0715@gmail.com" class="text-primary underline">email me</a>.';
+        tipContent.innerHTML = 'Want more tips? <a href="https://www.linkedin.com/in/aravindmaya/" target="_blank" rel="noopener noreferrer" class="text-primary underline font-medium">Connect on LinkedIn</a> or <a href="mailto:aravindnitt@gmail.com" class="text-primary underline">email me</a>.';
         tipCategory.textContent = '# Thanks';
         if (tipCounter) tipCounter.textContent = `${tipViewLimit}/${tipViewLimit}`;
         if (card) { card.style.opacity = '0.95'; }
@@ -4797,6 +4675,10 @@ html.dark-mode {
       
       if (!cursor) return;
       
+      // Only replace the native cursor on devices that can hover with a fine
+      // pointer. Touch devices keep their default behaviour.
+      if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+      
       // Hide default cursor
       document.body.style.cursor = 'none';
       
@@ -4807,6 +4689,8 @@ html.dark-mode {
       document.addEventListener('mousemove', function(e) {
         const x = e.clientX;
         const y = e.clientY;
+        
+        cursor.classList.add('is-active');
         
         if (prefersReducedMotion) {
           cursor.style.left = x + 'px';
@@ -5284,7 +5168,7 @@ html.dark-mode {
         <div class="project-overview">
           <!-- Header Image/Video -->
           <div class="project-header-image">
-            <img id="modalImage" class="project-modal-image" src="" alt="" />
+            <img id="modalImage" class="project-modal-image" alt="" />
             <video id="modalVideo" class="project-modal-video" controls preload="metadata" style="display: none;">
               Your browser does not support the video tag.
             </video>
@@ -5559,53 +5443,24 @@ html.dark-mode {
   <!-- 7 Lifestyle Images in Row -->
 
   <script>
-    // Yin-Yang Dark Mode Toggle
-    const yinYangToggle = document.getElementById('yinYangToggle');
-    const body = document.body;
-    
-    // Check for saved theme preference or default to light mode
-    let currentTheme = localStorage.getItem('theme') || 'light';
-    body.className = currentTheme === 'dark' ? 'dark-mode' : '';
-    
-    // Toggle functionality with smooth animation
-    yinYangToggle.addEventListener('click', () => {
-      // Add a subtle rotation effect during transition
-      const symbol = yinYangToggle.querySelector('.yin-yang-symbol');
-      symbol.style.transition = 'all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-      
-      body.classList.toggle('dark-mode');
-      currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
-      localStorage.setItem('theme', currentTheme);
-      
-      // Add a refined bounce effect
-      yinYangToggle.style.transform = 'scale(1.06)';
-      setTimeout(() => {
-        yinYangToggle.style.transform = 'scale(1)';
-      }, 120);
-    });
-    
-    // Keyboard support
-    yinYangToggle.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        yinYangToggle.click();
-      }
-    });
-    
-    // Add hover effect for the ripple
-    yinYangToggle.addEventListener('mouseenter', () => {
-      const ripple = yinYangToggle.querySelector('.toggle-ripple');
-      ripple.style.opacity = '0.3';
-      ripple.style.width = '80px';
-      ripple.style.height = '80px';
-    });
-    
-    yinYangToggle.addEventListener('mouseleave', () => {
-      const ripple = yinYangToggle.querySelector('.toggle-ripple');
-      ripple.style.opacity = '0';
-      ripple.style.width = '0';
-      ripple.style.height = '0';
-    });
+    // Toggle hover flourish only. Theme state is owned by the single
+    // implementation further up the page.
+    (function () {
+      var toggle = document.getElementById('yinYangToggle');
+      if (!toggle) return;
+      var ripple = toggle.querySelector('.toggle-ripple');
+      if (!ripple) return;
+      toggle.addEventListener('mouseenter', function () {
+        ripple.style.opacity = '0.3';
+        ripple.style.width = '80px';
+        ripple.style.height = '80px';
+      });
+      toggle.addEventListener('mouseleave', function () {
+        ripple.style.opacity = '0';
+        ripple.style.width = '0';
+        ripple.style.height = '0';
+      });
+    })();
   </script>
 
   <!-- Add heading to nav#contents -->
@@ -5743,5 +5598,6 @@ html.dark-mode {
     });
   </script>
 
+  <script src="sw-register.js" defer></script>
 </body>
 </html>

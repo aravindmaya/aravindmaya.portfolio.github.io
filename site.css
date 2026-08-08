@@ -1,0 +1,438 @@
+/* ==========================================================================
+   Shared site styles — Aravindh Maya
+   Loaded after _next/static/css/*.css, which provides the utility classes
+   and the light-mode :root tokens.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Font tokens.
+   Next.js scopes these to generated classes on <body> (.__variable_*).
+   Redeclaring them on :root means the site keeps its typography even if the
+   body class list is ever replaced by script.
+   -------------------------------------------------------------------------- */
+:root {
+  --font-geist-sans: "Geist", "Geist Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-geist-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-tiempos-text: "tiemposText", "tiemposText Fallback", Georgia, serif;
+  --font-crimson-pro: "Crimson Pro", "Crimson Pro Fallback", Georgia, serif;
+}
+
+/* Dark mode. The class is set on <html> before first paint by site.js, and
+   mirrored onto <body> for selectors that target it. */
+.dark-mode {
+  --background: #0a0a0a;
+  --foreground: #e5e5e5;
+  --foreground-light: #e5e5e595;
+  --primary: #60a5fa;
+}
+
+html {
+  background: var(--background);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   Custom cursor
+   Only hide the native cursor where a custom one can actually be drawn:
+   a device with a fine pointer that can hover. Touch and coarse-pointer
+   devices keep their default behaviour, and if the script fails the native
+   cursor is still there.
+   -------------------------------------------------------------------------- */
+.glass-cursor {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none;
+  }
+
+  html.has-custom-cursor .glass-cursor {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 28px;
+    height: 28px;
+    margin: -14px 0 0 -14px;
+    border-radius: 50%;
+    border: 1px solid color-mix(in srgb, var(--foreground) 35%, transparent);
+    background: color-mix(in srgb, var(--foreground) 6%, transparent);
+    backdrop-filter: blur(2px);
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transform: translate(-100px, -100px);
+    transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease,
+      background-color 0.2s ease, border-color 0.2s ease;
+    will-change: transform;
+  }
+
+  html.has-custom-cursor .glass-cursor.is-active {
+    opacity: 1;
+  }
+
+  html.has-custom-cursor .glass-cursor.is-hovering {
+    width: 48px;
+    height: 48px;
+    margin: -24px 0 0 -24px;
+    background: color-mix(in srgb, var(--primary) 14%, transparent);
+    border-color: color-mix(in srgb, var(--primary) 55%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Focus + skip link
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10000;
+  padding: 0.75rem 1.25rem;
+  background: var(--foreground);
+  color: var(--background);
+  font-weight: 600;
+  border-radius: 0 0 6px 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Theme toggle
+   -------------------------------------------------------------------------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid color-mix(in srgb, var(--foreground) 15%, transparent);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--foreground);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: color-mix(in srgb, var(--foreground) 8%, transparent);
+}
+
+.theme-toggle:active {
+  transform: scale(0.94);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+.dark-mode .theme-toggle .icon-sun {
+  display: block;
+}
+
+.dark-mode .theme-toggle .icon-moon {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Reveal-on-scroll
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Without JS, never leave content invisible. */
+.no-js .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   Media cards (Fun page)
+   -------------------------------------------------------------------------- */
+.media-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid color-mix(in srgb, var(--foreground) 10%, transparent);
+  background: color-mix(in srgb, var(--foreground) 4%, transparent);
+}
+
+.media-card img,
+.media-card video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+
+.media-card video {
+  opacity: 0;
+}
+
+.media-card.is-playing video {
+  opacity: 1;
+}
+
+.media-card.is-playing img {
+  opacity: 0;
+}
+
+.media-card__badge {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-family: var(--font-geist-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: color-mix(in srgb, #000 55%, transparent);
+  color: #fff;
+  backdrop-filter: blur(4px);
+  opacity: 0.9;
+}
+
+/* --------------------------------------------------------------------------
+   Page layout
+   Self-contained classes, so these pages don't depend on which Tailwind
+   utilities happened to survive the original build.
+   -------------------------------------------------------------------------- */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.page__eyebrow {
+  font-family: var(--font-geist-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.78;
+  margin-bottom: 1rem;
+}
+
+.page__title {
+  font-family: var(--font-tiempos-text), Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+  max-width: 20ch;
+}
+
+.page__lede {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.6;
+  max-width: 62ch;
+  opacity: 0.9;
+  margin: 0 0 1rem;
+}
+
+.prose {
+  max-width: 62ch;
+  line-height: 1.7;
+}
+
+.prose p {
+  margin: 0 0 1.15rem;
+  opacity: 0.9;
+}
+
+.prose a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.section {
+  margin-top: 4rem;
+}
+
+.section__heading {
+  font-family: var(--font-geist-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.78;
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--foreground) 12%, transparent);
+}
+
+/* Career list */
+.roles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.role {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.35rem;
+}
+
+@media (min-width: 720px) {
+  .role {
+    grid-template-columns: 11rem 1fr;
+    gap: 0.35rem 2rem;
+    align-items: baseline;
+  }
+}
+
+.role__period {
+  font-family: var(--font-geist-mono);
+  font-size: 0.8rem;
+  opacity: 0.78;
+  white-space: nowrap;
+}
+
+.role__title {
+  font-weight: 600;
+  margin: 0;
+}
+
+.role__org {
+  opacity: 0.8;
+  margin: 0;
+}
+
+.role__note {
+  grid-column: 1 / -1;
+  opacity: 0.82;
+  line-height: 1.6;
+  margin: 0.35rem 0 0;
+}
+
+@media (min-width: 720px) {
+  .role__note {
+    grid-column: 2;
+  }
+}
+
+/* Tag pills */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tags li {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid color-mix(in srgb, var(--foreground) 25%, transparent);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+/* Card grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 700px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card__caption {
+  margin: 0.75rem 0 0;
+}
+
+.card__caption strong {
+  display: block;
+  font-weight: 600;
+}
+
+.card__caption span {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+/* Contact row */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-links a {
+  font-family: var(--font-geist-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--foreground) 30%, transparent);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-links a:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}

@@ -7,7 +7,6 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="preload" href="../_next/static/media/39b0e861c537f507-s.p.woff2" as="font" crossorigin=""
     type="font/woff2" />
   <link rel="preload" href="../_next/static/media/569ce4b8f30dc480-s.p.woff2" as="font" crossorigin=""
@@ -42,9 +41,13 @@
       visibility: visible !important;
     }
     
-    /* Glassmorphism Custom Cursor - Same as index.html */
-    * {
-      cursor: none;
+    /* Custom cursor: only hide the native one where a replacement can
+       actually be drawn. Touch and coarse pointers keep their default,
+       and if the cursor script fails nobody is left without a pointer. */
+    @media (hover: hover) and (pointer: fine) {
+      * {
+        cursor: none;
+      }
     }
     
     /* W-fill container */
@@ -243,9 +246,13 @@
       color: rgba(229, 229, 229, 0.8) !important;
     }
     
-    /* Glassmorphism Custom Cursor - Same as index.html */
-    * {
-      cursor: none;
+    /* Custom cursor: only hide the native one where a replacement can
+       actually be drawn. Touch and coarse pointers keep their default,
+       and if the cursor script fails nobody is left without a pointer. */
+    @media (hover: hover) and (pointer: fine) {
+      * {
+        cursor: none;
+      }
     }
 
     .glass-cursor {
@@ -1181,21 +1188,12 @@
     }
     
   </style>
-  <link rel="preload" as="script" fetchPriority="low" href="../_next/static/chunks/webpack-ff985a36187696f5.js" />
-  <script src="../_next/static/chunks/4bd1b696-ad45a0d75f1c7ab5.js" async=""></script>
-  <script src="../_next/static/chunks/684-a9943a84a467106b.js" async=""></script>
-  <script src="../_next/static/chunks/main-app-d9794b1200c643e4.js" async=""></script>
-  <script src="../_next/static/chunks/766-08dda1e010e821f6.js" async=""></script>
-  <script src="../_next/static/chunks/874-23bb25126bb99fa5.js" async=""></script>
-  <script src="../_next/static/chunks/827-ae9952c1ad22ec9a.js" async=""></script>
-  <script src="../_next/static/chunks/app/layout-23fc7aca66f01e26.js" async=""></script>
-  <script src="../_next/static/chunks/934-f78983bf1ce540b1.js" async=""></script>
-  <script src="../_next/static/chunks/app/projects/%5bslug%5d/page-df292c2143ad9446.js" async=""></script>
-  <meta name="next-size-adjust" content="" />
+<meta name="next-size-adjust" content="" />
   <meta name="theme-color" content="#fafcfd" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <link rel="manifest" href="../manifest.json" />
+  <link rel="canonical" href="https://www.aravindmaya.com/projects/walmart.html" />
   <title>Walmart AR Toy Shopping | Aravindh Maya</title>
   <meta name="description" content="Transforming Toy Shopping with Augmented Reality" />
   <meta name="author" content="Aravindh Maya" />
@@ -1205,13 +1203,12 @@
   <meta name="publisher" content="Aravindh Maya" />
   <meta name="robots" content="index, follow" />
   <meta name="googlebot" content="index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1" />
-  <meta name="google-site-verification" content="your-google-verification-code" />
-  <meta property="og:title" content="Walmart AR Toy Shopping | Aravindh Maya" />
+<meta property="og:title" content="Walmart AR Toy Shopping | Aravindh Maya" />
   <meta property="og:description" content="Transforming Toy Shopping with Augmented Reality" />
-  <meta property="og:url" content="https://aravindhmaya.com" />
+  <meta property="og:url" content="https://www.aravindmaya.com/projects/walmart.html" />
   <meta property="og:site_name" content="Aravindh Maya | Product + Game Designer" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:image" content="https://www.aravindhmaya.com/og-image.png" />
+  <meta property="og:image" content="https://www.aravindmaya.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Aravindh Maya - Product + Game Designer" />
@@ -1220,7 +1217,7 @@
   <meta name="twitter:title" content="Walmart AR Toy Shopping | Aravindh Maya" />
   <meta name="twitter:description"
     content="Transforming Toy Shopping with Augmented Reality" />
-  <meta name="twitter:image" content="https://www.aravindhmaya.com/og-image.png" />
+  <meta name="twitter:image" content="https://www.aravindmaya.com/og-image.png" />
   <meta name="twitter:image:width" content="1200" />
   <meta name="twitter:image:height" content="630" />
   <meta name="twitter:image:alt" content="Aravindh Maya - Product + Game Designer" />
@@ -1228,8 +1225,7 @@
   <link rel="alternate icon" href="../favicon.ico?t=1" type="image/x-icon" />
   <link rel="apple-touch-icon" href="../favicon.ico?t=1" sizes="180x180" />
   <script>document.querySelectorAll('body link[rel="icon"], body link[rel="apple-touch-icon"]').forEach(el => document.head.appendChild(el))</script>
-  <script src="../_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script>
-  <!-- Google Analytics 4 -->
+<!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LX6ZJQBQM8"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -1241,7 +1237,7 @@
 </head>
 
 <body
-  class="__variable_5cfdac __variable_9a8899 __variable_25c604 __variable_293043 __variable_ee3f19 antialiased custom-cursor custom-pointer font-[family-name:var(--font-geist-sans)]">
+  class="__variable_5cfdac __variable_9a8899 __variable_25c604 __variable_293043 __variable_ee3f19 antialiased font-[family-name:var(--font-geist-sans)]">
   <!-- Glassmorphism Cursor -->
   <div id="glassCursor" class="glass-cursor">
     <div class="cursor-dot"></div>
@@ -1956,7 +1952,7 @@
   <div id="imageModalOverlay" class="image-modal-overlay">
     <div class="image-modal-content">
       <button class="image-modal-close" onclick="closeImageModal()" aria-label="Close modal">×</button>
-      <img id="imageModalImg" src="" alt="" />
+      <img id="imageModalImg" alt="" />
     </div>
   </div>
 
@@ -2166,6 +2162,7 @@
     })();
   </script>
   <!-- Next.js scripts removed to prevent content overwriting -->
+  <script src="../sw-register.js" defer></script>
 </body>
 
 </html>
