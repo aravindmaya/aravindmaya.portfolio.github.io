@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Shared site styles — Aravindh Maya
+   Shared site styles — Aravindh Maya (cursor lives in cursor.css)
    Loaded after _next/static/css/*.css, which provides the utility classes
    and the light-mode :root tokens.
    ========================================================================== */
@@ -35,57 +35,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* --------------------------------------------------------------------------
-   Custom cursor
-   Only hide the native cursor where a custom one can actually be drawn:
-   a device with a fine pointer that can hover. Touch and coarse-pointer
-   devices keep their default behaviour, and if the script fails the native
-   cursor is still there.
-   -------------------------------------------------------------------------- */
-.glass-cursor {
-  display: none;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  html.has-custom-cursor,
-  html.has-custom-cursor * {
-    cursor: none;
-  }
-
-  html.has-custom-cursor .glass-cursor {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 28px;
-    height: 28px;
-    margin: -14px 0 0 -14px;
-    border-radius: 50%;
-    border: 1px solid color-mix(in srgb, var(--foreground) 35%, transparent);
-    background: color-mix(in srgb, var(--foreground) 6%, transparent);
-    backdrop-filter: blur(2px);
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0;
-    transform: translate(-100px, -100px);
-    transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease,
-      background-color 0.2s ease, border-color 0.2s ease;
-    will-change: transform;
-  }
-
-  html.has-custom-cursor .glass-cursor.is-active {
-    opacity: 1;
-  }
-
-  html.has-custom-cursor .glass-cursor.is-hovering {
-    width: 48px;
-    height: 48px;
-    margin: -24px 0 0 -24px;
-    background: color-mix(in srgb, var(--primary) 14%, transparent);
-    border-color: color-mix(in srgb, var(--primary) 55%, transparent);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

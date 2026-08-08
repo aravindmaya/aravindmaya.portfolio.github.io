@@ -1,6 +1,6 @@
 /* ==========================================================================
    Shared site behaviour — Aravindh Maya
-   Theme, custom cursor, scroll reveal, hover-to-play media.
+   Theme, scroll reveal, hover-to-play media. The cursor lives in cursor.js.
    ========================================================================== */
 (function () {
   'use strict';
@@ -75,67 +75,6 @@
         }
       });
     }
-  }
-
-  /* ---------------------------------------------------------------------
-     Custom cursor
-     --------------------------------------------------------------------- */
-  function initCursor() {
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-
-    var cursor = document.getElementById('glassCursor');
-    if (!cursor) return;
-
-    root.classList.add('has-custom-cursor');
-
-    var x = 0;
-    var y = 0;
-    var frame = null;
-
-    function draw() {
-      frame = null;
-      cursor.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
-    }
-
-    document.addEventListener(
-      'mousemove',
-      function (e) {
-        x = e.clientX;
-        y = e.clientY;
-        // Reveal only once the pointer has actually moved, so the cursor
-        // never flashes at the top-left corner on load.
-        cursor.classList.add('is-active');
-        if (frame === null) frame = requestAnimationFrame(draw);
-      },
-      { passive: true }
-    );
-
-    // Delegated, so it covers content added after load.
-    document.addEventListener(
-      'mouseover',
-      function (e) {
-        var t = e.target;
-        if (t && t.closest && t.closest('a, button, [data-cursor], input, textarea, select')) {
-          cursor.classList.add('is-hovering');
-        }
-      },
-      { passive: true }
-    );
-
-    document.addEventListener(
-      'mouseout',
-      function (e) {
-        var t = e.target;
-        if (t && t.closest && t.closest('a, button, [data-cursor], input, textarea, select')) {
-          cursor.classList.remove('is-hovering');
-        }
-      },
-      { passive: true }
-    );
-
-    document.addEventListener('mouseleave', function () {
-      cursor.classList.remove('is-active');
-    });
   }
 
   /* ---------------------------------------------------------------------
@@ -223,7 +162,6 @@
   function init() {
     root.classList.remove('no-js');
     initTheme();
-    initCursor();
     initReveal();
     initMediaCards();
   }

@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="fonts.css" />
+  <link rel="stylesheet" href="cursor.css" />
   <link rel="stylesheet" href="_next/static/css/052620bd47d3101a.css" data-precedence="next" />
 <meta name="next-size-adjust" content="" />
   <meta name="theme-color" content="#fafcfd" />
@@ -1282,15 +1283,6 @@ html.dark-mode {
   background-color: #0a0a0a;
   color: #e5e5e5;
 }
-
-/* Custom cursor: only hide the native one where a replacement can
-       actually be drawn. Touch and coarse pointers keep their default,
-       and if the cursor script fails nobody is left without a pointer. */
-    @media (hover: hover) and (pointer: fine) {
-      * {
-        cursor: none;
-      }
-    }
 
 .dark-mode .home-hero {
   background-color: #0a0a0a;
@@ -2732,141 +2724,9 @@ html.dark-mode {
     }
 
     /* Glassmorphism Cursor */
-    .glass-cursor {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 16px;
-      height: 16px;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: opacity 0.3s ease;
-      /* Revealed on first pointer move; otherwise it sits parked at 0,0. */
-      opacity: 0;
-    }
-
-    .glass-cursor.is-active {
-      opacity: 1;
-    }
-
-    .glass-cursor.hidden {
-      opacity: 0;
-    }
-
-    .cursor-dot {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 1.5px;
-      height: 1.5px;
-      background: radial-gradient(
-        circle at center,
-        rgba(255, 255, 255, 0.7) 0%,
-        rgba(255, 255, 255, 0.5) 70%,
-        rgba(255, 255, 255, 0.2) 100%
-      );
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      box-shadow: 
-        0 0 4px rgba(255, 255, 255, 0.2),
-        0 0 2px rgba(255, 255, 255, 0.3),
-        inset 0 0 2px rgba(255, 255, 255, 0.1);
-      filter: blur(0.2px);
-    }
-
-    .cursor-glass-effect {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 28px;
-      height: 28px;
-      background: radial-gradient(
-        circle at center,
-        rgba(255, 255, 255, 0.03) 0%,
-        rgba(255, 255, 255, 0.015) 50%,
-        rgba(255, 255, 255, 0.008) 80%,
-        rgba(255, 255, 255, 0.003) 95%,
-        rgba(255, 255, 255, 0.001) 100%
-      );
-      backdrop-filter: blur(6px) contrast(1.005) brightness(1.002);
-      border: 0.5px solid rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
-      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      box-shadow: 
-        0 0 0 0.5px rgba(255, 255, 255, 0.05),
-        0 0 12px rgba(255, 255, 255, 0.08),
-        0 0 24px rgba(255, 255, 255, 0.05),
-        inset 0 0 12px rgba(255, 255, 255, 0.02);
-      filter: blur(0.1px);
-    }
-
     /* Hover state - enhanced water-like gradient */
-    .glass-cursor.hover .cursor-glass-effect {
-      width: 38px;
-      height: 38px;
-      background: radial-gradient(
-        circle at center,
-        rgba(255, 255, 255, 0.05) 0%,
-        rgba(255, 255, 255, 0.025) 40%,
-        rgba(255, 255, 255, 0.015) 70%,
-        rgba(255, 255, 255, 0.008) 90%,
-        rgba(255, 255, 255, 0.003) 100%
-      );
-      backdrop-filter: blur(7px) contrast(1.02) brightness(1.01) saturate(1.01);
-      border: 0.75px solid rgba(255, 255, 255, 0.3);
-      transform: translate(-50%, -50%) scale(1);
-      box-shadow: 
-        0 0 0 1px rgba(255, 255, 255, 0.08),
-        0 0 18px rgba(255, 255, 255, 0.12),
-        0 0 36px rgba(255, 255, 255, 0.08),
-        inset 0 0 18px rgba(255, 255, 255, 0.04);
-      filter: blur(0.15px);
-    }
-
-    .glass-cursor.hover .cursor-dot {
-      width: 2px;
-      height: 2px;
-      background: radial-gradient(
-        circle at center,
-        rgba(255, 255, 255, 0.85) 0%,
-        rgba(255, 255, 255, 0.65) 60%,
-        rgba(255, 255, 255, 0.3) 100%
-      );
-      box-shadow: 
-        0 0 6px rgba(255, 255, 255, 0.4),
-        0 0 3px rgba(255, 255, 255, 0.5),
-        inset 0 0 3px rgba(255, 255, 255, 0.2);
-      filter: blur(0.2px);
-    }
-
-    /* Click effect - water ripple with radial gradient */
-    .glass-cursor.click .cursor-glass-effect {
-      width: 48px;
-      height: 48px;
-      background: radial-gradient(
-        circle at center,
-        rgba(255, 255, 255, 0.06) 0%,
-        rgba(255, 255, 255, 0.03) 30%,
-        rgba(255, 255, 255, 0.015) 70%,
-        rgba(255, 255, 255, 0.008) 90%,
-        rgba(255, 255, 255, 0.003) 100%
-      );
-      backdrop-filter: blur(8px) contrast(1.03) brightness(1.015);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      animation: waterRipple 0.4s ease-out;
-      transform: translate(-50%, -50%) scale(1);
-      box-shadow: 
-        0 0 0 1.5px rgba(255, 255, 255, 0.15),
-        0 0 24px rgba(255, 255, 255, 0.2),
-        0 0 48px rgba(255, 255, 255, 0.15);
-      filter: blur(0.15px);
-    }
-
-    @keyframes waterRipple {
+    .glass-cursor.hover .glass-cursor.hover /* Click effect - water ripple with radial gradient */
+    .glass-cursor.click @keyframes waterRipple {
       0% {
         width: 48px;
         height: 48px;
@@ -2931,99 +2791,8 @@ html.dark-mode {
     }
 
     /* Hidden state */
-    .glass-cursor.hidden {
-      opacity: 0;
-    }
-
     /* Light mode cursor styles - inverted colors */
-    body:not(.dark-mode) .cursor-dot {
-      width: 1.5px;
-      height: 1.5px;
-      background: radial-gradient(
-        circle at center,
-        rgba(0, 0, 0, 0.5) 0%,
-        rgba(0, 0, 0, 0.35) 70%,
-        rgba(0, 0, 0, 0.15) 100%
-      );
-      box-shadow: 
-        0 0 4px rgba(0, 0, 0, 0.15),
-        0 0 2px rgba(0, 0, 0, 0.2),
-        inset 0 0 2px rgba(0, 0, 0, 0.08);
-    }
-
-    body:not(.dark-mode) .cursor-glass-effect {
-      width: 28px;
-      height: 28px;
-      background: radial-gradient(
-        circle at center,
-        rgba(0, 0, 0, 0.025) 0%,
-        rgba(0, 0, 0, 0.012) 50%,
-        rgba(0, 0, 0, 0.006) 80%,
-        rgba(0, 0, 0, 0.003) 95%,
-        rgba(0, 0, 0, 0.001) 100%
-      );
-      border: 0.5px solid rgba(0, 0, 0, 0.3);
-      box-shadow: 
-        0 0 0 0.5px rgba(0, 0, 0, 0.15),
-        0 0 12px rgba(0, 0, 0, 0.08),
-        0 0 24px rgba(0, 0, 0, 0.04),
-        inset 0 0 12px rgba(0, 0, 0, 0.02);
-    }
-
-    body:not(.dark-mode) .glass-cursor.hover .cursor-glass-effect {
-      width: 38px;
-      height: 38px;
-      background: radial-gradient(
-        circle at center,
-        rgba(0, 0, 0, 0.04) 0%,
-        rgba(0, 0, 0, 0.02) 40%,
-        rgba(0, 0, 0, 0.012) 70%,
-        rgba(0, 0, 0, 0.006) 90%,
-        rgba(0, 0, 0, 0.002) 100%
-      );
-      border: 0.75px solid rgba(0, 0, 0, 0.4);
-      box-shadow: 
-        0 0 0 1px rgba(0, 0, 0, 0.2),
-        0 0 18px rgba(0, 0, 0, 0.08),
-        0 0 36px rgba(0, 0, 0, 0.05),
-        inset 0 0 18px rgba(0, 0, 0, 0.03);
-    }
-
-    body:not(.dark-mode) .glass-cursor.hover .cursor-dot {
-      width: 2px;
-      height: 2px;
-      background: radial-gradient(
-        circle at center,
-        rgba(0, 0, 0, 0.6) 0%,
-        rgba(0, 0, 0, 0.4) 60%,
-        rgba(0, 0, 0, 0.2) 100%
-      );
-      box-shadow: 
-        0 0 6px rgba(0, 0, 0, 0.2),
-        0 0 3px rgba(0, 0, 0, 0.25),
-        inset 0 0 3px rgba(0, 0, 0, 0.1);
-    }
-
-    body:not(.dark-mode) .glass-cursor.click .cursor-glass-effect {
-      width: 48px;
-      height: 48px;
-      background: radial-gradient(
-        circle at center,
-        rgba(0, 0, 0, 0.05) 0%,
-        rgba(0, 0, 0, 0.025) 30%,
-        rgba(0, 0, 0, 0.012) 70%,
-        rgba(0, 0, 0, 0.006) 90%,
-        rgba(0, 0, 0, 0.002) 100%
-      );
-      border: 1px solid rgba(0, 0, 0, 0.5);
-      box-shadow: 
-        0 0 0 1.5px rgba(0, 0, 0, 0.25),
-        0 0 24px rgba(0, 0, 0, 0.12),
-        0 0 48px rgba(0, 0, 0, 0.08);
-      animation: waterRippleLight 0.4s ease-out;
-    }
-
-    @keyframes waterRippleLight {
+    body:not(.dark-mode) body:not(.dark-mode) body:not(.dark-mode) .glass-cursor.hover body:not(.dark-mode) .glass-cursor.hover body:not(.dark-mode) .glass-cursor.click @keyframes waterRippleLight {
       0% {
         width: 48px;
         height: 48px;
@@ -3091,11 +2860,7 @@ html.dark-mode {
     @media (prefers-reduced-motion: reduce) {
       .glass-cursor,
       .cursor-dot,
-      .cursor-glass-effect {
-        transition: none;
-        animation: none;
       }
-    }
 
 
 
@@ -3256,10 +3021,7 @@ html.dark-mode {
 </head>
 
 <body class="__variable_5cfdac __variable_9a8899 __variable_25c604 __variable_293043 __variable_ee3f19 antialiased font-[family-name:var(--font-geist-sans)]">
-  <!-- Glassmorphism Cursor -->
-  <div id="glassCursor" class="glass-cursor">
-    <div class="cursor-dot"></div>
-    <div class="cursor-glass-effect"></div>
+<div class="cursor-glass-effect"></div>
   </div>
 
   <!-- Hero Section (50-50 Split from index-new-hero.html) -->
@@ -3444,7 +3206,7 @@ html.dark-mode {
               <div class="group block transition-all duration-300 ease-in-out !opacity-100" data-cursor="case-study">
                 <a href="projects/google.html" class="block group/link">
                   <div class="grid grid-cols-2 gap-4 md:gap-6 items-center">
-                    <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden box-border rounded-[25px] transition-all duration-300 ease-in-out group-hover:border-primary group/link:hover:border-primary featured-work-container" style="border-radius:25px; left: auto; top: auto;" data-project="android-xr">
+                    <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden box-border rounded-[25px] transition-all duration-300 ease-in-out group-hover:border-primary group/link:hover:border-primary featured-work-container" style="border-radius:25px; left: auto; top: auto;" data-project="android-xr" data-cursor-label="View">
                       <div class="relative w-full aspect-[16/9] overflow-hidden rounded-[25px]" role="img" aria-label="Project thumbnail for Google Work">
                         <img 
                           src="Images/androidXR.jpeg" 
@@ -3467,7 +3229,7 @@ html.dark-mode {
               <div class="group block transition-all duration-300 ease-in-out !opacity-100" data-cursor="case-study">
                 <a href="projects/samsung.html" class="block">
                   <div class="grid grid-cols-2 gap-4 md:gap-6 items-center">
-                    <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden box-border rounded-[25px] transition-all duration-300 ease-in-out group-hover:border-primary featured-work-container" style="border-radius:25px; left: auto; top: auto;" data-project="samsung">
+                    <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden box-border rounded-[25px] transition-all duration-300 ease-in-out group-hover:border-primary featured-work-container" style="border-radius:25px; left: auto; top: auto;" data-project="samsung" data-cursor-label="View">
                       <div class="relative w-full aspect-[16/9] overflow-hidden rounded-[25px]" role="img" aria-label="Project thumbnail for Samsung Works">
                         <img src="Images/GalaxyX.jpg" alt="Samsung Works project image" class="object-cover scale-102 transition-opacity duration-500 opacity-100 rounded-[25px]" style="position: absolute; height: 100%; width: 100%; inset: 0px; border-radius: 25px;" />
                       </div>
@@ -3486,7 +3248,7 @@ html.dark-mode {
               <div class="group block transition-all duration-300 ease-in-out !opacity-100" data-cursor="case-study">
                 <a href="projects/walmart.html" class="block">
                   <div class="grid grid-cols-2 gap-4 md:gap-6 items-center">
-                    <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden box-border rounded-[25px] transition-all duration-300 ease-in-out group-hover:border-primary featured-work-container" style="border-radius:25px; left: auto; top: auto;" data-project="walmart">
+                    <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden box-border rounded-[25px] transition-all duration-300 ease-in-out group-hover:border-primary featured-work-container" style="border-radius:25px; left: auto; top: auto;" data-project="walmart" data-cursor-label="View">
                       <div class="relative w-full aspect-[16/9] overflow-hidden rounded-[25px]" role="img" aria-label="Project thumbnail for Samsung AI">
                         <div class="absolute inset-0 animate-pulse transition-all duration-500 ease-out rounded-[25px] flex items-center justify-center" style="background-color:#1428A050;opacity:0.25" aria-label="Loading project preview">
                           <img src="Images/Walmart/WalmartLogo.jpg" alt="Walmart Logo" class="w-32 h-32 md:w-40 md:h-40 object-contain opacity-60" />
@@ -3619,7 +3381,7 @@ html.dark-mode {
                       }
                     </style>
                     <!-- Visionary -->
-                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="devpost" data-project="virtual-co-parenting">
+                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="devpost" data-project="virtual-co-parenting" data-cursor-label="Play">
                       <div class="flex flex-col gap-2">
                         <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden transition-all duration-300 ease-in-out group-hover:border-primary box-border rounded-[25px]" style="border-radius:25px">
                           <img alt="Virtual Co-Parenting" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="Images/Fun poster/Lilly poster.png" />
@@ -3633,7 +3395,7 @@ html.dark-mode {
                     </a>
 
                     <!-- ASL Translator -->
-                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="github" data-project="coffee-maker-ar">
+                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="github" data-project="coffee-maker-ar" data-cursor-label="Play">
                       <div class="flex flex-col gap-2">
                         <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden transition-all duration-300 ease-in-out group-hover:border-primary box-border rounded-[25px]" style="border-radius:25px">
                           <img alt="Coffee Maker - On Boarding in AR" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="Images/Fun poster/Coffee.png" />
@@ -3647,7 +3409,7 @@ html.dark-mode {
                     </a>
 
                     <!-- Empa -->
-                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="devpost" data-project="dynamic-spatial-ui">
+                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="devpost" data-project="dynamic-spatial-ui" data-cursor-label="Play">
                       <div class="flex flex-col gap-2">
                         <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden transition-all duration-300 ease-in-out group-hover:border-primary box-border rounded-[25px]" style="border-radius:25px">
                           <img alt="Dynamic Spatial UI" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="Images/Fun poster/Dynamic.png" />
@@ -3661,7 +3423,7 @@ html.dark-mode {
                     </a>
 
                     <!-- MayaAI -->
-                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="blog" data-project="nike-shopping-xr">
+                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="blog" data-project="nike-shopping-xr" data-cursor-label="Play">
                       <div class="flex flex-col gap-2">
                         <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden transition-all duration-300 ease-in-out group-hover:border-primary box-border rounded-[25px]" style="border-radius:25px">
                           <img alt="Nike - Future of Shopping with XR" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="Images/Fun poster/nikeposter.png" />
@@ -3683,7 +3445,7 @@ html.dark-mode {
                   <!-- Project Grid - 2 Columns -->
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 fun-projects-grid" style="display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 1.5rem; width: 100%; min-width: 100%;">
                     <!-- Bubbl -->
-                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="video" data-project="automotive-contextual-ai">
+                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="video" data-project="automotive-contextual-ai" data-cursor-label="Play">
                       <div class="flex flex-col gap-2">
                         <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden transition-all duration-300 ease-in-out group-hover:border-primary box-border rounded-[25px]" style="border-radius:25px">
                           <img alt="Automotive - Contextual AI in Dashboard AR" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="Images/Fun poster/accident.png" />
@@ -3699,7 +3461,7 @@ html.dark-mode {
                  
 
                     <!-- Infu -->
-                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="devpost" data-project="automotive-ar-navigation">
+                    <a href="#" class="group block transition-all duration-300 ease-in-out !opacity-100 project-link" data-cursor="devpost" data-project="automotive-ar-navigation" data-cursor-label="Play">
                       <div class="flex flex-col gap-2">
                         <div class="relative w-full aspect-[16/9] border-1 border-foreground/10 overflow-hidden transition-all duration-300 ease-in-out group-hover:border-primary box-border rounded-[25px]" style="border-radius:25px">
                           <img alt="Automotive - AR Navigation" loading="lazy" decoding="async" data-nimg="fill" class="object-cover w-full h-full rounded-[25px]" style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;border-radius:25px" sizes="100vw" src="Images/Fun poster/Fuel.png" />
@@ -4667,80 +4429,6 @@ html.dark-mode {
       });
     });
 
-    // Glassmorphism Cursor
-    document.addEventListener('DOMContentLoaded', function() {
-      const cursor = document.getElementById('glassCursor');
-      
-      if (!cursor) return;
-      
-      // Only replace the native cursor on devices that can hover with a fine
-      // pointer. Touch devices keep their default behaviour.
-      if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-      
-      // Hide default cursor
-      document.body.style.cursor = 'none';
-      
-      // Check for reduced motion preference
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      
-      // Mouse movement
-      document.addEventListener('mousemove', function(e) {
-        const x = e.clientX;
-        const y = e.clientY;
-        
-        cursor.classList.add('is-active');
-        
-        if (prefersReducedMotion) {
-          cursor.style.left = x + 'px';
-          cursor.style.top = y + 'px';
-        } else {
-          requestAnimationFrame(() => {
-            cursor.style.left = x + 'px';
-            cursor.style.top = y + 'px';
-          });
-        }
-      });
-      
-      // Show/hide cursor
-      document.addEventListener('mouseenter', () => {
-        cursor.classList.remove('hidden');
-      });
-      
-      document.addEventListener('mouseleave', () => {
-        cursor.classList.add('hidden');
-      });
-      
-      // Click effect
-      document.addEventListener('mousedown', () => {
-        cursor.classList.add('click');
-        setTimeout(() => {
-          cursor.classList.remove('click');
-        }, 600);
-      });
-      
-      // All interactive elements - activate enhanced glassmorphism effect
-      const interactiveElements = document.querySelectorAll(`
-        a, button, [role="button"], input, textarea, select, 
-        .project-link, .nav-item, .refresh-btn, .category-badge,
-        .design-tip-card, .company-logo, .modal-nav-arrow
-      `);
-      
-      interactiveElements.forEach(element => {
-        element.addEventListener('mouseenter', () => {
-          cursor.classList.add('hover');
-        });
-        
-        element.addEventListener('mouseleave', () => {
-          cursor.classList.remove('hover');
-        });
-      });
-      
-      // Initial position
-      cursor.style.left = '50%';
-      cursor.style.top = '50%';
-      
-      console.log('✨ Glassmorphism cursor activated');
-    });
 
     // Password Protection Functionality
     const PASSWORD_HASH = 'aec2dfcf6fb13d1f0b00d91e09e95edfa71a5b5fb1c32a4e4c5c7a6fc1b2c3e4'; // Replace with actual hash
@@ -5597,5 +5285,6 @@ html.dark-mode {
   </script>
 
   <script src="sw-register.js" defer></script>
+  <script src="cursor.js" defer></script>
 </body>
 </html>

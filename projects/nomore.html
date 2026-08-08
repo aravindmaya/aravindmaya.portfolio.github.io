@@ -16,6 +16,7 @@
 <link rel="preload" href="../_next/static/media/ae9433eb6d16fb7b-s.p.woff2" as="font" crossorigin=""
     type="font/woff2" />
   <link rel="stylesheet" href="../fonts.css" />
+  <link rel="stylesheet" href="../cursor.css" />
 <link rel="stylesheet" href="../_next/static/css/052620bd47d3101a.css" data-precedence="next" />
   <style>
     /* Glassmorphism Custom Cursor - Same as index.html */
@@ -38,15 +39,6 @@
     #footer-name {
       opacity: 1 !important;
       visibility: visible !important;
-    }
-    
-    /* Custom cursor: only hide the native one where a replacement can
-       actually be drawn. Touch and coarse pointers keep their default,
-       and if the cursor script fails nobody is left without a pointer. */
-    @media (hover: hover) and (pointer: fine) {
-      * {
-        cursor: none;
-      }
     }
     
     /* W-fill container */
@@ -244,139 +236,8 @@
     .dark-mode p[style*="color: #32404F"] {
       color: rgba(229, 229, 229, 0.8) !important;
     }
-    
-    /* Custom cursor: only hide the native one where a replacement can
-       actually be drawn. Touch and coarse pointers keep their default,
-       and if the cursor script fails nobody is left without a pointer. */
-    @media (hover: hover) and (pointer: fine) {
-      * {
-        cursor: none;
-      }
-    }
 
-    .glass-cursor {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 16px;
-      height: 16px;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: opacity 0.3s ease;
-    }
-
-    .cursor-dot {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 1.5px;
-      height: 1.5px;
-      background: radial-gradient(
-        circle at center,
-        rgba(255, 255, 255, 0.7) 0%,
-        rgba(255, 255, 255, 0.5) 70%,
-        rgba(255, 255, 255, 0.2) 100%
-      );
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      box-shadow: 
-        0 0 4px rgba(255, 255, 255, 0.2),
-        0 0 2px rgba(255, 255, 255, 0.3),
-        inset 0 0 2px rgba(255, 255, 255, 0.1);
-      filter: blur(0.2px);
-    }
-
-    .cursor-glass-effect {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 28px;
-      height: 28px;
-      background: radial-gradient(
-        circle at center,
-        rgba(255, 255, 255, 0.03) 0%,
-        rgba(255, 255, 255, 0.015) 50%,
-        rgba(255, 255, 255, 0.008) 80%,
-        rgba(255, 255, 255, 0.003) 95%,
-        rgba(255, 255, 255, 0.001) 100%
-      );
-      backdrop-filter: blur(6px) contrast(1.005) brightness(1.002);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      border-radius: 50%;
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
-      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      box-shadow: 
-        0 0 0 0.5px rgba(255, 255, 255, 0.05),
-        0 0 12px rgba(255, 255, 255, 0.08),
-        0 0 24px rgba(255, 255, 255, 0.05),
-        inset 0 0 12px rgba(255, 255, 255, 0.02);
-      filter: blur(0.1px);
-    }
-
-    .glass-cursor.hover .cursor-glass-effect {
-      width: 38px;
-      height: 38px;
-      background: radial-gradient(
-        circle at center,
-        rgba(255, 255, 255, 0.05) 0%,
-        rgba(255, 255, 255, 0.025) 40%,
-        rgba(255, 255, 255, 0.015) 70%,
-        rgba(255, 255, 255, 0.008) 90%,
-        rgba(255, 255, 255, 0.003) 100%
-      );
-      backdrop-filter: blur(7px) contrast(1.02) brightness(1.01) saturate(1.01);
-      border: 1.5px solid rgba(255, 255, 255, 0.9);
-      transform: translate(-50%, -50%) scale(1);
-      box-shadow: 
-        0 0 0 1px rgba(255, 255, 255, 0.08),
-        0 0 18px rgba(255, 255, 255, 0.12),
-        0 0 36px rgba(255, 255, 255, 0.08),
-        inset 0 0 18px rgba(255, 255, 255, 0.04);
-      filter: blur(0.15px);
-    }
-
-    .glass-cursor.hover .cursor-dot {
-      width: 2px;
-      height: 2px;
-      background: radial-gradient(
-        circle at center,
-        rgba(255, 255, 255, 0.85) 0%,
-        rgba(255, 255, 255, 0.65) 60%,
-        rgba(255, 255, 255, 0.3) 100%
-      );
-      box-shadow: 
-        0 0 6px rgba(255, 255, 255, 0.4),
-        0 0 3px rgba(255, 255, 255, 0.5),
-        inset 0 0 3px rgba(255, 255, 255, 0.2);
-      filter: blur(0.2px);
-    }
-
-    .glass-cursor.click .cursor-glass-effect {
-      width: 48px;
-      height: 48px;
-      background: radial-gradient(
-        circle at center,
-        rgba(255, 255, 255, 0.06) 0%,
-        rgba(255, 255, 255, 0.03) 30%,
-        rgba(255, 255, 255, 0.015) 70%,
-        rgba(255, 255, 255, 0.008) 90%,
-        rgba(255, 255, 255, 0.003) 100%
-      );
-      backdrop-filter: blur(8px) contrast(1.03) brightness(1.015);
-      border: 2px solid rgba(255, 255, 255, 0.95);
-      animation: waterRipple 0.4s ease-out;
-      transform: translate(-50%, -50%) scale(1);
-      box-shadow: 
-        0 0 0 1.5px rgba(255, 255, 255, 0.15),
-        0 0 24px rgba(255, 255, 255, 0.2),
-        0 0 48px rgba(255, 255, 255, 0.15);
-      filter: blur(0.15px);
-    }
-
-    @keyframes waterRipple {
+    .glass-cursor.hover .glass-cursor.hover .glass-cursor.click @keyframes waterRipple {
       0% {
         width: 48px;
         height: 48px;
@@ -440,98 +301,7 @@
       }
     }
 
-    .glass-cursor.hidden {
-      opacity: 0;
-    }
-
-    body:not(.dark-mode) .cursor-dot {
-      width: 1.5px;
-      height: 1.5px;
-      background: radial-gradient(
-        circle at center,
-        rgba(0, 0, 0, 0.5) 0%,
-        rgba(0, 0, 0, 0.35) 70%,
-        rgba(0, 0, 0, 0.15) 100%
-      );
-      box-shadow: 
-        0 0 4px rgba(0, 0, 0, 0.15),
-        0 0 2px rgba(0, 0, 0, 0.2),
-        inset 0 0 2px rgba(0, 0, 0, 0.08);
-    }
-
-    body:not(.dark-mode) .cursor-glass-effect {
-      width: 28px;
-      height: 28px;
-      background: radial-gradient(
-        circle at center,
-        rgba(0, 0, 0, 0.025) 0%,
-        rgba(0, 0, 0, 0.012) 50%,
-        rgba(0, 0, 0, 0.006) 80%,
-        rgba(0, 0, 0, 0.003) 95%,
-        rgba(0, 0, 0, 0.001) 100%
-      );
-      border: 0.5px solid rgba(128, 128, 128, 0.25);
-      box-shadow: 
-        0 0 0 0.5px rgba(0, 0, 0, 0.02),
-        0 0 12px rgba(0, 0, 0, 0.04),
-        0 0 24px rgba(0, 0, 0, 0.02),
-        inset 0 0 12px rgba(0, 0, 0, 0.008);
-    }
-
-    body:not(.dark-mode) .glass-cursor.hover .cursor-glass-effect {
-      width: 38px;
-      height: 38px;
-      background: radial-gradient(
-        circle at center,
-        rgba(0, 0, 0, 0.04) 0%,
-        rgba(0, 0, 0, 0.02) 40%,
-        rgba(0, 0, 0, 0.012) 70%,
-        rgba(0, 0, 0, 0.006) 90%,
-        rgba(0, 0, 0, 0.002) 100%
-      );
-      border: 0.75px solid rgba(128, 128, 128, 0.35);
-      box-shadow: 
-        0 0 0 1px rgba(0, 0, 0, 0.03),
-        0 0 18px rgba(0, 0, 0, 0.04),
-        0 0 36px rgba(0, 0, 0, 0.03),
-        inset 0 0 18px rgba(0, 0, 0, 0.01);
-    }
-
-    body:not(.dark-mode) .glass-cursor.hover .cursor-dot {
-      width: 2px;
-      height: 2px;
-      background: radial-gradient(
-        circle at center,
-        rgba(0, 0, 0, 0.6) 0%,
-        rgba(0, 0, 0, 0.4) 60%,
-        rgba(0, 0, 0, 0.2) 100%
-      );
-      box-shadow: 
-        0 0 6px rgba(0, 0, 0, 0.2),
-        0 0 3px rgba(0, 0, 0, 0.25),
-        inset 0 0 3px rgba(0, 0, 0, 0.1);
-    }
-
-    body:not(.dark-mode) .glass-cursor.click .cursor-glass-effect {
-      width: 48px;
-      height: 48px;
-      background: radial-gradient(
-        circle at center,
-        rgba(0, 0, 0, 0.05) 0%,
-        rgba(0, 0, 0, 0.025) 30%,
-        rgba(0, 0, 0, 0.012) 70%,
-        rgba(0, 0, 0, 0.006) 90%,
-        rgba(0, 0, 0, 0.002) 100%
-      );
-      border: 1px solid rgba(128, 128, 128, 0.4);
-      box-shadow: 
-        0 0 0 1.5px rgba(0, 0, 0, 0.05),
-        0 0 24px rgba(0, 0, 0, 0.06),
-        0 0 48px rgba(0, 0, 0, 0.05);
-      animation: waterRippleLight 0.4s ease-out;
-    }
-
-    @keyframes waterRippleLight {
+    body:not(.dark-mode) body:not(.dark-mode) body:not(.dark-mode) .glass-cursor.hover body:not(.dark-mode) .glass-cursor.hover body:not(.dark-mode) .glass-cursor.click @keyframes waterRippleLight {
       0% {
         width: 48px;
         height: 48px;
@@ -598,11 +368,7 @@
     @media (prefers-reduced-motion: reduce) {
       .glass-cursor,
       .cursor-dot,
-      .cursor-glass-effect {
-        transition: none;
-        animation: none;
       }
-    }
     
     /* Scale-102 utility class for images */
     .scale-102 {
@@ -1237,10 +1003,7 @@
 
 <body
   class="__variable_5cfdac __variable_9a8899 __variable_25c604 __variable_293043 __variable_ee3f19 antialiased font-[family-name:var(--font-geist-sans)]">
-  <!-- Glassmorphism Cursor -->
-  <div id="glassCursor" class="glass-cursor">
-    <div class="cursor-dot"></div>
-    <div class="cursor-glass-effect"></div>
+<div class="cursor-glass-effect"></div>
   </div>
 
   <div class="flex items-center justify-center p-6 border-b border-foreground/10 relative">
@@ -1693,185 +1456,7 @@
     </div>
   </div>
 
-  <!-- Glassmorphism Cursor Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const cursor = document.getElementById('glassCursor');
-      
-      if (!cursor) return;
-      
-      // Hide default cursor
-      document.body.style.cursor = 'none';
-      
-      // Check for reduced motion preference
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      
-      // Mouse movement
-      document.addEventListener('mousemove', function(e) {
-        const x = e.clientX;
-        const y = e.clientY;
-        
-        if (prefersReducedMotion) {
-          cursor.style.left = x + 'px';
-          cursor.style.top = y + 'px';
-        } else {
-          requestAnimationFrame(() => {
-            cursor.style.left = x + 'px';
-            cursor.style.top = y + 'px';
-          });
-        }
-      });
-      
-      // Show/hide cursor
-      document.addEventListener('mouseenter', () => {
-        cursor.classList.remove('hidden');
-      });
-      
-      document.addEventListener('mouseleave', () => {
-        cursor.classList.add('hidden');
-      });
-      
-      // Click effect
-      document.addEventListener('mousedown', () => {
-        cursor.classList.add('click');
-        setTimeout(() => {
-          cursor.classList.remove('click');
-        }, 600);
-      });
-      
-      // All interactive elements - activate enhanced glassmorphism effect
-      const interactiveElements = document.querySelectorAll(`
-        a, button, [role="button"], input, textarea, select, 
-        .project-link, .nav-item, .refresh-btn, .category-badge,
-        .design-tip-card, .company-logo, .modal-nav-arrow,
-        [data-cursor="pointer"], [data-cursor], .cursor-pointer
-      `);
-      
-      interactiveElements.forEach(element => {
-        element.addEventListener('mouseenter', () => {
-          cursor.classList.add('hover');
-        });
-        
-        element.addEventListener('mouseleave', () => {
-          cursor.classList.remove('hover');
-        });
-      });
-      
-      // Initial position
-      cursor.style.left = '50%';
-      cursor.style.top = '50%';
-      
-      console.log('✨ Glassmorphism cursor activated');
-    });
-    
-    // Smooth scroll to section function
-    function scrollToSection(sectionId) {
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-    
-    function toggleResearch() {
-      const section = document.getElementById('research');
-      if (section) {
-        const expandableDiv = section.querySelector('.expandable-section');
-        if (expandableDiv) {
-          expandableDiv.classList.toggle('expanded');
-        }
-      }
-    }
-    
-    function toggleIdeation() {
-      const section = document.getElementById('ideation');
-      if (section) {
-        const expandableDiv = section.querySelector('.expandable-section');
-        if (expandableDiv) {
-          expandableDiv.classList.toggle('expanded');
-        }
-      }
-    }
-    
-    function toggleDesign() {
-      const section = document.getElementById('design');
-      if (section) {
-        const expandableDiv = section.querySelector('.expandable-section');
-        if (expandableDiv) {
-          expandableDiv.classList.toggle('expanded');
-        }
-      }
-    }
-    
-    function toggleTesting() {
-      const section = document.getElementById('testing');
-      if (section) {
-        const expandableDiv = section.querySelector('.expandable-section');
-        if (expandableDiv) {
-          expandableDiv.classList.toggle('expanded');
-        }
-      }
-    }
-    
-    function toggleUserTesting() {
-      const section = document.getElementById('user-testing');
-      if (section) {
-        const expandableDiv = section.querySelector('.expandable-section');
-        if (expandableDiv) {
-          expandableDiv.classList.toggle('expanded');
-        }
-      }
-    }
-    
-    function toggleDesignArtifacts() {
-      const section = document.getElementById('design-artifacts');
-      if (section) {
-        const expandableDiv = section.querySelector('.expandable-section');
-        if (expandableDiv) {
-          expandableDiv.classList.toggle('expanded');
-        }
-      }
-    }
-    
-    // Image Modal Functions
-    function openImageModal(imageSrc, imageAlt) {
-      const overlay = document.getElementById('imageModalOverlay');
-      const modalImg = document.getElementById('imageModalImg');
-      if (overlay && modalImg) {
-        modalImg.src = imageSrc;
-        modalImg.alt = imageAlt;
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-    }
-    
-    function closeImageModal() {
-      const overlay = document.getElementById('imageModalOverlay');
-      if (overlay) {
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    }
-    
-    // Close modal on overlay click
-    document.addEventListener('DOMContentLoaded', function() {
-      const overlay = document.getElementById('imageModalOverlay');
-      if (overlay) {
-        overlay.addEventListener('click', function(e) {
-          if (e.target === overlay) {
-            closeImageModal();
-          }
-        });
-      }
-      
-      // Close modal on Escape key
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          closeImageModal();
-        }
-      });
-    });
-  </script>
-  <!-- Prevent Next.js from hydrating and overwriting content -->
+<!-- Prevent Next.js from hydrating and overwriting content -->
   <script>
     // Disable Next.js hydration
     if (typeof window !== 'undefined') {
@@ -1910,6 +1495,7 @@
   </script>
   <!-- Next.js scripts removed to prevent content overwriting -->
   <script src="../sw-register.js" defer></script>
+  <script src="../cursor.js" defer></script>
 </body>
 
 </html>
